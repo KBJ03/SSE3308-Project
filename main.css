@@ -84,6 +84,8 @@ body {
 /*CSS for login page*/
 .other-action{
     font-size: 25px;
+    display: flex;
+    justify-content: center;
 }
  
 .other-action a{
