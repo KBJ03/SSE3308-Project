@@ -80,3 +80,31 @@ body {
 .navbar-collapse {
     justify-content: flex-start;
 }
+
+/*CSS for login page*/
+.other-action{
+    font-size: 25px;
+}
+ 
+.other-action a{
+    text-decoration: underline;
+}
+
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.search-container input {
+    padding-left: 2.5rem; /* Space for the search icon */
+    padding-right: 2.5rem; /* Space for the delete icon */
+}
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+}
+.delete-icon {
+    position: absolute;
+    right: 0.75rem;
+    cursor: pointer;
+}
