@@ -81,17 +81,7 @@ body {
     justify-content: flex-start;
 }
 
-/*CSS for login page*/
-.other-action{
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-}
- 
-.other-action a{
-    text-decoration: underline;
-}
-
+/*search bar*/
 .search-container {
     position: relative;
     display: flex;
@@ -109,4 +99,26 @@ body {
     position: absolute;
     right: 0.75rem;
     cursor: pointer;
+}
+
+/*CSS for product list page*/
+.category{
+    border-radius: 10px;
+    margin-bottom: 75px;
+}
+
+.category img{
+    width: 400px;
+    height: auto;
+}
+
+/*CSS for login page*/
+.other-action{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+ 
+.other-action a{
+    text-decoration: underline;
 }
