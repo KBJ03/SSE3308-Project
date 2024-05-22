@@ -1,3 +1,5 @@
+
+
 const keyboard = document.getElementById('keyboard');
 const mouse = document.getElementById('mouse');
 const speaker = document.getElementById('speaker');
@@ -26,7 +28,7 @@ for(let i = 0 ; i<3 ; i++){
         
     const heading = document.createElement('h1');
     heading.innerHTML = categoryName[i];
-    heading.classList.add('text-primary', 'text-center', 'my-2');
+    heading.classList.add('text-primary', 'text-center', 'my-2', 'text-black');
     category[i].appendChild(heading);
 
     for(let j = 0 ; j<6; j++){
@@ -35,8 +37,10 @@ for(let i = 0 ; i<3 ; i++){
         div_col.classList.add('col-6');
         
         const div_container = document.createElement('div');
-        div_container.classList.add('container', 'p-3');
+        div_container.classList.add('container', 'p-3', 'bg-white', 'm-3', 'con', 'animation');
         div_container.style.display = "flex";
+        div_container.style.boxShadow = "10px 10px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.1)";
+        
         
         const productImg = document.createElement('img');
         productImg.src = `Images/${categoryNameImg[i]}/${categoryNameImg[i]}${j+1}.png`;
@@ -53,10 +57,38 @@ for(let i = 0 ; i<3 ; i++){
         
         const productId = document.createElement('p');
         productId.innerHTML = id[i][j];
+
+        const link = document.createElement('a');
+        link.href = "login.html"; 
+        const detail_button = document.createElement('button');
+
+        detail_button.classList.add('btn', 'btn-primary', 'mt-3', 'button-hover');
+
+        if(i == 0 && j == 5){
+            detail_button.classList.remove('mt-3');
+        }
+
+        detail_button.style.marginLeft = "125px";
+        detail_button.innerHTML = 'More Details...';
+
+        detail_button.addEventListener('mouseenter', function() {
+            detail_button.classList.remove('btn-primary');
+            detail_button.classList.add('btn-success');
+            detail_button.style.transition = "0.5s";
+        });
+
+        detail_button.addEventListener('mouseleave', function() {
+            detail_button.classList.remove('btn-success');
+            detail_button.classList.add('btn-primary');
+            detail_button.style.transition = "0.5s";
+        });
         
         div_description.appendChild(productName);
         div_description.appendChild(productPrice);
         div_description.appendChild(productId);
+
+        link.appendChild(detail_button);
+        div_description.appendChild(link);
         
         div_container.appendChild(productImg);
         div_container.appendChild(div_description);
@@ -66,3 +98,38 @@ for(let i = 0 ; i<3 ; i++){
     }
 }
 
+/*Javascript for mouse trailer */
+const dots = [];
+      const cursor = {
+        x: 0,
+        y: 0,
+      };
+
+      for (let i = 0; i < 20; i++) {
+        const dot = document.createElement("div");
+        dot.className = "dot";
+        document.body.appendChild(dot);
+        dots.push(dot);
+      }
+
+      document.addEventListener("mousemove", (e) => {
+        cursor.x = e.clientX;
+        cursor.y = e.clientY;
+      });
+
+      function draw() {
+        let x = cursor.x;
+        let y = cursor.y;
+
+        dots.forEach((dot, index) => {
+          const nextDot = dots[index + 1] || dots[0];
+
+          dot.style.left = x + "px";
+          dot.style.top = y + "px";
+
+          x += (nextDot.offsetLeft - dot.offsetLeft) * 0.5;
+          y += (nextDot.offsetTop - dot.offsetTop) * 0.5;
+        });
+      }
+
+      setInterval(draw, 10);

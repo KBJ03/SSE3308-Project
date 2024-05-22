@@ -1,0 +1,81 @@
+/*CSS for product list page*/
+.category{
+    border-radius: 10px;
+    margin-bottom: 75px;
+    background-color: rgb(223, 218, 218);
+    width: 1490px;
+}
+
+.category img{
+    width: 400px;
+    height: auto;
+}
+
+.animation img{
+    transition: transform 0.5s ease-in-out;
+}
+
+.animation img:hover{
+    transform: scale(0.9);
+}
+
+.con{
+    width: 700px;
+    height: 250px;
+}
+
+
+.nav-down a{
+    color: black;
+    text-decoration: none;
+}
+
+.divider {
+    height: 2px;    /* Set the height of the divider */
+    background-color: #818181;  /* Set the color of the divider */
+    margin: 0px 10px;  /* Space around the divider */
+}
+
+.dropdown-menu a{
+    font-size: 15px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+    transition: opacity 0.5s ease;
+}
+.dropdown-menu {
+    margin-top: 0; /* Prevent dropdown from shifting down */
+    transition: opacity 0.5s ease;
+}
+
+/*CSS for login page*/
+.other-action{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+ 
+.other-action a{
+    text-decoration: underline;
+}
+
+.con{
+    width: 700px;
+    height: 250px;
+}
+
+
+/* #keyboard, #mouse, #speaker img{
+    width: 300px;
+    height: 150px;
+} */
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgb(158, 158, 158);
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+  }

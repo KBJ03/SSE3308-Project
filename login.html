@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <link rel="stylesheet" type="text/css" href="main.css">     
+    <link rel="stylesheet" type="text/css" href="product-list.css">  
 
     <title>Login</title>
 </head>
@@ -19,7 +20,7 @@
         <h1 class="text-white row justify-content-center" style="font-weight: bold;">TechTonic</h3>
     </div>
 
-    <div class="container bg-light p-3 mt-3" style="width:800px; border-radius: 20px;">
+    <div class="container bg-light p-3 mt-3" style="width:650px; border-radius: 20px;">
         <h2 class="row justify-content-center">Login</h1>
         <form action="">
             <label for="userName">Username: </label>
@@ -32,7 +33,9 @@
                 <i class="fa fa-info-circle"></i>
             </a>
             <input type="text" class="form-control form-control-lg " id="password">
-            <button type="submit" class="btn btn-danger mt-4" style="border-radius: 20px;">SUBMIT</button>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-danger mt-4" style="border-radius: 20px;" onclick="validate()" id="submit_button">SUBMIT</button>
+            </div>
         </form>
     </div>
 
@@ -52,5 +55,7 @@
           return new bootstrap.Popover(popoverTriggerEl)
         })
     </script>
+    <script src="product-list.js"></script>
+
 </body>
 </html>
