@@ -48,8 +48,8 @@ body {
     align-items: center;
 }
 .search-container input {
-    padding-left: 2.5rem; /* Space for the search icon */
-    padding-right: 2.5rem; /* Space for the delete icon */
+    padding-left: 2.5rem; 
+    padding-right: 2.5rem;
 }
 .search-icon {
     position: absolute;
