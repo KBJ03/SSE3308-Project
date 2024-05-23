@@ -1,0 +1,237 @@
+body {
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%) fixed;
+}
+
+.top-navbar{
+    width: 100%;
+    height: 7vh;
+    background-color: #a9a9a926;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.top-icons{
+    margin-left: 20px;
+}
+
+.top-icons a {
+    font-size: 20px;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+
+.other-links{
+    margin-right: 20px;
+}
+
+.navbar {
+    background:#1d1d1d;
+}
+
+.navbar-collapse {
+    justify-content: flex-start;
+}
+
+/*search bar*/
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.search-container input {
+    padding-left: 2.5rem; 
+    padding-right: 2.5rem; 
+}
+.search-icon {
+    position: absolute;
+    left: 0.75rem;
+}
+.delete-icon {
+    position: absolute;
+    right: 0.75rem;
+    cursor: pointer;
+}
+
+\\
+.custom-bg {
+    background-color: #545454;
+}
+
+.nav-link {
+    flex: 1;
+    text-align: center;
+    font-size: 1.50rem; 
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background-color: gray; 
+    color: #333333; 
+    border-radius: 5px; 
+}
+
+
+.welcome-header {
+    background: url('Imageshome/WelcomeHeader.png') no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.navbar-expand-md{
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+}
+
+.navbar-expand-lg.custom-bg {
+    position: sticky;
+    top: 65px;
+    z-index: 1020;
+    transition: top 0.3s; 
+}
+
+.carousel-inner {
+    height: auto; 
+}
+
+.carousel-item img {
+    max-height: 650px; 
+    object-fit: contain; 
+    width: 100%;
+}
+
+.carousel-caption {
+    background-color: transparent; 
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.about-us-section {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+.about-us-image {
+    position: relative;
+    width: 100%;
+}
+
+.about-us-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-us-content {
+    position: absolute;
+    top: 50%;
+    left: 24%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: transparent;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.about-us-content strong {
+    font-size: 3rem; 
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: transparent;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.nav-button.left {
+    left: 50px;
+}
+
+.nav-button.right {
+    right: 825px;
+}
+
+.hidden {
+    display: none;
+}
+
+.content-section {
+    margin-bottom: 75px;
+    margin-top: 30px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.content-section h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.content-section p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: white;
+}
+
+.team-section {
+    text-align: center;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 150px auto; 
+}
+
+.team-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap; 
+    gap: 50px; 
+}
+
+.team-card {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+    width: calc((100% / 5) - 10px); 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.team-card:hover {
+    transform: scale(1.05); 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.team-card img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover; 
+    border-radius: 50%; ;
+}
+
+.team-card p {
+    color: white;
+}
