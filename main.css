@@ -48,8 +48,8 @@ body {
     align-items: center;
 }
 .search-container input {
-    padding-left: 2.5rem; /* Space for the search icon */
-    padding-right: 2.5rem; /* Space for the delete icon */
+    padding-left: 2.5rem; 
+    padding-right: 2.5rem;
 }
 .search-icon {
     position: absolute;
@@ -61,3 +61,10 @@ body {
     cursor: pointer;
 }
 
+
+
+.divider {
+    height: 2px;    /* Set the height of the divider */
+    background-color: #818181;  /* Set the color of the divider */
+    margin: 0px 10px;  /* Space around the divider */
+}
