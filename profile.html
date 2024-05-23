@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="en">
@@ -19,9 +20,9 @@
                 }
 
                 .nav-tabs-custom .nav-link.active {
-                    background-color: #f8f9fa; /* Gray background color */
-                    border-color: #dee2e6; /* Border color */
-                    color: black; /* Active tab text color */
+                    background-color: #f8f9fa;
+                    border-color: #dee2e6;
+                    color: black;
                 }
 
             @media print{
@@ -34,7 +35,7 @@
     
     <body>
         <div class="no-print" >
-            <nav class="navbar navbar-expand-md sticky-top"> 
+            <nav class="navbar navbar-expand-md"> 
                 <div class="container-fluid">
         
                     <div class="navbar-nav">
@@ -44,7 +45,7 @@
                     </div>
                     
                     <div class="d-flex me-3 ms-3">
-                        <a class="navbar-brand" href="#">
+                        <a class="navbar-brand" href="home.html">
                             <img src="Images/CompanyIcon.png" width="50" height="50" alt="Logo">
                         </a>
                         <h1 class="text-white">TechTonic</h1>
@@ -59,10 +60,10 @@
                     </div>
         
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link ms-4" href="#">
+                        <a class="nav-item nav-link ms-4" href="profile.html">
                             <i class="fas fa-user fa-2x text-white"></i>
                         </a>
-                        <a class="nav-item nav-link ms-4" href="#">
+                        <a class="nav-item nav-link ms-4" href="cart.html">
                             <span class="fas fa-shopping-cart fa-2x text-white"></span>
                         </a>
                         <a class="nav-item nav-link ms-4" href="#">
@@ -85,9 +86,6 @@
                             </div>
                             
                             <div class="position-absolute top-0 end-0 mt-2 me-2 no-print">
-                                <button class="btn btn-light">
-                                    <span class="fas fa-pencil-alt"></span>
-                                </button>
                                 <button onclick="window.print();" class="btn btn-light">
                                     <span class="fas fa-print"></span>
                                 </button>
@@ -112,7 +110,12 @@
                                 <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
                                     <div class="row mt-4">
                                         <div class="col-md-12">
-                                            <h5 class="text-center pb-3">Account Information</h5>
+                                            <div class="d-flex justify-content-between align-items-center pb-3">
+                                                <h5 class="m-0">Account Information</h5>
+                                                <button type="button" class="btn btn-light no-print" data-bs-toggle="modal" data-bs-target="#editAccountModal">
+                                                    <span class="fas fa-pencil-alt"></span>
+                                                </button>
+                                            </div>
                                             <table class="table table-striped">
                                                 <tbody>
                                                     <tr>
@@ -148,7 +151,12 @@
                                 <div class="tab-pane fade" id="shipping" role="tabpanel" aria-labelledby="shipping-tab">
                                     <div class="row mt-4">
                                         <div class="col-md-12">
-                                            <h5 class="text-center pb-3">Shipping Information</h5>
+                                            <div class="d-flex justify-content-between align-items-center pb-3">
+                                                <h5 class="m-0">Shipping Information</h5>
+                                                <button type="button" class="btn btn-light no-print" data-bs-toggle="modal" data-bs-target="#editShippingModal">
+                                                    <span class="fas fa-pencil-alt"></span>
+                                                </button>
+                                            </div>
                                             <table class="table table-striped">
                                                 <tbody>
                                                     <tr>
@@ -184,7 +192,12 @@
                                 <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
                                     <div class="row mt-4">
                                         <div class="col-md-12">
-                                            <h5 class="text-center pb-3">Payment Information</h5>
+                                            <div class="d-flex justify-content-between align-items-center pb-3">
+                                                <h5 class="m-0">Payment Information</h5>
+                                                <button type="button" class="btn btn-light no-print" data-bs-toggle="modal" data-bs-target="#editPaymentModal">
+                                                    <span class="fas fa-pencil-alt"></span>
+                                                </button>
+                                            </div>
                                             <table class="table table-striped">
                                                 <tbody>
                                                     <tr>
@@ -200,12 +213,11 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                
+      
                                 <div class="tab-pane fade" id="history" role="tabpanel" aria-labelledby="history-tab">
                                     <div class="row mt-4">
                                         <div class="col-md-12">
-                                            <h5 class="text-center pb-3">History Information</h5>
+                                            <h5 class="text-left pb-3">History Information</h5>
                                             <div class="table-responsive">
                                                 <table class="table table-striped">
                                                     <thead>
@@ -244,13 +256,162 @@
                                     </div>
                                 </div>
                             </div>
+
+                        <!-- Edit Account Modal -->
+                        <div class="modal" id="editAccountModal">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editAccountModalLabel">Edit Account Information</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <form id="editAccountForm">
+                                            <div class="mb-3">
+                                                <label for="username" class="form-label">Username</label>
+                                                <input type="text" class="form-control" id="username" name="username" value="User123">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="memberId" class="form-label">Member ID</label>
+                                                <input type="text" class="form-control" id="memberId" name="memberId" value="ABC00001">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="gender" class="form-label">Gender</label>
+                                                <select class="form-control" id="gender" name="gender">
+                                                    <option value="male" selected>Male</option>
+                                                    <option value="female">Female</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="birthday" class="form-label">Birthday</label>
+                                                <input type="date" class="form-control" id="birthday" name="birthday" value="2001-01-01">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="phone" class="form-label">Phone</label>
+                                                <input type="tel" class="form-control" id="phone" name="phone" value="+6011-12345678">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="email" class="form-label">Email</label>
+                                                <input type="email" class="form-control" id="email" name="email" value="User123@gmail.com">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edit Shipping Modal -->
+                        <div class="modal" id="editShippingModal">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editShippingModalLabel">Edit Shipping Information</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <form id="editShippingForm">
+                                            <div class="mb-3">
+                                                <label for="shipping-name" class="form-label">Name</label>
+                                                <input type="text" class="form-control" id="shipping-name" name="shipping-name" value="Howard Khoo Zi Kang">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="shipping-phone" class="form-label">Phone</label>
+                                                <input type="tel" class="form-control" id="shipping-phone" name="shipping-phone" value="+6012-345678">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="shipping-address" class="form-label">Address</label>
+                                                <textarea class="form-control" id="shipping-address" name="shipping-address" rows="3">123 Oak Street, Springfield, IL 62701, United States</textarea>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="shipping-postal" class="form-label">Postal Code</label>
+                                                <input type="text" class="form-control" id="shipping-postal" name="shipping-postal" value="62701">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="shipping-remark" class="form-label">Remark</label>
+                                                <textarea class="form-control" id="shipping-remark" name="shipping-remark" rows="2">Put in mail box</textarea>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Edit Payment Modal -->
+                        <div class="modal" id="editPaymentModal">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="editPaymentModalLabel">Edit Payment Information</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <form id="editPaymentForm">
+                                            <div class="mb-3">
+                                                <label for="payment-method" class="form-label">Payment Method</label>
+                                                <select class="form-control" id="payment-method" name="payment-method">
+                                                    <option value="Visa" selected>Visa</option>
+                                                    <option value="MasterCard">MasterCard</option>
+                                                    <option value="PayPal">PayPal</option>
+                                                </select>
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="card-number" class="form-label">Card Number</label>
+                                                <input type="text" class="form-control" id="card-number" name="card-number" value="**** **** **** 1234">
+                                            </div>
+                                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-
+        <div class="offcanvas offcanvas-start" id="menu">
+            <div class="offcanvas-header">
+              <h1 class="offcanvas-title">Navigation Menu</h1>
+              <div class="divider"></div>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+            </div>
+            
+            <div class="divider"></div>
+    
+            <div class="offcanvas-body">
+              <div class="dropdown">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                  Home
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="home.html">Welcome</a></li>
+                  <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
+                  <li><a class="dropdown-item" href="home.html#about">About us</a></li>
+                  <li><a class="dropdown-item" href="home.html#history">History</a></li>
+                  <li><a class="dropdown-item" href="home.html#team">Our team</a></li>
+                </ul>
+              </div>
+    
+              <div class="dropdown" style="margin-top: 210px;">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                  Product
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#keyboard">Keyboard</a></li>
+                  <li><a class="dropdown-item" href="#mouse">Mouse</a></li>
+                  <li><a class="dropdown-item" href="#speaker">Speaker</a></li>
+                </ul>
+              </div>
+        </div>
 
 
         

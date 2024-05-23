@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="homemain.css">     
+
+    <title>Home</title>
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-md"> 
+        <div class="container-fluid">
+
+            <div class="navbar-nav">
+                <button class="btn text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu">
+                    <i class="fa fa-bars fa-2x"></i>
+                </button>
+            </div>
+            
+            <div class="d-flex me-3 ms-3">
+                <a class="navbar-brand" href="home.html">
+                    <img src="Imageshome/CompanyIcon.png" width="50" height="50" alt="Logo">
+                </a>
+                <h1 class="text-white">TechTonic</h1>
+            </div>
+
+            <div class="container">
+                <div class="search-container w-75">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="form-control" id="search-input" placeholder="Search...">
+                    <i class="fas fa-times delete-icon" id="delete-icon"></i>
+                </div>
+            </div>
+
+            <div class="navbar-nav">
+                <a class="nav-item nav-link ms-4" href="profile.html">
+                    <i class="fas fa-user fa-2x text-white"></i>
+                </a>
+                <a class="nav-item nav-link ms-4" href="cart.html">
+                    <span class="fas fa-shopping-cart fa-2x text-white"></span>
+                </a>
+                <a class="nav-item nav-link ms-4" href="#">
+                    <span class="fas fa-cog fa-2x text-white"></span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="welcome-header" id="welcome"></div>
+
+    <nav class="navbar navbar-expand-lg custom-bg">
+        <div class="container-fluid">
+            <div class="navbar-nav d-flex justify-content-between w-100">
+                <a class="nav-link text-white text-center active" href="#welcome">Home</a>
+                <a class="nav-link text-white text-center" href="#product">Product</a>
+                <a class="nav-link text-white text-center" href="#about">About Us</a>
+                <a class="nav-link text-white text-center" href="#content">Organization</a>
+                <a class="nav-link text-white text-center" href="#team">Our Team</a>
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid p-0" id="product">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="Imageshomehome/Keyboard.webp" alt="Keyboard" class="d-block w-100 carousel-image">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Keyboard</h3>
+                        <p>From ergonomic designs to mechanical models, our keyboards cater to every user’s needs, <br>whether for gaming, professional, or casual use.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="Imageshome/Mouse.avif" alt="Mouse" class="d-block w-100 carousel-image">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Mouse</h3>
+                        <p>A variety of mice including wireless, gaming, and ergonomic options to ensure precision and comfort.</p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="Imageshome/Speaker.jpg" alt="Speaker" class="d-block w-100 carousel-image">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Speaker</h3>
+                        <p>High-quality speakers that deliver exceptional sound for both personal and professional use.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="about-us-section" id="about">
+        <div class="about-us-image">
+            <img src="Imageshome/AboutUs.png" alt="About us">
+            <div class="about-us-content" id="aboutUsContent">
+                <p id="aboutUsText"><strong>About Us</strong><br>
+                    TechTonic Sdn Bhd: Pioneering Excellence in Computer Accessories<br><br>
+                    Welcome to TechTonic Sdn Bhd, your premier destination for<br>
+                    cutting-edge computer accessories. Established with a vision<br>
+                    to revolutionize the technology landscape, TechTonic has swiftly<br>
+                    grown to become a trusted name in the industry, renowned for our<br>
+                    commitment to quality, innovation, and customer satisfaction.<br>
+                </p>
+            </div>
+        </div>
+        <button class="nav-button left" onclick="prevText()">&#10094;</button>
+        <button class="nav-button right" onclick="nextText()">&#10095;</button>
+    </div>
+
+    <div id="content">
+        <div class="content-section">
+            <p><br></p>
+            <p><br></p>
+            <p><br></p>
+            <h1>Our History</h1>
+            <p>TechTonic Sdn Bhd was founded by Howard Khoo Zi Kang and Lim Yap Yuan with the objective of providing high-quality, affordable computer accessories to tech enthusiasts and businesses.</p>
+            <p>Our journey began with the opening of our first shop in Taman Greenwich, Kuala Lumpur, where we quickly gained a reputation for our exceptional products and customer service.</p>
+            <p>As technology and market demands evolved, so we embracing the digital revolution, TechTonic transitioned from a traditional brick-and-mortar store to a comprehensive online shop. This move allowed us to reach a broader audience and offer our products and services more conveniently and efficiently.</p>
+        </div>
+    
+        <div class="content-section">
+            <h1>Our Commitment</h1>
+            <p>Quality and customer satisfaction are at the heart of everything we do at TechTonic. We partner with leading brands and manufacturers to ensure that our products meet the highest standards of performance and reliability. Our dedicated team of experts is always on hand to provide personalized advice and support, ensuring that you find the perfect accessories to meet your needs.</p>
+        </div>
+        
+        <div class="content-section">
+            <h1>Why Choose TechTonic?</h1>
+            <p>Expertise: With years of experience in the industry, our knowledgeable team can guide you to make informed decisions.</p>
+            <p>Quality: We only stock products from trusted brands known for their durability and performance.</p>
+            <p>Customer Support: Our commitment to excellent customer service means we are always available to assist you, from pre-purchase inquiries to after-sales support.</p>
+            <p>Competitive Pricing: We strive to offer competitive prices without compromising on quality, ensuring you get the best value for your investment.</p>
+        </div>
+        
+        <div class="content-section">
+            <h1>Join Us on Our Journey</h1>
+            <p>As technology continues to evolve, TechTonic Sdn Bhd is dedicated to staying at the forefront of innovation. We invite you to join us on this exciting journey, whether you are a tech enthusiast, a professional, or a business looking to enhance your IT infrastructure. Together, we can achieve new heights of technological excellence.</p>
+            <p>For more information or to explore our product range, visit our website at www.techttonicsb.com or contact our customer service team. We look forward to serving you!</p>
+        </div>
+    </div>
+    
+    <div class="team-section" id="team">
+        <h2>OUR TEAM</h2>
+        <div class="team-container">
+            <div class="team-card">
+                <img src="Imageshome/cz.jpg" alt="Chuanzhe">
+                <p>Chief Executive Officer</p>
+                <p class="team-name">-Dato Lim Chuan Zhe</p>
+            </div>
+            <div class="team-card">
+                <img src="Imageshome/hy.jpg" alt="Huaiyuan">
+                <p>Chief Operated Officer</p>
+                <p class="team-name">-Dato Loo Huai Yuan</p>
+            </div>
+            <div class="team-card">
+                <img src="Imageshome/yk.jpg" alt="Yapkang">
+                <p>Chief Financial Officer</p>
+                <p class="team-name">-Dato Ham Yap Kang</p>
+            </div>
+            <div class="team-card">
+                <img src="Imageshome/bj.jpg" alt="Boojing">
+                <p>Chief Information Officer</p>
+                <p class="team-name">-Dato Khoo Boo Jing</p>
+            </div>
+            <div class="team-card">
+                <img src="Imageshome/zk.jpg" alt="Zikian">
+                <p>Human Resource Director</p>
+                <p class="team-name">-Dato Tang Zi Kian</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" id="menu">
+        <div class="offcanvas-header">
+          <h1 class="offcanvas-title">Navigation Menu</h1>
+          <div class="divider"></div>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        
+        <div class="divider"></div>
+
+        <div class="offcanvas-body">
+          <div class="dropdown first-dropdown">
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+              Home
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="home.html">Welcome</a></li>
+              <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
+              <li><a class="dropdown-item" href="home.html#about">About us</a></li>
+              <li><a class="dropdown-item" href="home.html#history">History</a></li>
+              <li><a class="dropdown-item" href="home.html#team">Our team</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown second-dropdown">
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+              Product
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="product-list.html#keyboard">Keyboard</a></li>
+                <li><a class="dropdown-item" href="product-list.html#mouse">Mouse</a></li>
+                <li><a class="dropdown-item" href="product-list.html#speaker">Speaker</a></li>
+            </ul>
+          </div>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            var navbar = document.getElementById('custom-navbar');
+            var mdNavbarHeight = document.querySelector('.navbar-expand-md').offsetHeight;
+
+            // Check if the page has been scrolled past the height of the .navbar-expand-md
+            if (window.scrollY > mdNavbarHeight) {
+                navbar.classList.add('navbar-expanded'); // Add class to move navbar up
+            } else {
+                navbar.classList.remove('navbar-expanded'); // Remove class to move navbar down
+            }
+        });
+
+        const texts = [
+            "<strong>About Us</strong><br>TechTonic Sdn Bhd: Pioneering Excellence in Computer Accessories<br><br>Welcome to TechTonic Sdn Bhd, your premier destination for<br>cutting-edge computer accessories. Established with a vision<br>to revolutionize the technology landscape, TechTonic has swiftly<br>grown to become a trusted name in the industry, renowned for our<br>commitment to quality, innovation, and customer satisfaction.<br>",
+            "<strong>Our Mission</strong><br>Provide the highest quality computer accessories.<br>Empower individuals and businesses to achieve their full potential.<br>Deliver advanced, reliable, and cost-effective products.<br>Transform technology experiences for our customers.<br>",
+            "<strong>Our Vision</strong><br>Become a global leader in the computer accessories industry.<br>Set benchmarks for innovation, quality, and customer satisfaction.<br>Continuously evolve with the changing technological landscape.<br>Ensure customers have access to the latest and most efficient accessories.<br>"
+        ];
+        let currentIndex = 0;
+
+        function updateText() {
+           document.getElementById('aboutUsText').innerHTML = texts[currentIndex];
+        }
+
+        function nextText() {
+          currentIndex = (currentIndex + 1) % texts.length;
+            updateText();
+        }
+
+        function prevText() {
+            currentIndex = (currentIndex - 1 + texts.length) % texts.length;
+            updateText();
+        }
+
+        // Initialize with the first text
+        updateText();
+    </script>
+
+</body>
+</html>
