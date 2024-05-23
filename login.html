@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <link rel="stylesheet" type="text/css" href="main.css">     
-    <link rel="stylesheet" type="text/css" href="product-list.css">  
+    <link rel="stylesheet" type="text/css" href="product-list.css"> 
+    <link rel="stylesheet" type="text/css" href="login.css"> 
 
     <title>Login</title>
 </head>
-<body >
+<body onload="startTime()">
 
     <div class="container ">
         <img src="Images/CompanyIcon.png" class="mx-auto d-block mt-3" style="width: 200px; " alt="">
@@ -39,7 +40,14 @@
         </form>
     </div>
 
-    <div class="mt-4 other-action">
+    <div id="clockdate">
+        <div class="clockdate-wrapper">
+          <div id="clock"></div>
+          <div id="date"></div>
+        </div>
+    </div>
+
+    <div class="mt-2 other-action">
         <p class="text-white mx-2">Forgot Password?</p>
         <a href="#">Reset</a>
     </div>

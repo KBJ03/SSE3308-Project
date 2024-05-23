@@ -10,10 +10,11 @@
 
     <link rel="stylesheet" type="text/css" href="main.css">     
     <link rel="stylesheet" type="text/css" href="product-list.css">  
+    <link rel="stylesheet" type="text/css" href="login.css"> 
 
     <title>Login</title>
 </head>
-<body >
+<body onload="startTime()">
     <div class="container ">
         <img src="Images/CompanyIcon.png" class="mx-auto d-block mt-3" style="width: 200px; " alt="">
         <h1 class="text-white row justify-content-center" style="font-weight: bold;">TechTonic</h3>
@@ -38,12 +39,20 @@
         </form>
     </div>
 
+    <div id="clockdate">
+        <div class="clockdate-wrapper">
+          <div id="clock"></div>
+          <div id="date"></div>
+        </div>
+    </div>
+
     <script>
         var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
           return new bootstrap.Popover(popoverTriggerEl)
         })
     </script>
+    <script src="product-list.js"></script>
 
 </body>
 </html>
