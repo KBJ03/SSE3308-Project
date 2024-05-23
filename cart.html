@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://kit.fontawesome.com/2260a1e96c.js" crossorigin="anonymous"></script>
 
@@ -16,43 +17,36 @@
     
     <nav class="navbar navbar-expand-md"> 
         <div class="container-fluid">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle btn btn-outline-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Menu
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </ul>
+
+            <div class="navbar-nav">
+                <button class="btn text-white" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu">
+                    <i class="fa fa-bars fa-2x"></i>
+                </button>
+            </div>
             
-            <div class="d-flex mr-3 ml-3">
-                <a class="navbar-brand" href="#">
-                    <img src="Images/CompanyIcon.png" width="50" height="50" alt="Company Logo">
+            <div class="d-flex me-3 ms-3">
+                <a class="navbar-brand d-flex" href="home.html">
+                    <img src="Images/CompanyIcon.png" width="50" height="50" alt="Logo">
+                    <h1 class="text-white ms-2">TechTonic</h1>
                 </a>
-                <h1 class="text-white">TechTonic</h1>
             </div>
 
             <div class="container">
-                <form class="search-container w-75" role="search">
+                <div class="search-container w-75">
                     <i class="fas fa-search search-icon"></i>
-                    <input type="text" class="form-control" id="search-input" placeholder="Search..." aria-label="Search">
+                    <input type="text" class="form-control" id="search-input" placeholder="Search...">
                     <i class="fas fa-times delete-icon" id="delete-icon"></i>
-                </form>
+                </div>
             </div>
 
             <div class="navbar-nav">
-                <a class="nav-item nav-link ml-4" href="#" aria-label="User Profile">
+                <a class="nav-item nav-link ms-4" href="profile.html">
                     <i class="fas fa-user fa-2x text-white"></i>
                 </a>
-                <a class="nav-item nav-link ml-4" href="#" aria-label="Shopping Cart">
+                <a class="nav-item nav-link ms-4" href="cart.html">
                     <span class="fas fa-shopping-cart fa-2x text-white"></span>
                 </a>
-                <a class="nav-item nav-link ml-4" href="#" aria-label="Settings">
+                <a class="nav-item nav-link ms-4" href="#">
                     <span class="fas fa-cog fa-2x text-white"></span>
                 </a>
             </div>
@@ -66,9 +60,6 @@
             <div class="list-header-main">
                 <div class="checkbox-wrap">
                     <label class="next-checkbox list-header-checkbox" id="checkboxSelectAll">
-                        <span class="next-checkbox-inner">
-                            <i class="next-icon next-icon-select next-icon-xs"></i>
-                        </span>
                         <input class="form-check-input" type="checkbox" value="" aria-label="Select All" id="checkboxSelectAll">
                     </label>
                     Select All
@@ -79,29 +70,20 @@
             <div id="item1" class="cart-item mb-3">
                 <div class="cart-item-inner">
                     <div class="cart-item-left">
-                        <label class="next-checkbox cart-item-checkbox">
-                            <span class="next-checkbox-inner">
-                                <i class="next-icon next-icon-select next-icon-xs"></i>
-                            </span>
-                            <input type="checkbox" aria-checked="false" value="on" aria-label="Select Item">
-                        </label>
-                        <div class="img-wrap mr-3">
-                            <img src="Images/keyboard/keyboard0.jpeg" alt="Keyboard Image">
+                            <input type="checkbox" aria-checked="false" value="on" aria-label="Select Item" id="keyboardCheckbox">
+                        <div class="img-wrap me-3">
+                            <img src="Images/keyboard/keyboard1.png" alt="Keyboard Image">
                         </div>
-                        <div class="content-wrap mr-5">
-                            <a href="#">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, magnam ex dignissimos, rerum iusto facilis fugit consectetur soluta hic eos voluptate corrupti perferendis vero asperiores rem maiores amet. Molestiae, praesentium.
-                            </a>
+                        <div class="content-wrap me-5">
+                                <h4>AI-Integrated Adaptive Keyboard</h4>  
                         </div>
                     </div>
                     <div class="cart-item-middle">
                         <div>
-                            <p class="current-price">RM9.90</p>
+                            <p class="current-price">$20.00</p>
                         </div>
                         <div class="operations">
-                            <span class="automation-btn-wishlist ">
-                                <a href="#"><i class="fa-solid fa-heart fa-2x" style="color: #ffffff;"></i></a>
-                            <span class="automation-btn-delete ml-3">
+                            <span class="automation-btn-delete ms-3">
                                 <a href="#"><i class="fa-solid fa-trash fa-2x" style="color: #ffffff;"></i></a>
                             </span>
                                 
@@ -109,7 +91,7 @@
                         </div>
 
                     </div>
-                    <div class="cart-item-end ml-5">
+                    <div class="cart-item-end ms-5">
                         <div class="input-group">
                             <span class="input-group-prepend">
                                 <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
@@ -126,32 +108,23 @@
                     </div>
                 </div>
             </div>
-            <div id="item1" class="cart-item">
+            <div id="item1" class="cart-item mb-3">
                 <div class="cart-item-inner">
                     <div class="cart-item-left">
-                        <label class="next-checkbox cart-item-checkbox">
-                            <span class="next-checkbox-inner">
-                                <i class="next-icon next-icon-select next-icon-xs"></i>
-                            </span>
-                            <input type="checkbox" aria-checked="false" value="on" aria-label="Select Item">
-                        </label>
-                        <div class="img-wrap mr-3">
-                            <img src="Images/mouse/mouse0.jpeg" alt="Keyboard Image">
+                        <input type="checkbox" aria-checked="false" value="on" aria-label="Select Item" id="selectmouse">
+                        <div class="img-wrap me-3">
+                            <img src="Images/keyboard/keyboard3.png" alt="Keyboard Image">
                         </div>
-                        <div class="content-wrap mr-5">
-                            <a href="#">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, magnam ex dignissimos, rerum iusto facilis fugit consectetur soluta hic eos voluptate corrupti perferendis vero asperiores rem maiores amet. Molestiae, praesentium.
-                            </a>
+                        <div class="content-wrap me-5">     
+                            <h4>Customizable Multi-Functional Keyboard</h4>                  
                         </div>
                     </div>
                     <div class="cart-item-middle">
                         <div>
-                            <p class="current-price">RM9.90</p>
+                            <p class="current-price">$9.90</p>
                         </div>
                         <div class="operations">
-                            <span class="automation-btn-wishlist ">
-                                <a href="#"><i class="fa-solid fa-heart fa-2x" style="color: #ffffff;"></i></a>
-                            <span class="automation-btn-delete ml-3">
+                            <span class="automation-btn-delete ms-3">
                                 <a href="#"><i class="fa-solid fa-trash fa-2x" style="color: #ffffff;"></i></a>
                             </span>
                                 
@@ -159,7 +132,89 @@
                         </div>
 
                     </div>
-                    <div class="cart-item-end ml-5">
+                    <div class="cart-item-end ms-5">
+                        <div class="input-group">
+                            <span class="input-group-prepend">
+                                <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                    <span class="fa fa-minus"></span>
+                                </button>
+                            </span>
+                            <input type="text" name="quant[1]" class="form-control input-number custom-width" value="1" min="1" max="10">
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[1]">
+                                    <span class="fa fa-plus"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="item1" class="cart-item mb-3 ">
+                <div class="cart-item-inner">
+                    <div class="cart-item-left">
+                        <input type="checkbox" aria-checked="false" value="on" aria-label="Select Item" id="selectmouse">
+                        <div class="img-wrap me-3">
+                            <img src="Images/speaker/speaker3.png" alt="Keyboard Image">
+                        </div>
+                        <div class="content-wrap me-5">
+                            <h4>Adaptive Sound Field Speaker</h4>
+                        </div>
+                    </div>
+                    <div class="cart-item-middle">
+                        <div>
+                            <p class="current-price">$9.90</p>
+                        </div>
+                        <div class="operations">
+                            <span class="automation-btn-delete ms-3">
+                                <a href="#"><i class="fa-solid fa-trash fa-2x" style="color: #ffffff;"></i></a>
+                            </span>
+                                
+
+                        </div>
+
+                    </div>
+                    <div class="cart-item-end ms-5">
+                        <div class="input-group">
+                            <span class="input-group-prepend">
+                                <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
+                                    <span class="fa fa-minus"></span>
+                                </button>
+                            </span>
+                            <input type="text" name="quant[1]" class="form-control input-number custom-width" value="1" min="1" max="10">
+                            <span class="input-group-append">
+                                <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[1]">
+                                    <span class="fa fa-plus"></span>
+                                </button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="item1" class="cart-item mb-4">
+                <div class="cart-item-inner">
+                    <div class="cart-item-left">
+                        <input type="checkbox" aria-checked="false" value="on" aria-label="Select Item" id="selectmouse">
+                        <div class="img-wrap me-3">
+                            <img src="Images/mouse/mouse5.png" alt="Keyboard Image">
+                        </div>
+                        <div class="content-wrap me-5">
+                            <h4>Trackball Mouse</h4>
+                        </div>
+                    </div>
+                    <div class="cart-item-middle">
+                        <div>
+                            <p class="current-price">$9.90</p>
+                        </div>
+                        <div class="operations">
+                            <span class="automation-btn-delete ms-3">
+                                <a href="#"><i class="fa-solid fa-trash fa-2x" style="color: #ffffff;"></i></a>
+                            </span>
+                                
+
+                        </div>
+
+                    </div>
+                    <div class="cart-item-end ms-5">
                         <div class="input-group">
                             <span class="input-group-prepend">
                                 <button type="button" class="btn btn-outline-secondary btn-number" disabled="disabled" data-type="minus" data-field="quant[1]">
@@ -181,25 +236,59 @@
     </div>
 
     <div class="footer">
-        <div class="container-fluid ">
-            <div class ="row justify-content-between "> 
-                <div class="col-sm-3 ">
+        <div class="container-fluid">
+            <div class="row justify-content-between">
+                <div class="col-sm-3 d-flex flex-column justify-content-end">
                     <p>Shipping Fee: RMXXX</p>
-                    <p>Item Price : RMXXX</p>
-                </div>   
+                    <p>Item Price: RMXXX</p>
+                </div>
                 <div class="col-sm-3 ">
                     <button type="button" class="btn btn-outline-info my-5">Checkout</button>
-                </div>   
-                    
-    
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
+    
+    <div class="offcanvas offcanvas-start" id="menu">
+        <div class="offcanvas-header">
+          <h1 class="offcanvas-title">Navigation Menu</h1>
+          <div class="divider"></div>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        
+        <div class="divider"></div>
+
+        <div class="offcanvas-body">
+          <div class="dropdown first-dropdown">
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+              Home
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="home.html">Welcome</a></li>
+              <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
+              <li><a class="dropdown-item" href="home.html#about">About us</a></li>
+              <li><a class="dropdown-item" href="home.html#history">History</a></li>
+              <li><a class="dropdown-item" href="home.html#team">Our team</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown second-dropdown" >
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+              Product
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="product-list.html">Category</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="product-list.html#keyboard">Keyboard</a></li>
+              <li><a class="dropdown-item" href="product-list.html#mouse">Mouse</a></li>
+              <li><a class="dropdown-item" href="product-list.html#speaker">Speaker</a></li>
+            </ul>
+          </div>
+
+          <a class="text-black" href="contact.html" style="text-decoration: none; margin-top: 50px; margin-left: 13px;">Contact</a>
+    </div>
             
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12hx6W4W1W4WsyZZ8dDk6ZEgbrFgg5XQ5f5b26qqztTzt0zs" crossorigin="anonymous"></script>
 
 </body>
 </html>
