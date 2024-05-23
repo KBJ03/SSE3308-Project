@@ -57,17 +57,20 @@
         <div class="container-fluid">
             <div class="navbar-nav d-flex justify-content-between w-100">
                 <a class="nav-link text-white text-center active" href="#welcome">Home</a>
-                <a class="nav-link text-white text-center" href="#product">Product</a>
+                <a class="nav-link text-white text-center" href="#announcement">Announcement</a>
                 <a class="nav-link text-white text-center" href="#about">About Us</a>
-                <a class="nav-link text-white text-center" href="#content">Organization</a>
+                <a class="nav-link text-white text-center" href="#history">Organization</a>
                 <a class="nav-link text-white text-center" href="#team">Our Team</a>
             </div>
         </div>
     </nav>
 
 
-    <div class="container-fluid p-0" id="product">
+    <div class="container-fluid p-0" id="announcement">
         <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+            <p><br></p>
+            <p><br></p>
+            <p><br></p>
             <!-- Indicators -->
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -78,7 +81,7 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="Imageshomehome/Keyboard.webp" alt="Keyboard" class="d-block w-100 carousel-image">
+                    <img src="Imageshome/Keyboard.webp" alt="Keyboard" class="d-block w-100 carousel-image">
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Keyboard</h3>
                         <p>From ergonomic designs to mechanical models, our keyboards cater to every user’s needs, <br>whether for gaming, professional, or casual use.</p>
@@ -116,6 +119,9 @@
 
     <div class="about-us-section" id="about">
         <div class="about-us-image">
+            <p><br></p>
+            <p><br></p>
+            <p><br></p>
             <img src="Imageshome/AboutUs.png" alt="About us">
             <div class="about-us-content" id="aboutUsContent">
                 <p id="aboutUsText"><strong>About Us</strong><br>
@@ -132,7 +138,7 @@
         <button class="nav-button right" onclick="nextText()">&#10095;</button>
     </div>
 
-    <div id="content">
+    <div id="history">
         <div class="content-section">
             <p><br></p>
             <p><br></p>
@@ -192,6 +198,41 @@
                 <p class="team-name">-Dato Tang Zi Kian</p>
             </div>
         </div>
+    </div>
+
+    <div class="offcanvas offcanvas-start" id="menu">
+        <div class="offcanvas-header">
+          <h1 class="offcanvas-title">Navigation Menu</h1>
+          <div class="divider"></div>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        
+        <div class="divider"></div>
+
+        <div class="offcanvas-body">
+          <div class="dropdown first-dropdown">
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+              Home
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="home.html">Welcome</a></li>
+              <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
+              <li><a class="dropdown-item" href="home.html#about">About us</a></li>
+              <li><a class="dropdown-item" href="home.html#history">History</a></li>
+              <li><a class="dropdown-item" href="home.html#team">Our team</a></li>
+            </ul>
+          </div>
+
+          <div class="dropdown second-dropdown">
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+              Product
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#keyboard">Keyboard</a></li>
+              <li><a class="dropdown-item" href="#mouse">Mouse</a></li>
+              <li><a class="dropdown-item" href="#speaker">Speaker</a></li>
+            </ul>
+          </div>
     </div>
 
     <script>
