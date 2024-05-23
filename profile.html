@@ -9,10 +9,19 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link rel="stylesheet" type="text/css" href="main.css">    
+
+        <style>
+            @media print{
+                .no-print{
+                    display: none;
+                }
+            }
+        </style>
     </head>
     
     <body>
-        <nav class="navbar navbar-expand-md"> 
+        <div class="no-print" >
+         <nav class="navbar navbar-expand-md"> 
             <div class="container-fluid">
     
                 <div class="navbar-nav">
@@ -49,6 +58,7 @@
                 </div>
             </div>
         </nav>
+    </div>
     
         <h1 class="row justify-content-center text-white my-3">Profile</h1>
 
@@ -61,16 +71,23 @@
                                 <img src="Images/ProfilePicture.png" class="rounded-circle" alt="Profile Picture" width="100" height="100">
                             </div>
                             
+                            <div class="no-print" >
                             <div class="position-absolute top-0 end-0 mt-2 me-2">
                                 <button class="btn btn-light">
                                     <span class="fas fa-pencil-alt"></span>
                                 </button>
+                                <button onclick="window.print();" class="btn btn-light">
+                                    <span class="fas fa-print"></span>
+                                </button>
                             </div>
+                           </div>
 
                             <div class="row mt-4">
                                 <div class="col-md-6">
                                     <h5><u>Account Information</u></h5>
-                                    <p>Username:</p>
+                                    <p>Username:
+                                        
+                                    </p>
                                     <p>Birthday:</p>
                                     <p>Email Address:</p>
                                     <p>Phone:</p>
