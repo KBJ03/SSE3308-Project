@@ -60,6 +60,7 @@ for(let i = 0 ; i<3 ; i++){
 
         const link = document.createElement('a');
         link.href = "product-detail.html"; 
+        link.style.textDecoration = 'none';
         const detail_button = document.createElement('button');
 
         detail_button.classList.add('btn', 'btn-primary', 'button-hover', 'd-flex', 'justify-content-end', 'mt-4');
@@ -166,3 +167,15 @@ function checkTime(i) {
   }
   return i;
 }
+
+/*Javascript for navigation side menu */
+const first_dropdown = document.getElementById('first-dropdown');
+const second_dropdown = document.getElementById('second-dropdown');
+
+first_dropdown.addEventListener('mouseenter', function() {
+  second_dropdown.classList.add('marginTop');
+});
+
+first_dropdown.addEventListener('mouseleave', function() {
+  second_dropdown.classList.remove('marginTop');
+});
