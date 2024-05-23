@@ -1,0 +1,9 @@
+      .dot {
+        width: 10px;
+        height: 10px;
+        background: rgb(158, 158, 158);
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+        transform: translate(-50%, -50%);
+      }
