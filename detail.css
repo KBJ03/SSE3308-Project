@@ -1,0 +1,28 @@
+#productDetailContainer{
+    border-radius: 5%;
+    width: 170ex;
+    height: 95ex;
+    background-color: white;
+}
+
+#productDetailContainer img{
+    width: 400px;
+    height: 250px;
+    margin-bottom: 20px;
+    margin-left: 25px;
+    margin-right: 35px;
+}
+
+#productDetailContainer p{
+    font-size: 23px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#Similar ul li{
+  display:inline ;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+  font-size: 20px;
+}
