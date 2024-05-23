@@ -27,12 +27,12 @@
             <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="User name should more than 3 characters and can contain letters (a-z), numbers (0-9), dashes (-), underscores (_), apostrophes ('), and periods (.)">
                 <i class="fa fa-info-circle"></i>
             </a>
-            <input type="text" class="form-control form-control-lg" id="userName" pattern="[a-zA-z0-9-_'.]{3-12}" required>
+            <input type="text" class="form-control form-control-lg" id="userName" required pattern="[a-zA-z0-9-_'.]{3,12}"  >
             <label for="password" class="mt-4">Password: </label>
             <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters">
                 <i class="fa fa-info-circle"></i>
             </a>
-            <input type="text" class="form-control form-control-lg " id="password" pattern="[a-zA-z0-9-_'.]{3-12}" required>
+            <input type="text" class="form-control form-control-lg " id="password" pattern="[a-zA-z0-9-_'.]{3,12}" required>
             <label for="confirm" class="mt-4">Confirm Password: </label>
             <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Password for two text form field must be same">
                 <i class="fa fa-info-circle"></i>
