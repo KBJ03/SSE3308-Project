@@ -4,6 +4,7 @@ body {
 }
 
 .list-header-main {
+    background: linear-gradient(109.6deg, rgba(50, 50, 50, 0.93) 11.2%, rgb(175, 174, 174) 78.9%) fixed;
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -13,6 +14,7 @@ body {
     padding-right: 12px;
     text-transform: uppercase;
 }
+
 #checkboxSelectAll{
     margin-bottom: px;
 }
@@ -145,5 +147,14 @@ p {
     display: flex;
     align-items: center; 
     z-index: 1000;
+}
+
+.footer .container-fluid{
+    background: linear-gradient(109.6deg, rgba(50, 50, 50, 0.93) 11.2%, rgb(175, 174, 174) 78.9%) fixed;
+}
+
+.current-price{
+    color: rgb(251, 74, 74);
+    font-weight: 600;
 }
 
