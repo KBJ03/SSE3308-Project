@@ -34,24 +34,6 @@
     margin: 0px 10px;  /* Space around the divider */
 }
 
-.dropdown-menu a{
-    font-size: 15px;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
-    transition: opacity 0.5s ease;
-}
-
-.dropdown-menu {
-    margin-top: 0; /* Prevent dropdown from shifting down */
-    transition: opacity 0.5s ease;
-}
-
-.marginTop{
-    margin-top: 200px;
-}
-
 /*CSS for login page*/
 .other-action{
     font-size: 25px;
