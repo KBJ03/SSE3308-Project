@@ -1,0 +1,221 @@
+body {
+    background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%) fixed;
+}
+
+.top-navbar {
+    width: 100%;
+    height: 7vh;
+    background-color: #a9a9a926;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.top-icons {
+    margin-left: 20px;
+}
+
+.top-icons a {
+    font-size: 20px;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+
+.other-links {
+    margin-right: 20px;
+}
+
+#btn-login, #btn-signup {
+    width: 100px;
+    border: 2px solid #1c1c50;
+    color: #1c1c50;
+    font-weight: bold;
+    border-radius: 5px;
+    height: 5vh;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+#btn-login a, #btn-signup a {
+    text-decoration: none;
+    color: #1c1c50;
+    transition: 0.5s ease;
+}
+
+#btn-login:hover, #btn-login a:hover, #btn-signup:hover, #btn-signup a:hover {
+    background-color: #1c1c50;
+    color: white;
+}
+
+.navbar {
+    background: #1d1d1d;
+}
+
+.navbar-collapse {
+    justify-content: flex-start;
+}
+
+.list-header-main {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+    flex-direction: row;
+    justify-content: flex-start;
+    line-height: 40px;
+    padding-left: 12px;
+    padding-right: 12px;
+    text-transform: uppercase;
+}
+
+.next-checkbox {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 16px;
+    height: 16px;
+    line-height: 14px;
+}
+
+.next-checkbox .next-checkbox-inner {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border-radius: 2px;
+    border: 1px solid #757575;
+    transition: all .3s ease 0s;
+    text-align: left;
+}
+
+.next-icon {
+    position: relative;
+    display: inline-block;
+    font-family: NextIcon;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: .1px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.next-checkbox input[type=checkbox] {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+}
+
+.list-header-container {
+    width: 1110px;
+    border: 2px rgb(118, 118, 118) solid;
+    margin-bottom: 20px;
+}
+
+.cart-item {
+    width: 100%;
+    padding: 20px ;
+    border: 2px rgb(118, 118, 118) solid;
+
+    font-size: 12px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.cart-item-inner {
+    width: 100%;
+    display: flex;
+    align-items: center; /* Center align items vertically */
+}
+
+.cart-item-left {
+    display: flex;
+    align-items: center; /* Center align items vertically */
+}
+
+.cart-item .cart-item-checkbox {
+    margin-right: 16px;
+}
+
+.cart-item .img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px; /* Increase the width as needed */
+    height: 200px; /* Increase the height as needed */
+    overflow: hidden;
+}
+
+.cart-item .content-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px; /* Increase the width as needed */
+    height: 200px; /* Increase the height as needed */
+    overflow: hidden;
+}
+
+.cart-item .img-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@media (max-width: 768px) {
+    .list-header-container {
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+    }
+    .cart-item {
+        padding: 10px 0;
+    }
+    .cart-item-inner {
+        display: block;
+    }
+    .cart-item-left {
+        display: flex;
+        align-items: center;
+    }
+    .cart-item .cart-item-checkbox {
+        margin-right: 8px;
+        margin-top: 16px;
+    }
+}
+.cart-item-middle {
+    display: table-cell;
+    vertical-align: top;
+    width: 300px;
+    max-width: 156px;
+    padding-left: 9px;
+}
+.cart-item-end {
+    display: table-cell;
+    vertical-align: top;
+    width: 170px;
+    max-width: 156px;
+    padding-left: 9px;
+}
+p {
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+.footer {
+    position: fixed;
+    border: 2px rgb(118, 118, 118) solid;
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Align children to the edges */
+    align-items: center; /* Center items vertically */
+}
+
