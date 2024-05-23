@@ -63,7 +63,7 @@
                  <img src="Images/keyboard/keyboard1.png" alt="AI keyboard" >
                 </div>
 
-                <div class="col-lg-5">
+                <div class="col-lg-4 ms-5">
                    <h2 style="font-size: 28px;color: black;"> AI-Integrated Adaptive <br>Keyboard </h2>
                     <br>
                     <p style="font-size: 18px; color:black">
@@ -90,9 +90,15 @@
                       </li> 
                     </ul>
                 </p>
+
+                <div id="addToCart">
+                   <button type="button" class="btn btn-danger btn-lg " style="width: 150px;height: 60px;margin-left: 55ex;margin-top: 15px;" onclick="showAlert()">
+                    Add to Cart
+                    </button>
+                </div>
             </div>
 
-            <div class="col-lg-4  mx-3 my-3 border-start border-black "  id="Similar">
+            <div class="col-lg-4  justify-content-center ms-5 my-4 border-start border-black "  id="Similar">
                 <p style="text-align: center;font-size: 30px;">
                     Similar Product
                 </p>
@@ -108,10 +114,10 @@
                         $179.99
                     </li>      
                 </ul>
-
+                <br><br><br>
                 <img src="Images/keyboard/keyboard3.png" alt="Haptic Feedback keyboard" >
                 <ul >
-                    <li style="margin-right: 10px;">
+                    <li style="margin-right: 16px;">
                         Haptic Feedback Virtual Keyboard
                     </li>   
                     <li>
@@ -124,6 +130,13 @@
 
        </div>
     </div>
+
+    <script>
+      function showAlert()
+      {
+        alert('Added to cart successfully');
+      }
+    </script>
 
     <div class="offcanvas offcanvas-start" id="menu">
         <div class="offcanvas-header">
