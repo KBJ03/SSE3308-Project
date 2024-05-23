@@ -3,7 +3,6 @@
     border-radius: 10px;
     margin-bottom: 75px;
     background-color: rgb(223, 218, 218);
-    width: 1490px;
 }
 
 .category img{
@@ -23,7 +22,6 @@
     width: 700px;
     height: 250px;
 }
-
 
 .nav-down a{
     color: black;
