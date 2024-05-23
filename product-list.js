@@ -59,7 +59,7 @@ for(let i = 0 ; i<3 ; i++){
         productId.innerHTML = id[i][j];
 
         const link = document.createElement('a');
-        link.href = "product-detail.html"; 
+        link.href = "product detail.html"; 
         link.style.textDecoration = 'none';
         const detail_button = document.createElement('button');
 
