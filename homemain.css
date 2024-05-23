@@ -86,12 +86,6 @@ body {
     height: 100vh;
 }
 
-.navbar-expand-md{
-    position: sticky;
-    top: 0;
-    z-index: 1030;
-}
-
 .navbar-expand-lg.custom-bg {
     position: sticky;
     top: 65px;
