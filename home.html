@@ -209,37 +209,44 @@
         
         <div class="divider"></div>
 
-        <div class="offcanvas-body">
-          <div class="dropdown first-dropdown">
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
-              Home
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="home.html">Welcome</a></li>
-              <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
-              <li><a class="dropdown-item" href="home.html#about">About us</a></li>
-              <li><a class="dropdown-item" href="home.html#history">History</a></li>
-              <li><a class="dropdown-item" href="home.html#team">Our team</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown second-dropdown">
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
-              Product
-            </button>
-            <ul class="dropdown-menu">
-<<<<<<< HEAD
-                <li><a class="dropdown-item" href="product-list.html#keyboard">Keyboard</a></li>
-                <li><a class="dropdown-item" href="product-list.html#mouse">Mouse</a></li>
-                <li><a class="dropdown-item" href="product-list.html#speaker">Speaker</a></li>
-=======
-              <li><a class="dropdown-item" href="#keyboard">Keyboard</a></li>
-              <li><a class="dropdown-item" href="#mouse">Mouse</a></li>
-              <li><a class="dropdown-item" href="#speaker">Speaker</a></li>
->>>>>>> b079b97f5dab21da4dce2224006d8b6d4683e83f
-            </ul>
-          </div>
-    </div>
+        <div class="offcanvas offcanvas-start" id="menu">
+            <div class="offcanvas-header">
+              <h1 class="offcanvas-title">Navigation Menu</h1>
+              <div class="divider"></div>
+              <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+            </div>
+            
+            <div class="divider"></div>
+    
+            <div class="offcanvas-body">
+              <div class="dropdown first-dropdown">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                  Home
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="home.html">Welcome</a></li>
+                  <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
+                  <li><a class="dropdown-item" href="home.html#about">About us</a></li>
+                  <li><a class="dropdown-item" href="home.html#history">History</a></li>
+                  <li><a class="dropdown-item" href="home.html#team">Our team</a></li>
+                </ul>
+              </div>
+    
+              <div class="dropdown second-dropdown" >
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                  Product
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="product-list.html">Category</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="product-list.html#keyboard">Keyboard</a></li>
+                  <li><a class="dropdown-item" href="product-list.html#mouse">Mouse</a></li>
+                  <li><a class="dropdown-item" href="product-list.html#speaker">Speaker</a></li>
+                </ul>
+              </div>
+    
+              <a class="text-black" href="contact.html" style="text-decoration: none; margin-top: 50px; margin-left: 13px;">Contact</a>
+        </div>
 
     <script>
         window.addEventListener('scroll', function() {
