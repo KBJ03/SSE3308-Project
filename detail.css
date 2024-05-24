@@ -1,7 +1,7 @@
 #productDetailContainer{
     border-radius: 5%;
-    width: 170ex;
-    height: 95ex;
+    width: 160ex;
+    height: 105ex;
     background-color: white;
 }
 
@@ -24,5 +24,6 @@
   text-decoration: none;
   text-align: center;
   color: black;
-  font-size: 20px;
+  font-size: 19px;
+
 }
