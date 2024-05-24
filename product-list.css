@@ -59,3 +59,38 @@
     pointer-events: none;
     transform: translate(-50%, -50%);
   }
+
+  .image-container {
+    width: 350px;  /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    overflow: hidden; /* Hide any overflow */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* or contain, depending on your preference */
+}
+
+.star-rating {
+    display: inline-block;
+}
+
+.star {
+    font-size: 50px;
+    color: #ddd; /* Default star color */
+}
+
+.star-filled {
+    font-size: 25px;
+    color: #f5b301; /* Filled star color */
+}
+
+.search-bar a{
+    color: black;
+    text-decoration: none;
+    margin-bottom: 12px;
+}
