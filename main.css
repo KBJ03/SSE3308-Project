@@ -1,5 +1,7 @@
 body {
     background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%) fixed;
+    overflow-y: scroll;
+    overflow-x: scroll;
 }
 
 .top-navbar{
@@ -68,3 +70,4 @@ body {
     background-color: #818181;  /* Set the color of the divider */
     margin: 0px 10px;  /* Space around the divider */
 }
+
