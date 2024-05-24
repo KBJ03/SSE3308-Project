@@ -45,7 +45,7 @@ body {
 }
 
 .carousel-item img {
-    max-height: 625px; 
+    max-height: 850px; 
     object-fit: contain; 
     width: 100%;
 }
