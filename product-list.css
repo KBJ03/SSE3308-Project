@@ -1,4 +1,4 @@
-/CSS for product list page/
+/*CSS for product list page*/
 .category{
     border-radius: 10px;
     margin-bottom: 75px;
@@ -29,7 +29,7 @@
     margin: 0px 10px;  /* Space around the divider */
 }
 
-/CSS for login page/
+/*CSS for login page*/
 .other-action{
     font-size: 25px;
     display: flex;

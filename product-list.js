@@ -41,7 +41,7 @@ for(let i = 0 ; i<3 ; i++){
         
         
         const productImg = document.createElement('img');
-        productImg.src = Images/${categoryNameImg[i]}/${categoryNameImg[i]}${j+1}.png;
+        productImg.src = 'Images/${categoryNameImg[i]}/${categoryNameImg[i]}${j+1}.png';
         
         const div_description = document.createElement('div');
         div_description.classList.add('ms-3');
