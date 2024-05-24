@@ -2,39 +2,25 @@ body {
     background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%) fixed;
 }
 
-/*search bar*/
-.search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-.search-container input {
-    padding-left: 2.5rem; 
-    padding-right: 2.5rem; 
-}
-.search-icon {
-    position: absolute;
-    left: 0.75rem;
-}
-.delete-icon {
-    position: absolute;
-    right: 0.75rem;
-    cursor: pointer;
-}
-
 \\
 .custom-bg {
     background-color: #545454;
 }
 
-.nav-link {
+#second-bar {
     flex: 1;
     text-align: center;
     font-size: 1.50rem; 
     font-weight: bold;
 }
 
-.nav-link:hover {
+.search-bar a{
+    color: black;
+    text-decoration: none;
+    margin-bottom: 12px;
+}
+
+#second-bar:hover {
     background-color: gray; 
     color: #333333; 
     border-radius: 5px; 
@@ -59,7 +45,7 @@ body {
 }
 
 .carousel-item img {
-    max-height: 650px; 
+    max-height: 850px; 
     object-fit: contain; 
     width: 100%;
 }
@@ -117,11 +103,11 @@ body {
 }
 
 .nav-button.left {
-    left: 50px;
+    left: 30px;
 }
 
 .nav-button.right {
-    right: 825px;
+    right: 850px;
 }
 
 .hidden {
