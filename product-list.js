@@ -35,13 +35,13 @@ for(let i = 0 ; i<3 ; i++){
         div_col.classList.add('col-6');
         
         const div_container = document.createElement('div');
-        div_container.classList.add('container', 'p-3', 'bg-white', 'm-1', 'animation', 'mb-3');
+        div_container.classList.add('container', 'p-3', 'bg-white', 'con', 'm-1', 'animation', 'mb-3');
         div_container.style.display = "flex";
         div_container.style.boxShadow = "10px 10px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.1)";
         
         
         const productImg = document.createElement('img');
-        productImg.src = 'Images/${categoryNameImg[i]}/${categoryNameImg[i]}${j+1}.png';
+        productImg.src = `Images/${categoryNameImg[i]}/${categoryNameImg[i]}${j+1}.png`;
         
         const div_description = document.createElement('div');
         div_description.classList.add('ms-3');
