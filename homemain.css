@@ -2,64 +2,6 @@ body {
     background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%) fixed;
 }
 
-.top-navbar{
-    width: 100%;
-    height: 7vh;
-    background-color: #a9a9a926;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-}
-
-.top-icons{
-    margin-left: 20px;
-}
-
-.top-icons a {
-    font-size: 20px;
-    padding: 0 10px;
-    margin-right: 10px;
-}
-
-.other-links{
-    margin-right: 20px;
-}
-
-.navbar {
-    background:#1d1d1d;
-}
-
-.navbar-collapse {
-    justify-content: flex-start;
-}
-
-.navbar-expand-md{
-    position: sticky;
-    top: 0;
-    z-index: 1030;
-}
-
-/*search bar*/
-.search-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-.search-container input {
-    padding-left: 2.5rem; 
-    padding-right: 2.5rem; 
-}
-.search-icon {
-    position: absolute;
-    left: 0.75rem;
-}
-.delete-icon {
-    position: absolute;
-    right: 0.75rem;
-    cursor: pointer;
-}
-
 \\
 .custom-bg {
     background-color: #545454;
@@ -70,6 +12,12 @@ body {
     text-align: center;
     font-size: 1.50rem; 
     font-weight: bold;
+}
+
+.search-bar a{
+    color: black;
+    text-decoration: none;
+    margin-bottom: 12px;
 }
 
 #second-bar:hover {
@@ -97,7 +45,7 @@ body {
 }
 
 .carousel-item img {
-    max-height: 475px; 
+    max-height: 625px; 
     object-fit: contain; 
     width: 100%;
 }
@@ -155,11 +103,11 @@ body {
 }
 
 .nav-button.left {
-    left: 15px;
+    left: 30px;
 }
 
 .nav-button.right {
-    right: 650px;
+    right: 850px;
 }
 
 .hidden {
