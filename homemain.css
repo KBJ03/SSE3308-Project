@@ -2,8 +2,36 @@ body {
     background: linear-gradient(109.6deg, rgba(0, 0, 0, 0.93) 11.2%, rgb(63, 61, 61) 78.9%) fixed;
 }
 
+.top-navbar{
+    width: 100%;
+    height: 7vh;
+    background-color: #a9a9a926;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.top-icons{
+    margin-left: 20px;
+}
+
+.top-icons a {
+    font-size: 20px;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+
+.other-links{
+    margin-right: 20px;
+}
+
 .navbar {
     background:#1d1d1d;
+}
+
+.navbar-collapse {
+    justify-content: flex-start;
 }
 
 .navbar-expand-md{
@@ -49,7 +77,6 @@ body {
     color: #333333; 
     border-radius: 5px; 
 }
-
 
 .welcome-header {
     background: url('Imageshome/WelcomeHeader.png') no-repeat center center;
