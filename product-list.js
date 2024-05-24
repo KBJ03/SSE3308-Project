@@ -1,5 +1,3 @@
-
-
 const keyboard = document.getElementById('keyboard');
 const mouse = document.getElementById('mouse');
 const speaker = document.getElementById('speaker');
