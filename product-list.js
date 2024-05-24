@@ -37,7 +37,7 @@ for(let i = 0 ; i<3 ; i++){
         div_col.classList.add('col-6');
         
         const div_container = document.createElement('div');
-        div_container.classList.add('container', 'p-3', 'bg-white', 'm-1', 'con', 'animation', 'mb-3');
+        div_container.classList.add('container', 'p-3', 'bg-white', 'con', 'm-1', 'animation', 'mb-3');
         div_container.style.display = "flex";
         div_container.style.boxShadow = "10px 10px 15px rgba(0, 0, 0, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.1)";
         
@@ -66,7 +66,7 @@ for(let i = 0 ; i<3 ; i++){
         detail_button.classList.add('btn', 'btn-primary', 'button-hover', 'd-flex', 'justify-content-end', 'mt-4');
 
         if(i == 0 && j == 5){
-            detail_button.classList.remove('mt-3');
+            detail_button.classList.remove('mt-4');
         }
 
         detail_button.style.marginLeft = "125px";
