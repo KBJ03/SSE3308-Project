@@ -25,10 +25,10 @@
             </div>
             
             <div class="d-flex me-3 ms-3">
-                <a class="navbar-brand" href="home.html">
+                <a class="navbar-brand d-flex" href="home.html">
                     <img src="Images/CompanyIcon.png" width="50" height="50" alt="Logo">
+                    <h1 class="text-white ms-2">TechTonic</h1>
                 </a>
-                <h1 class="text-white">TechTonic</h1>
             </div>
 
             <div class="container">
@@ -46,8 +46,8 @@
                 <a class="nav-item nav-link ms-4" href="cart.html">
                     <span class="fas fa-shopping-cart fa-2x text-white"></span>
                 </a>
-                <a class="nav-item nav-link ms-4" href="#">
-                    <span class="fas fa-cog fa-2x text-white"></span>
+                <a class="nav-item nav-link ms-4" href="index.html">
+                    <span class="fas fa-sign-out-alt fa-2x text-white"></span>
                 </a>
             </div>
         </div>
@@ -63,7 +63,7 @@
                  <img src="Images/keyboard/keyboard1.png" alt="AI keyboard" >
                 </div>
 
-                <div class="col-lg-5">
+                <div class="col-lg-4 ms-5">
                    <h2 style="font-size: 28px;color: black;"> AI-Integrated Adaptive <br>Keyboard </h2>
                     <br>
                     <p style="font-size: 18px; color:black">
@@ -90,9 +90,15 @@
                       </li> 
                     </ul>
                 </p>
+
+                <div id="addToCart">
+                   <button type="button" class="btn btn-danger btn-lg " style="width: 150px;height: 60px;margin-left: 55ex;" onclick="showAlert()">
+                    Add to Cart
+                    </button>
+                </div>
             </div>
 
-            <div class="col-lg-4  mx-3 my-3 border-start border-black "  id="Similar">
+            <div class="col-lg-4  justify-content-center ms-5 my-4 border-start border-black "  id="Similar">
                 <p style="text-align: center;font-size: 30px;">
                     Similar Product
                 </p>
@@ -108,10 +114,10 @@
                         $179.99
                     </li>      
                 </ul>
-
+                <br><br><br>
                 <img src="Images/keyboard/keyboard3.png" alt="Haptic Feedback keyboard" >
                 <ul >
-                    <li style="margin-right: 10px;">
+                    <li style="margin-right: 16px;">
                         Haptic Feedback Virtual Keyboard
                     </li>   
                     <li>
@@ -125,39 +131,55 @@
        </div>
     </div>
 
+    <script>
+      function showAlert()
+      {
+        alert('Added to cart successfully');
+      }
+    </script>
+
     <div class="offcanvas offcanvas-start" id="menu">
         <div class="offcanvas-header">
           <h1 class="offcanvas-title">Navigation Menu</h1>
-          <div class="divider"></div>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
         </div>
         
         <div class="divider"></div>
 
         <div class="offcanvas-body">
-          <div class="dropdown first-dropdown">
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
-              Home
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="home.html">Welcome</a></li>
-              <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
-              <li><a class="dropdown-item" href="home.html#about">About us</a></li>
-              <li><a class="dropdown-item" href="home.html#history">History</a></li>
-              <li><a class="dropdown-item" href="home.html#team">Our team</a></li>
-            </ul>
-          </div>
-
-          <div class="dropdown second-dropdown">
-            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
-              Product
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#keyboard">Keyboard</a></li>
-              <li><a class="dropdown-item" href="#mouse">Mouse</a></li>
-              <li><a class="dropdown-item" href="#speaker">Speaker</a></li>
-            </ul>
-          </div>
+            <div class="btn-group-vertical">
+                <div class="dropdown first-dropdown">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                    Home
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="home.html">Welcome</a></li>
+                    <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
+                    <li><a class="dropdown-item" href="home.html#about">About us</a></li>
+                    <li><a class="dropdown-item" href="home.html#history">Our History</a></li>
+                    <li><a class="dropdown-item" href="home.html#commitment">Our Commitment</a></li>
+                    <li><a class="dropdown-item" href="home.html#team">Our Team</a></li>
+                    </ul>
+                </div>
+        
+                <div class="dropdown second-dropdown">
+                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                    Product
+                    </button>
+                    <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="product-list.html">Category</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="product-list.html#keyboard">Keyboard</a></li>
+                    <li><a class="dropdown-item" href="product-list.html#mouse">Mouse</a></li>
+                    <li><a class="dropdown-item" href="product-list.html#speaker">Speaker</a></li>
+                    </ul>
+                </div>
+        
+                <button type="button" class="btn contact-button">
+                    <a href="contact.html" class="dropdown-item">Contact Us</a>
+                </button>
+            </div>
+        </div>
     </div>
 
 </body>
