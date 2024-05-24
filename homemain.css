@@ -65,19 +65,18 @@ body {
     background-color: #545454;
 }
 
-.nav-link {
+#second-bar {
     flex: 1;
     text-align: center;
     font-size: 1.50rem; 
     font-weight: bold;
 }
 
-.nav-link:hover {
+#second-bar:hover {
     background-color: gray; 
     color: #333333; 
     border-radius: 5px; 
 }
-
 
 .welcome-header {
     background: url('Imageshome/WelcomeHeader.png') no-repeat center center;
@@ -98,7 +97,7 @@ body {
 }
 
 .carousel-item img {
-    max-height: 650px; 
+    max-height: 475px; 
     object-fit: contain; 
     width: 100%;
 }
@@ -156,11 +155,11 @@ body {
 }
 
 .nav-button.left {
-    left: 50px;
+    left: 15px;
 }
 
 .nav-button.right {
-    right: 825px;
+    right: 650px;
 }
 
 .hidden {

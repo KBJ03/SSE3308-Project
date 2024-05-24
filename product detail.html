@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" type="text/css" href="main.css">     
     <link rel="stylesheet" type="text/css" href="detail.css">
+    <link rel="stylesheet" type="text/css" href="product-list.css">
 
     <title>Product Detail</title>
 </head>
@@ -31,15 +32,20 @@
                 </a>
             </div>
 
-            <div class="container">
+            <div class="container search-bar">
                 <div class="search-container w-75">
-                    <i class="fas fa-search search-icon"></i>
+                    <a href="search.html">
+                        <i class="fas fa-search search-icon"></i>
+                    </a>
                     <input type="text" class="form-control" id="search-input" placeholder="Search...">
                     <i class="fas fa-times delete-icon" id="delete-icon"></i>
                 </div>
             </div>
 
             <div class="navbar-nav">
+                <a class="nav-item nav-link ms-4" href="product-list.html">
+                    <i class="fa fa-desktop fa-2x text-white"></i>
+                </a>
                 <a class="nav-item nav-link ms-4" href="profile.html">
                     <i class="fas fa-user fa-2x text-white"></i>
                 </a>
@@ -59,11 +65,11 @@
         <div class="row">
             <div class="col-lg-7 " >
               <div class="row"> 
-                <div class="col-lg-7">               
+                <div class="col-lg-7 mt-4 mb-4">               
                  <img src="Images/keyboard/keyboard1.png" alt="AI keyboard" >
                 </div>
 
-                <div class="col-lg-4 ms-5">
+                <div class="col-lg-4 ms-5 mb-4 mt-4">
                    <h2 style="font-size: 28px;color: black;"> AI-Integrated Adaptive <br>Keyboard </h2>
                     <br>
                     <p style="font-size: 18px; color:black">
@@ -78,7 +84,10 @@
                     Learning the users' typing habits optimizes comfort and efficiency. It ensures a unique and personalized typing experience for every individual. Furthermore, the benefits of this keyboard are greater typing speed, accuracy and assistive features for special needs.
                 </p>
                 <br>
-                <p>
+
+             <div class="row"> 
+                <div class="col-lg-7">
+                 <p>
                     Summarization of features of the product：
                     <ul>
                       <li>
@@ -89,16 +98,17 @@
                         <p> Autocorrection</p>
                       </li> 
                     </ul>
-                </p>
-
-                <div id="addToCart">
-                   <button type="button" class="btn btn-danger btn-lg " style="width: 150px;height: 60px;margin-left: 55ex;" onclick="showAlert()">
+                 </p>
+              </div>
+             <div class="col-lg-1">
+                   <button type="button" class="btn btn-danger btn-lg " style="width: 150px;height: 60px;margin-top:95px;margin-left: 130px;" onclick="showAlert()">
                     Add to Cart
                     </button>
-                </div>
+              </div>
             </div>
+           </div>
 
-            <div class="col-lg-4  justify-content-center ms-5 my-4 border-start border-black "  id="Similar">
+            <div class="col-lg-4  justify-content-center ms-5 my-3 border-start border-black "  id="Similar">
                 <p style="text-align: center;font-size: 30px;">
                     Similar Product
                 </p>
@@ -138,49 +148,55 @@
       }
     </script>
 
-    <div class="offcanvas offcanvas-start" id="menu">
-        <div class="offcanvas-header">
-          <h1 class="offcanvas-title">Navigation Menu</h1>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
-        </div>
-        
-        <div class="divider"></div>
-
-        <div class="offcanvas-body">
-            <div class="btn-group-vertical">
-                <div class="dropdown first-dropdown">
-                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
-                    Home
-                    </button>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="home.html">Welcome</a></li>
-                    <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
-                    <li><a class="dropdown-item" href="home.html#about">About us</a></li>
-                    <li><a class="dropdown-item" href="home.html#history">Our History</a></li>
-                    <li><a class="dropdown-item" href="home.html#commitment">Our Commitment</a></li>
-                    <li><a class="dropdown-item" href="home.html#team">Our Team</a></li>
-                    </ul>
-                </div>
-        
-                <div class="dropdown second-dropdown">
-                    <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
-                    Product
-                    </button>
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="product-list.html">Category</a></li>
-                    <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="product-list.html#keyboard">Keyboard</a></li>
-                    <li><a class="dropdown-item" href="product-list.html#mouse">Mouse</a></li>
-                    <li><a class="dropdown-item" href="product-list.html#speaker">Speaker</a></li>
-                    </ul>
-                </div>
-        
-                <button type="button" class="btn contact-button">
-                    <a href="contact.html" class="dropdown-item">Contact Us</a>
-                </button>
+<div class="offcanvas offcanvas-start" id="menu">
+    <div class="offcanvas-header">
+        <div class="d-flex me-3 ms-3">
+            <div class="navbar-brand d-flex">
+                <img src="Images/CompanyIcon.png" width="100" height="100" alt="Logo">
+                <h1 class="text-black ms-3 offcanvas-header">TechTonic</h1>
+                <button type="button" class="btn-close text-reset justify-content-end" data-bs-dismiss="offcanvas"></button>
             </div>
         </div>
     </div>
+    
+    <div class="divider"></div>
+
+    <div class="offcanvas-body">
+        <div class="btn-group-vertical">
+            <div class="dropdown first-dropdown">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                Home
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="home.html">Welcome</a></li>
+                <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
+                <li><a class="dropdown-item" href="home.html#about">About us</a></li>
+                <li><a class="dropdown-item" href="home.html#history">Our History</a></li>
+                <li><a class="dropdown-item" href="home.html#commitment">Our Commitment</a></li>
+                <li><a class="dropdown-item" href="home.html#team">Our Team</a></li>
+                </ul>
+            </div>
+    
+            <div class="dropdown second-dropdown">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                Product
+                </button>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="product-list.html">Category</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="product-list.html#keyboard">Keyboard</a></li>
+                <li><a class="dropdown-item" href="product-list.html#mouse">Mouse</a></li>
+                <li><a class="dropdown-item" href="product-list.html#speaker">Speaker</a></li>
+                </ul>
+            </div>
+    
+            <button type="button" class="btn contact-button">
+                <a href="contact.html" class="dropdown-item">Contact Us</a>
+            </button>
+
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
