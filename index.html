@@ -21,24 +21,26 @@
         <img src="Images/CompanyIcon.png" class="mx-auto d-block mt-3" style="width: 200px; " alt="">
         <h1 class="text-white row justify-content-center" style="font-weight: bold;">TechTonic</h3>
     </div>
-
+    
     <div class="container bg-light p-3 mt-3" style="width:650px; border-radius: 20px;">
- 
+     
             <label for="userName" class="mt-3">Username: </label>
-            <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="User name should more than 3 characters and can contain letters (a-z), numbers (0-9), dashes (-), underscores (_), apostrophes ('), and periods (.)">
+            <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="User name should more than 3 characters and must contain at leat one letters (a-z), numbers (0-9), and symbols such as dashes (-), underscores (_), apostrophes ('), and periods (.)">
                 <i class="fa fa-info-circle"></i>
             </a>
-            <input type="text" class="form-control form-control-lg" id="userName">
+            <input type="text" class="form-control form-control-lg" id="userName" required>
             <label for="password" class="mt-4">Password: </label>
             <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters">
                 <i class="fa fa-info-circle"></i>
             </a>
-            <input type="text" class="form-control form-control-lg " id="password">
+            <input type="text" class="form-control form-control-lg " id="password" required> 
+       
             <div class="d-flex justify-content-center">
                 <button class="btn btn-danger mt-4 submit_button" onclick="validate()" id="login_button">SUBMIT</button>
             </div>
-
+        
     </div>
+    
 
     <!--Div for the digital clock shown-->
     <div id="clockdate">
