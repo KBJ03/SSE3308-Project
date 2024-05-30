@@ -25,3 +25,25 @@
     font-family:arial,sans-serif;
     color:#fff;
 }
+
+.submit_button {
+    border-radius: 25px;
+    font-size: 25px;
+}
+
+.button_link {
+    text-decoration: underline;
+    font-size: 25px;
+    margin-top: -15px;
+}
+
+/*CSS for login page*/
+.other-action{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+ 
+.other-action a{
+    text-decoration: underline;
+}

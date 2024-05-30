@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="product-list.css">   
     <link rel="stylesheet" type="text/css" href="login.css">  
 
-    <title>Login</title>
+    <title>Register</title>
 </head>
 <body onload="startTime()">
     <div class="container ">
@@ -38,9 +38,7 @@
             </a>
             <input type="text" class="form-control form-control-lg " id="confirm">
             <div class="d-flex justify-content-center">
-                <a href="index.html">
-                    <button type="submit" class="btn btn-danger mt-4" style="border-radius: 25px; font-size: 25px;">SUBMIT</button>
-                </a>
+                <button type="submit" class="btn btn-danger mt-4 submit_button" onclick="validate()" id="register_button">SUBMIT</button>
             </div>
 
     </div>
@@ -58,12 +56,13 @@
     </div>
 
     <script>
-        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
-        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-          return new bootstrap.Popover(popoverTriggerEl)
+        document.getElementById('register_button').addEventListener('click', function(){
+            alert('Your registration is successful!\n You can now proceed to log in to the website!');
+            window.location.href = 'index.html';
         })
     </script>
-    <script src="product-list.js"></script>
+
+    <script src="login.js"></script>
     
 </body>
 </html>
