@@ -29,17 +29,6 @@
     margin: 0px 10px;  /* Space around the divider */
 }
 
-/*CSS for login page*/
-.other-action{
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-}
- 
-.other-action a{
-    text-decoration: underline;
-}
-
 .con{
     width: 700px;
     height: 250px;

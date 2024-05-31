@@ -52,6 +52,10 @@
         var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
           return new bootstrap.Popover(popoverTriggerEl)
         })
+        document.getElementById('submit_button').addEventListener('click', function(){
+            alert('Your username and password are correct! \nYou can now log in to the website!');
+            window.location.href = 'home.html';
+        });
     </script>
     <script src="product-list.js"></script>
 
