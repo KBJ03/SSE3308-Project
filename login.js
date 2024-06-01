@@ -4,27 +4,85 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
 
-document.getElementById('login_button').addEventListener('click', function(){
-    alert('Your username and password are correct! \nYou can now log in to the website!');
-    window.location.href = 'home.html';
+var regexDigit=/\d/;
+var regexCharacter=/[a-zA-Z]/;
+var regexSymbol=/[-_'.]/;
+var regexSymbols = /[^a-zA-Z0-9]/;
+var regexCharacterLowerCase=/[a-z]/;
+var regexCharacterUpperCase=/[A-Z]/;
 
-})
+document.getElementById('login_button').addEventListener('click', function(){
+    var userName=document.getElementById("userName").value;
+    var password=document.getElementById("password").value;
+
+    if((userName.length==0) || (password.length==0)){
+      alert('Please enter the user name, password!');
+    }
+    else{
+          if(userName.length>3 && password.length>=10 ){
+             if(regexCharacter.test(userName) && regexDigit.test(userName) && regexSymbol.test(userName)){
+                if(regexDigit.test(password) && regexCharacterLowerCase.test(password) && regexCharacterUpperCase.test(password) && regexSymbols.test(password)){
+                  alert('Your username and password are correct! \nYou can now log in to the website!');
+                  window.location.href = 'home.html';
+                }
+                else{
+                    alert('Please follow the format!');
+                }     
+            }
+             else{
+                alert('Please follow the format!');
+            }
+         }
+         else{
+            alert('Please follow the format!');
+         }
+        }
+         
+    })
 
 function changePassword() {
     const currentPassword = document.getElementById('currentPassword').value;
     const newPassword = document.getElementById('newPassword').value;
     const confirmNewPassword = document.getElementById('confirmNewPassword').value;
 
-    if (newPassword !== confirmNewPassword) {
-        alert('New passwords do not match!');
+    if(currentPassword.length==0 || newPassword.length==0 || confirmNewPassword.length==0){
+        alert('Please enter the password!');
         return;
     }
 
-    // Implement the password change logic here, such as sending an AJAX request to the server
-    alert('Password changed successfully!');
-    var myModalEl = document.getElementById('changePasswordModal');
-    var modal = bootstrap.Modal.getInstance(myModalEl);
-    modal.hide();
+    else{
+      if(currentPassword == newPassword){
+        alert('Current password cannot match to new password!');
+        return;
+      }
+      else{
+        if (newPassword !== confirmNewPassword) {
+          alert('New passwords do not match!');
+          return;
+        }
+        else{
+         if(currentPassword.length>10 && newPassword.length>=10 && confirmNewPassword.length>=10){
+             if(regexDigit.test(currentPassword) && regexCharacterLowerCase.test(currentPassword) && regexCharacterUpperCase.test(currentPassword) && regexSymbols.test(currentPassword)&&
+                regexDigit.test(newPassword) && regexCharacterLowerCase.test(newPassword) && regexCharacterUpperCase.test(newPassword) && regexSymbols.test(newPassword)&&
+                regexDigit.test(confirmNewPassword) && regexCharacterLowerCase.test(confirmNewPassword) && regexCharacterUpperCase.test(confirmNewPassword) && regexSymbols.test(confirmNewPassword)
+             ){
+              alert('Password changed successfully!');
+              var modalElement = document.getElementById('changePasswordModal');
+              var modal = bootstrap.Modal.getInstance(modalElement);
+              modal.hide();
+             }
+             else{
+                 alert('Please follow the format!\n A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters');
+                 return;
+             }     
+          }
+         else{
+          alert('Please follow the format! \n A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters');
+          return;
+         }
+       }
+      }
+    }
 }
 
 /*Javascript for login digital clock */
