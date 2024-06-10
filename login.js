@@ -4,41 +4,78 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
   return new bootstrap.Popover(popoverTriggerEl)
 })
 
-var regexDigit=/\d/;
-var regexCharacter=/[a-zA-Z]/;
-var regexSymbol=/[-_'.]/;
-var regexSymbols = /[^a-zA-Z0-9]/;
-var regexCharacterLowerCase=/[a-z]/;
-var regexCharacterUpperCase=/[A-Z]/;
+// var regexDigit=/\d/;
+// var regexCharacter=/[a-zA-Z]/;
+// var regexSymbol=/[-_'.]/;
+// var regexSymbols = /[^a-zA-Z0-9]/;
+// var regexCharacterLowerCase=/[a-z]/;
+// var regexCharacterUpperCase=/[A-Z]/;
 
-document.getElementById('login_button').addEventListener('click', function(){
-    var userName=document.getElementById("userName").value;
-    var password=document.getElementById("password").value;
 
-    if((userName.length==0) || (password.length==0)){
-      alert('Please enter the user name, password!');
-    }
-    else{
-          if(userName.length>3 && password.length>=10 ){
-             if(regexCharacter.test(userName) && regexDigit.test(userName) && regexSymbol.test(userName)){
-                if(regexDigit.test(password) && regexCharacterLowerCase.test(password) && regexCharacterUpperCase.test(password) && regexSymbols.test(password)){
-                  alert('Your username and password are correct! \nYou can now log in to the website!');
-                  window.location.href = 'home.html';
-                }
-                else{
-                    alert('Please follow the format!');
-                }     
-            }
-             else{
-                alert('Please follow the format!');
-            }
-         }
-         else{
-            alert('Please follow the format!');
-         }
-        }
-         
-    })
+//     function validateInput(){
+  
+//       var userName=document.getElementById("userName").value;
+//       var password=document.getElementById("password").value;
+  
+//       if((userName.length==0) || (password.length==0)){
+//         alert('Please enter the user name, password!');
+//       }
+//       else{
+//             if(userName.length>3 && password.length>=10 ){
+//                if(regexCharacter.test(userName) && regexDigit.test(userName) && regexSymbol.test(userName)){
+//                   if(regexDigit.test(password) && regexCharacterLowerCase.test(password) && regexCharacterUpperCase.test(password) && regexSymbols.test(password)){
+//                     alert('Your username and password are correct! \nYou can now log in to the website!');
+//                     return true;
+//                   }
+//                   else{
+//                       alert('Please follow the format!');
+//                       return false;
+//                   }     
+//               }
+//                else{
+//                   alert('Please follow the format!');
+//                   return false;
+//               }
+//            }
+//            else{
+//               alert('Please follow the format!');
+//               return false;
+//            }
+//           }
+           
+//       }
+
+
+//       document.getElementById('login_button').addEventListener('click', function(){
+  
+//         var userName=document.getElementById("userName").value;
+//         var password=document.getElementById("password").value;
+    
+//         if((userName.length==0) || (password.length==0)){
+//           alert('Please enter the user name, password!');
+//         }
+//         else{
+//               if(userName.length>3 && password.length>=10 ){
+//                  if(regexCharacter.test(userName) && regexDigit.test(userName) && regexSymbol.test(userName)){
+//                     if(regexDigit.test(password) && regexCharacterLowerCase.test(password) && regexCharacterUpperCase.test(password) && regexSymbols.test(password)){
+//                       alert('Your username and password are correct! \nYou can now log in to the website!');
+//                       //window.location.href = 'home.html';
+//                     }
+//                     else{
+//                         alert('Please follow the format!');
+//                     }     
+//                 }
+//                  else{
+//                     alert('Please follow the format!');
+//                 }
+//              }
+//              else{
+//                 alert('Please follow the format!');
+//              }
+//             }
+             
+//         })
+    
 
 function changePassword() {
     const currentPassword = document.getElementById('currentPassword').value;
