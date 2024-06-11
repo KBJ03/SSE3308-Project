@@ -12,22 +12,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $regexCharacterUpperCase = '/[A-Z]/';
 
     if (empty($username) || empty($password)) {
-        echo "<script>alert('Please enter the user name and password!'); window.location.href = '../index.html';</script>";
+        echo "<script>alert('Please enter the user name and password!'); window.location.href = '../register.html';</script>";
         exit; // Stop script execution
     }
 
     if (strlen($username) <= 3 || strlen($password) < 10) {
-        echo "<script>alert('Please follow the format!'); window.location.href = '../index.html';</script>";
+        echo "<script>alert('Please follow the format!'); window.location.href = '../register.html';</script>";
         exit; // Stop script execution
     }
 
     if (!preg_match($regexCharacter, $username) || !preg_match($regexDigit, $username) || !preg_match($regexSymbol, $username)) {
-        echo "<script>alert('Please follow the format!'); window.location.href = '../index.html';</script>";
+        echo "<script>alert('Please follow the format!'); window.location.href = '../register.html';</script>";
         exit; // Stop script execution
     }
 
     if (!preg_match($regexDigit, $password) || !preg_match($regexCharacterLowerCase, $password) || !preg_match($regexCharacterUpperCase, $password) || !preg_match($regexSymbols, $password)) {
-        echo "<script>alert('Please follow the format!'); window.location.href = '../index.html';</script>";
+        echo "<script>alert('Please follow the format!'); window.location.href = '../register.html';</script>";
         exit; // Stop script execution
     }
 
