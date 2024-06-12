@@ -1,12 +1,8 @@
 <?php
 
-// $dsn = "mysql:dbname=id22296644_webproject;host=mysql5.000webhost.com";
-// $dbusername = "id22296644_root";
-// $dbpassword = "webProject123!";
-
-$dsn = "mysql:host=localhost;dbname=webproject";
-$dbusername = "root";
-$dbpassword = ""; 
+$dsn = "mysql:dbname=id22296644_webproject;host=mysql5.000webhost.com";
+$dbusername = "id22296644_root";
+$dbpassword = "webProject123!";
 
 try {
     $pdo = new PDO($dsn, $dbusername, $dbpassword);
@@ -16,5 +12,8 @@ try {
     echo "Connection failed: " . $e->getMessage();
 }
 
-
-
+/*
+$dsn = "mysql:host=localhost;dbname=setyourself";
+$dbusername = "root";
+$dbpassword = ""; 
+*/
