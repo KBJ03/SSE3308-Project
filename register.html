@@ -15,54 +15,76 @@
     <title>Register</title>
 </head>
 <body onload="startTime()">
-    <div class="container ">
-        <img src="Images/CompanyIcon.png" class="mx-auto d-block mt-3" style="width: 200px; " alt="">
-        <h1 class="text-white row justify-content-center" style="font-weight: bold;">TechTonic</h3>
+    <div class="container text-center">
+        <img src="Images/CompanyIcon.png" class="mx-auto d-block mt-3" style="width: 200px;" alt="Company Icon">
+        <h1 class="text-white mt-3" style="font-weight: bold;">TechTonic</h1>
     </div>
 
     <div class="container bg-light p-3 mt-2" style="width:650px; border-radius: 20px;">
-
         <form action="php_part/register.php" method="post">
-            <label for="userName" class="mt-3">Username: </label>
-            <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="User name should more than 3 characters and must contain at leat one letters (a-z), numbers (0-9), and symbols such as dashes (-), underscores (_), apostrophes ('), and periods (.)">
-                <i class="fa fa-info-circle"></i>
-            </a>
-            <input type="text" class="form-control" id="userName" name="userName" pattern="[a-zA-z0-9-_'.]{3-12}" required>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="userName" class="mt-3">Username:</label>
+                    <a href="#" title="Rules" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="User name should be more than 3 characters and must contain at least one letter (a-z), numbers (0-9), and symbols such as dashes (-), underscores (_), apostrophes ('), and periods (.)">
+                        <i class="fa fa-info-circle"></i>
+                    </a>
+                    <input type="text" class="form-control" id="userName" name="userName" pattern="[a-zA-Z0-9-_'.]{3,12}" required>
+                </div>
+            </div>
 
-            <label for="password" class="mt-4">Password: </label>
-            <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters">
-                <i class="fa fa-info-circle"></i>
-            </a>
-            <input type="password" class="form-control" id="password" name="password" pattern="[a-zA-z0-9-_'.]{3-12}" required>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="email" class="mt-3">Email</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                </div>
+                <div class="col-md-6">
+                    <label for="phone" class="mt-3">Phone</label>
+                    <input type="tel" class="form-control" id="phone" name="phone">
+                </div>
+            </div>
 
-            <label for="confirm" class="mt-4">Confirm Password: </label>
-            <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Password for two text form field must be same">
-                <i class="fa fa-info-circle"></i>
-            </a>
-            <input type="password" class="form-control" id="confirm" name="confirm">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="gender" class="mt-3">Gender</label>
+                    <select class="form-select" id="editGender" name="gender">
+                        <option value="" selected>Please Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label for="birthday" class="mt-3">Birthday</label>
+                    <input type="date" class="form-control" id="birthday" name="birthday">
+                </div>
+                
+            </div>
 
-            <label for="gender" class="form-label mt-4">Gender</label>
-            <select class="form-select form-control-lg" id="editGender" name="gender">
-                <option value="male" selected>Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-            </select>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="password" class="mt-3">Password:</label>
+                    <a href="#" title="Rules" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters">
+                        <i class="fa fa-info-circle"></i>
+                    </a>
+                    <input type="password" class="form-control" id="password" name="password" pattern=".{10,}" required>
+                </div>
+            </div>
 
-            <label for="birthday" class="form-label mt-4">Birthday</label>
-            <input type="date" class="form-control" id="birthday" name="birthday">
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="confirm" class="mt-3">Confirm Password:</label>
+                    <a href="#" title="Rules" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Password for the two text form fields must be the same">
+                        <i class="fa fa-info-circle"></i>
+                    </a>
+                    <input type="password" class="form-control" id="confirm" name="confirm" required>
+                </div>
+            </div>
 
-            <label for="phone" class="form-label mt-4">Phone</label>
-            <input type="tel" class="form-control" id="phone" name="phone">
 
-            <label for="email" class="form-label mt-4">Email</label>
-            <input type="email" class="form-control" id="email" name="email">
-                                        
-             <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-danger mt-4 submit_button" onclick="validate()" id="register_button">SUBMIT</button>
             </div>
-            
         </form>
-
     </div>
 
     <div id="clockdate">
@@ -72,8 +94,8 @@
         </div>
     </div>
 
-    <div class="other-action">
-        <p class="text-white mx-2">Already have an account?</p>
+    <div class="other-action text-center mt-3">
+        <p class="text-white">Already have an account?</p>
         <a href="index.html">Login Here</a>
     </div>
 
@@ -110,6 +132,5 @@
     </div>
 
     <script src="login.js"></script>
-    
 </body>
 </html>
