@@ -111,7 +111,7 @@ for(let j = 0 ; j<6; j++){
 const rangeInput = document.querySelectorAll(".range-input input"),
   priceInput = document.querySelectorAll(".price-input input"),
   range = document.querySelector(".slider .progress");
-let priceGap = 1000;
+let priceGap = 100;
 
 priceInput.forEach((input) => {
   input.addEventListener("input", (e) => {

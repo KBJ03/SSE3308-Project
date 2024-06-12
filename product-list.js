@@ -132,15 +132,20 @@ for(let i = 0 ; i<3 ; i++){
     }
 }
 
-
-/*Javascript for navigation side menu */
-const first_dropdown = document.getElementById('first-dropdown');
-const second_dropdown = document.getElementById('second-dropdown');
-
-first_dropdown.addEventListener('mouseenter', function() {
-  second_dropdown.classList.add('marginTop');
-});
-
-first_dropdown.addEventListener('mouseleave', function() {
-  second_dropdown.classList.remove('marginTop');
+document.addEventListener('DOMContentLoaded', function() {
+  fetch('/webProject/php_part/getData.php')
+      .then(response => response.json())
+      .then(data => {
+          if (data.success) {
+              let resultHTML = '<p>';
+              data.results.forEach(item => {
+                  resultHTML += `${item.name} - ${item.price}`;
+              });
+              resultHTML += '</p>';
+              document.getElementById('try').innerHTML = resultHTML;
+          } else {
+              document.getElementById('try').innerText = 'No data found or an error occurred';
+          }
+      })
+      .catch(error => console.error('Error:', error));
 });

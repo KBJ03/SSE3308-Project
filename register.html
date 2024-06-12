@@ -22,24 +22,46 @@
 
     <div class="container bg-light p-3 mt-2" style="width:650px; border-radius: 20px;">
 
+        <form action="php_part/register.php" method="post">
             <label for="userName" class="mt-3">Username: </label>
             <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="User name should more than 3 characters and must contain at leat one letters (a-z), numbers (0-9), and symbols such as dashes (-), underscores (_), apostrophes ('), and periods (.)">
                 <i class="fa fa-info-circle"></i>
             </a>
-            <input type="text" class="form-control form-control-lg" id="userName" pattern="[a-zA-z0-9-_'.]{3-12}" required>
+            <input type="text" class="form-control" id="userName" name="userName" pattern="[a-zA-z0-9-_'.]{3-12}" required>
+
             <label for="password" class="mt-4">Password: </label>
             <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters">
                 <i class="fa fa-info-circle"></i>
             </a>
-            <input type="password" class="form-control form-control-lg " id="password" pattern="[a-zA-z0-9-_'.]{3-12}" required>
+            <input type="password" class="form-control" id="password" name="password" pattern="[a-zA-z0-9-_'.]{3-12}" required>
+
             <label for="confirm" class="mt-4">Confirm Password: </label>
             <a href="#" title="Rules"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="Password for two text form field must be same">
                 <i class="fa fa-info-circle"></i>
             </a>
-            <input type="password" class="form-control form-control-lg " id="confirm">
-            <div class="d-flex justify-content-center">
+            <input type="password" class="form-control" id="confirm" name="confirm">
+
+            <label for="gender" class="form-label mt-4">Gender</label>
+            <select class="form-select form-control-lg" id="editGender" name="gender">
+                <option value="male" selected>Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <label for="birthday" class="form-label mt-4">Birthday</label>
+            <input type="date" class="form-control" id="birthday" name="birthday">
+
+            <label for="phone" class="form-label mt-4">Phone</label>
+            <input type="tel" class="form-control" id="phone" name="phone">
+
+            <label for="email" class="form-label mt-4">Email</label>
+            <input type="email" class="form-control" id="email" name="email">
+                                        
+             <div class="d-flex justify-content-center">
                 <button type="submit" class="btn btn-danger mt-4 submit_button" onclick="validate()" id="register_button">SUBMIT</button>
             </div>
+            
+        </form>
 
     </div>
 
@@ -55,49 +77,37 @@
         <a href="index.html">Login Here</a>
     </div>
 
-    <script>
-        var regexDigit=/\d/;
-        var regexCharacter=/[a-zA-Z]/;
-        var regexSymbol=/[-_'.]/;
-        var regexSymbols = /[^a-zA-Z0-9]/;
-        var regexCharacterLowerCase=/[a-z]/;
-        var regexCharacterUpperCase=/[A-Z]/;
-       
-        document.getElementById('register_button').addEventListener('click', function(){
-            var userName=document.getElementById("userName").value;
-            var password=document.getElementById("password").value;
-            var confirm=document.getElementById("confirm").value;
-
-            if((userName.length==0) || (password.length==0) || (confirm.length==0)){
-              alert('Please enter the user name, password and confirm password!');
-            }
-            else{
-                if(password==confirm){
-                    if(userName.length>3 && password.length>=10 ){
-                     if(regexCharacter.test(userName) && regexDigit.test(userName) && regexSymbol.test(userName)){
-                        if(regexDigit.test(password) && regexCharacterLowerCase.test(password) && regexCharacterUpperCase.test(password) && regexSymbols.test(password)){
-                            alert('Your registration is successful!\n You can now proceed to log in to the website!');
-                            window.location.href = 'index.html'; 
-                        }
-                        else{
-                            alert('Please follow the format!');
-                        }     
-                    }
-                     else{
-                        alert('Please follow the format!');
-                    }
-                 }
-                 else{
-                    alert('Please follow the format!');
-                 }
-                }
-                else{
-                    alert('New passwords do not match!');
-                }
-                 
-            }
-        })
-    </script>
+    <!--Div for the reset password model--> 
+    <div class="modal fade" id="profileInformation" tabindex="-1" aria-labelledby="changePasswordModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="changePasswordModalLabel">Change Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="changePasswordForm">
+                        <div class="mb-3">
+                            <label for="currentPassword" class="form-label">Current Password</label>
+                            <input type="password" class="form-control" id="currentPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="newPassword" class="form-label">New Password</label>
+                            <input type="password" class="form-control" id="newPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
+                            <input type="password" class="form-control" id="confirmNewPassword" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" onclick="changePassword()">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="login.js"></script>
     
