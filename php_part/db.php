@@ -13,7 +13,7 @@ try {
 }
 
 /*
-$dsn = "mysql:host=mysql5.000webhost.com;dbname=setyourself";
+$dsn = "mysql:host=localhost;dbname=setyourself";
 $dbusername = "root";
 $dbpassword = ""; 
 */
