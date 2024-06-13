@@ -32,3 +32,12 @@ const dots = [];
       }
 
       setInterval(draw, 10);
+
+
+
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('MemberID');
+      console.log(name);
+
+      const form = document.getElementById('contactForm');
+      form.action = '/webProject/php_part/contact.php?MemberID=' + name;

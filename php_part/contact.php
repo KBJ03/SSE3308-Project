@@ -7,16 +7,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve the form data
     $subject = $_POST['subject'];
     $feedback = $_POST['feedback'];
+    $memberID = $GET['MemberID'];
 
     // Validate the form data (optional but recommended)
     if (!empty($subject) && !empty($feedback)) {
         try {
             // Prepare an SQL statement to insert the data
-            $stmt = $pdo->prepare("INSERT INTO Contact (MemberID, Subject, Feedback) VALUES (:Subject, :Feedback)");
+            $stmt = $pdo->prepare("INSERT INTO Contact (MemberID, Subject, Feedback) VALUES (:MemberID, :Subject, :Feedback)");
             
             // Bind parameters to the SQL query
             $stmt->bindParam(':Subject', $subject);
             $stmt->bindParam(':Feedback', $feedback);
+            $stmt->bindParam(':MemberID', $memberID);
 
             // Execute the statement
             $stmt->execute();
