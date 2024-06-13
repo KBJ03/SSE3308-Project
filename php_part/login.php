@@ -34,7 +34,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     try {
         require_once "db.php";
-        $query = "SELECT * FROM user WHERE name = ?";
+        $query = "SELECT MemberID, Username, Password FROM User WHERE Username = ?";
         
         $stmt = $pdo->prepare($query);
         $stmt->execute([$username]);
@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo "<script>alert('Authentication failed. The username does not exist');</script>";
             echo "<script>window.location = '../index.html';</script>"; 
         }else{
-            $passwordDB = $result[0]["password"];
+            $passwordDB = $result[0]["Password"];
             if($password == $passwordDB){  
                 $ID = $result[0]["MemberID"];
                 $url = "Location: ../home.html?MemberID=$ID";
