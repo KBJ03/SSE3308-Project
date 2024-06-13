@@ -46,8 +46,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         }else{
             $passwordDB = $result[0]["password"];
             if($password == $passwordDB){  
-                $name = $result[0]["name"];
-                $url = "Location: ../home.html?name=$name";
+                $ID = $result[0]["MemberID"];
+                $url = "Location: ../home.html?MemberID=$ID";
                 header($url);
             }else{
                 echo "<script>alert('Authentication failed. The username and password are not match');</script>";

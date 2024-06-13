@@ -258,7 +258,7 @@
                 </div>
         
                 <button type="button" class="btn contact-button mt-autp">
-                    <a href="contact.html" class="dropdown-item">Contact Us</a>
+                    <a href="contact.html" class="dropdown-item" id="linkContact">Contact Us</a>
                 </button>
 
             </div>
@@ -304,8 +304,11 @@
         updateText();
 
         const params = new URLSearchParams(window.location.search);
-        const name = params.get('name');
+        const name = params.get('MemberID');
         console.log(name);
+
+        const linkContact = Document.getElementById('linkContact');
+        linkContact.href = 'contact.html?MemberID=' + name;
     </script>
 
 </body>
