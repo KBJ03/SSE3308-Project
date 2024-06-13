@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve the form data
     $subject = $_POST['subject'];
     $feedback = $_POST['feedback'];
-    $memberID = $GET['MemberID'];
+    $memberID = $_GET['MemberID'];
 
     // Validate the form data (optional but recommended)
     if (!empty($subject) && !empty($feedback)) {
