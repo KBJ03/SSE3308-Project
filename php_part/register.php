@@ -3,6 +3,10 @@
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $username = $_POST["userName"];
     $password = $_POST["password"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $gender = $_POST["gender"];
+    $birthday = $_POST["birthday"];
 
     $regexDigit = '/\d/';
     $regexCharacter = '/[a-zA-Z]/';
@@ -33,20 +37,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     try {
         require_once "db.php";
-        $query = "INSERT INTO user (name, password) VALUES (?, ?)";
+        $query = "INSERT INTO User (Username, Password, Email, Phone, Gender, Birthday) VALUES (?, ?, ?, ?, ?, ?)";
         
         $stmt = $pdo->prepare($query);
-        $stmt->execute([$username, $password]);
+        $stmt->execute([$username, $password, $email, $phone, $gender, $birthday]);
 
         $pdo = null;
         $stmt = null;
-        echo "<script>alert('Your username and password are correct! You can now log in to the website!'); window.location.href = '../index.html';</script>";
+        echo "<script>alert('Your registration is successful! You are able to enter the website'); window.location.href = '../home.html';</script>";
 
-        header("Location: ../home.html");
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
     }
 
 } else{
-    header("Location: ../contact.html");
+    header("Location: ../index.html");
 }

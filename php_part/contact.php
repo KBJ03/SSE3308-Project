@@ -1,7 +1,6 @@
 <?php
 // Include the database connection file
 require_once 'db.php';
-
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve the form data
@@ -23,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Execute the statement
             $stmt->execute();
 
-            echo "New feedback submitted successfully";
+            echo "<script>alert('Your feedback are accepted successfully!'); window.location.href = '../contact.html?MemberID=$memberID';</script>";
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
@@ -31,4 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Please fill in all fields.";
     }
 }
+
+echo "New feedback submitted successfully";
 ?>
