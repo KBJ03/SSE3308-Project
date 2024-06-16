@@ -1,3 +1,9 @@
+const params1 = new URLSearchParams(window.location.search);
+const memberId = params1.get('MemberID');
+
+const params2 = new URLSearchParams(window.location.search);
+const itemId = params2.get('ItemID');
+
 const keyboard = document.getElementById('keyboard');
 const mouse = document.getElementById('mouse');
 const speaker = document.getElementById('speaker');
@@ -76,7 +82,7 @@ for(let i = 0 ; i<3 ; i++){
         buttonDiv.classList.add('d-flex', 'justify-content-between');
 
         const link = document.createElement('a');
-        link.href = "product detail.html"; 
+        link.href = 'product detail.html?MemberID=' + memberId + '&ItemId=' + itemId;
         link.style.textDecoration = 'none';
         const detail_button = document.createElement('button');
         const detail_button2 = document.createElement('button');

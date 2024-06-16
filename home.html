@@ -41,7 +41,7 @@
             </div>
 
             <div class="navbar-nav">
-                <a class="nav-item nav-link ms-4" href="product-list.html">
+                <a class="nav-item nav-link ms-4" href="product-list.html" id="navProduct">
                     <i class="fa fa-desktop fa-2x text-white"></i>
                 </a>
                 <a class="nav-item nav-link ms-4" href="profile.html">
@@ -258,7 +258,7 @@
                 </div>
         
                 <button type="button" class="btn contact-button mt-autp">
-                    <a href="contact.html" class="dropdown-item" id="linkContact">Contact Us</a>
+                    <a href="contact.html" class="dropdown-item" id="modalContact">Contact Us</a>
                 </button>
 
             </div>
@@ -302,14 +302,8 @@
 
         // Initialize with the first text
         updateText();
-
-        const params = new URLSearchParams(window.location.search);
-        const name = params.get('MemberID');
-        console.log(name);
-
-        const linkContact = document.getElementById('linkContact');
-        linkContact.href = 'contact.html?MemberID=' + name;
     </script>
+    <script src="link.js"></script>
 
 </body>
 </html>
