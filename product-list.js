@@ -22,7 +22,7 @@ const price = [["$100.99", "$120.49", "$80.99", "$150.00", "$99.99", "$110.75"],
   ["$200.99", "$180.49", "$250.79", "$300.00", "$220.99", "$195.75"]
 ];
 
-const id = [["Item ID: KB-AI001", "Item ID: KB-ME002", "Item ID: KB-WE003", "Item ID: KB-RG004", "Item ID: KB-UP005", "Item ID: KB-CM006"],
+const id1 = [["Item ID: KB-AI001", "Item ID: KB-ME002", "Item ID: KB-WE003", "Item ID: KB-RG004", "Item ID: KB-UP005", "Item ID: KB-CM006"],
 ["Item ID: MS-OPT001", "Item ID: MS-WRL002", "Item ID: MS-GAM003", "Item ID: MS-ERG004", "Item ID: MS-TRK005", "Item ID: MS-VRT006"],
 ["Item ID: SP-BTH001", "Item ID: SP-PRT002", "Item ID: SP-WRL003", "Item ID: SP-DKT004", "Item ID: SP-BKS005", "Item ID: SP-SMT006"]
 ];

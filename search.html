@@ -24,7 +24,7 @@
             </div>
             
             <div class="d-flex me-3 ms-3">
-                <a class="navbar-brand d-flex" href="home.html">
+                <a class="navbar-brand d-flex" id="logoHome">
                     <img src="Images/CompanyIcon.png" width="50" height="50" alt="Logo">
                     <h1 class="text-white ms-2">TechTonic</h1>
                 </a>
@@ -41,13 +41,13 @@
             </div>
 
             <div class="navbar-nav">
-                <a class="nav-item nav-link ms-4" href="product-list.html">
+                <a class="nav-item nav-link ms-4" id="navProduct">
                     <i class="fa fa-desktop fa-2x text-white"></i>
                 </a>
-                <a class="nav-item nav-link ms-4" href="profile.html">
+                <a class="nav-item nav-link ms-4" id="navProfile">
                     <i class="fas fa-user fa-2x text-white"></i>
                 </a>
-                <a class="nav-item nav-link ms-4" href="cart.html">
+                <a class="nav-item nav-link ms-4" id="navCart">
                     <span class="fas fa-shopping-cart fa-2x text-white"></span>
                 </a>
                 <a class="nav-item nav-link ms-4" href="index.html">
@@ -56,7 +56,6 @@
             </div>
         </div>
     </nav>
-
     <div class="row">
         <div class="col-3">
             <div class="container-fluid m-5" style="background-color: grey; border-radius: 20px;">
@@ -143,30 +142,30 @@
                     Home
                     </button>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="home.html">Welcome</a></li>
-                    <li><a class="dropdown-item" href="home.html#announcement">Announcement</a></li>
-                    <li><a class="dropdown-item" href="home.html#about">About us</a></li>
-                    <li><a class="dropdown-item" href="home.html#history">Our History</a></li>
-                    <li><a class="dropdown-item" href="home.html#commitment">Our Commitment</a></li>
-                    <li><a class="dropdown-item" href="home.html#team">Our Team</a></li>
+                    <li><a class="dropdown-item" id="modalHome">Welcome</a></li>
+                    <li><a class="dropdown-item" id="modalHomeAnnouncement">Announcement</a></li>
+                    <li><a class="dropdown-item" id="modalHomeAbout">About us</a></li>
+                    <li><a class="dropdown-item" id="modalHomeHistory">Our History</a></li>
+                    <li><a class="dropdown-item" id="modalHomeCommitment">Our Commitment</a></li>
+                    <li><a class="dropdown-item" id="modalHomeTeam">Our Team</a></li>
                     </ul>
                 </div>
         
-                <div class="dropdown second-dropdown">
+                <div class="dropdown second-dropdown mt-auto">
                     <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
                     Product
                     </button>
                     <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="product-list.html">Category</a></li>
+                    <li><a class="dropdown-item" id="modalProduct">Category</a></li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><a class="dropdown-item" href="product-list.html#keyboard">Keyboard</a></li>
-                    <li><a class="dropdown-item" href="product-list.html#mouse">Mouse</a></li>
-                    <li><a class="dropdown-item" href="product-list.html#speaker">Speaker</a></li>
+                    <li><a class="dropdown-item" id="modalKeyboard">Keyboard</a></li>
+                    <li><a class="dropdown-item" id="modalMouse">Mouse</a></li>
+                    <li><a class="dropdown-item" id="modalSpeaker">Speaker</a></li>
                     </ul>
                 </div>
         
-                <button type="button" class="btn contact-button">
-                    <a href="contact.html" class="dropdown-item">Contact Us</a>
+                <button type="button" class="btn contact-button mt-autp">
+                    <a class="dropdown-item" id="modalContact">Contact Us</a>
                 </button>
 
             </div>
@@ -174,6 +173,8 @@
     </div>
 
     <script src="search.js"></script>
+    <script src="link.js"></script>
+
 
 </body>
 </html>
