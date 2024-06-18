@@ -1,7 +1,7 @@
 <?php
     try {
         require_once "db.php";
-        $query = "SELECT * FROM product;";
+        $query = "SELECT * FROM Product;";
         
         $stmt = $pdo->prepare($query);
         $stmt->execute();

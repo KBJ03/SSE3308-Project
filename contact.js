@@ -33,10 +33,3 @@ const dots = [];
 
       setInterval(draw, 10);
 
-
-const params = new URLSearchParams(window.location.search);
-const id = params.get('MemberID');
-console.log(id);
-
-const form = document.getElementById('contactForm');
-form.action = '/php_part/contact.php?MemberID=' + id;
