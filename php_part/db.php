@@ -1,6 +1,6 @@
 <?php
 
-$dsn = "mysql:dbname=id22296644_webproject;host=mysql5.000webhost.com";
+$dsn = "mysql:dbname=id22296644_webproject;host=localhost";
 $dbusername = "id22296644_root";
 $dbpassword = "webProject123!";
 
