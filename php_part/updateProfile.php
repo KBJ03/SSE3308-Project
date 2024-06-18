@@ -1,82 +1,43 @@
 <?php
+
 // Include the database connection file
-require_once "db.php";
+include 'db.php';
 
-// Check if form data was submitted
+// update_account.php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $profileData = [
-        'username' => $_POST["username"],
-        'email' => $_POST["email"],
-        'phone' => $_POST["phone"]
-    ];
-
-    $shippingData = [
-        'name' => $_POST["shipping_name"],
-        'phone' => $_POST["shipping_phone"],
-        'address' => $_POST["shipping_address"],
-        'postal_code' => $_POST["shipping_postal_code"],
-        'remark' => $_POST["shipping_remark"]
-    ];
-
-    $paymentData = [
-        'payment_method' => $_POST["payment_method"],
-        'card_number' => $_POST["card_number"]
-    ];
-
+    
+    
+    // Get form data
+    $username = $_POST['username'];
+    $memberId = $_POST['memberId'];
+    $gender = $_POST['gender'];
+    $birthday = $_POST['birthday'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    
+    // Update query
+    $sql = "UPDATE user SET username = :username, gender = :gender, birthday = :birthday, phone = :phone, `Email Address` = :email WHERE memberId = :memberId";
     try {
-        // Start a transaction
-        $pdo->beginTransaction();
+        // Prepare statement
+        $stmt = $pdo->prepare($sql);
 
-        // Update profile information
-        $profileQuery = "UPDATE user SET username = :username, email = :email, phone = :phone WHERE user_id = :user_id";
-        $profileStmt = $pdo->prepare($profileQuery);
-        $profileStmt->bindParam(':username', $profileData['username']);
-        $profileStmt->bindParam(':email', $profileData['email']);
-        $profileStmt->bindParam(':phone', $profileData['phone']);
-        $profileStmt->bindParam(':user_id', $_SESSION['user_id']);
-        $profileStmt->execute();
+        // Bind parameters
+        $stmt->bindParam(':username', $username);
+        $stmt->bindParam(':memberId', $memberId);
+        $stmt->bindParam(':gender', $gender);
+        $stmt->bindParam(':birthday', $birthday);
+        $stmt->bindParam(':phone', $phone);
+        $stmt->bindParam(':email', $email);
 
-        // Update shipping information
-        $shippingQuery = "UPDATE shipping SET name = :name, phone = :phone, address = :address, postal_code = :postal_code, remark = :remark WHERE user_id = :user_id";
-        $shippingStmt = $pdo->prepare($shippingQuery);
-        $shippingStmt->bindParam(':name', $shippingData['name']);
-        $shippingStmt->bindParam(':phone', $shippingData['phone']);
-        $shippingStmt->bindParam(':address', $shippingData['address']);
-        $shippingStmt->bindParam(':postal_code', $shippingData['postal_code']);
-        $shippingStmt->bindParam(':remark', $shippingData['remark']);
-        $shippingStmt->bindParam(':user_id', $_SESSION['user_id']);
-        $shippingStmt->execute();
+        // Execute the query
+        $stmt->execute();
 
-        // Update payment information
-        $paymentQuery = "UPDATE payment SET payment_method = :payment_method, card_number = :card_number WHERE user_id = :user_id";
-        $paymentStmt = $pdo->prepare($paymentQuery);
-        $paymentStmt->bindParam(':payment_method', $paymentData['payment_method']);
-        $paymentStmt->bindParam(':card_number', $paymentData['card_number']);
-        $paymentStmt->bindParam(':user_id', $_SESSION['user_id']);
-        $paymentStmt->execute();
-
-        // Commit the transaction
-        $pdo->commit();
-
-        echo json_encode([
-            'success' => true,
-            'message' => 'Profile, shipping, and payment information updated successfully'
-        ]);
+        echo "Record updated successfully";
     } catch (PDOException $e) {
-        // Rollback the transaction if an error occurs
-        $pdo->rollBack();
-
-        echo json_encode([
-            'success' => false,
-            'message' => 'Database error: ' . $e->getMessage()
-        ]);
+        echo "Error updating record: " . $e->getMessage();
     }
-} else {
-    // If the request method is not POST, return an error
-    echo json_encode([
-        'success' => false,
-        'message' => 'Invalid request method'
-    ]);
+
+    // Close the connection
+    $pdo = null;
 }
 ?>

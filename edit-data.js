@@ -1,111 +1,126 @@
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/Group%20Project/php_part/getProfile.php') // Adjust the ID parameter as necessary
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('editUserName').value = data.profile[0]["Username"];
+                document.getElementById('editMemberId').value = data.profile[0]["MemberID"];
+                document.getElementById('editGender').value = data.profile[0]["Gender"];
+                document.getElementById('birthday').value = data.profile[0]["Birthday"];
+                document.getElementById('phone').value = data.profile[0]["Phone"];
+                document.getElementById('email').value = data.profile[0]["Email Address"];
+
+                var genderInput = document.getElementById('editGender');
+                var selectedGender = data.profile[0]["Gender"].toLowerCase();
+                genderInput.value = selectedGender;
+
+            } else {
+                console.error('Error fetching profile information:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+});
 
 function editAccount(event) {
     event.preventDefault();
-    var userName = document.getElementById("editUserName").value;
-    var memberId = document.getElementById("EditMemberId").value;
-    var gender = document.getElementById("editGender").value;
-    var date = document.getElementById("birthday").value;
-    var phone = document.getElementById("phone").value;
-    var email = document.getElementById("email").value;
-
-    fetch('updateProfile.php', {
+    const formData = new FormData(document.getElementById('editAccountForm'));
+    
+    const genderInput = document.getElementById('editGender');
+    const capitalizedGender = genderInput.value.charAt(0).toUpperCase() + genderInput.value.slice(1);
+    formData.set('gender', capitalizedGender);
+    
+    fetch('/Group%20Project/php_part/updateProfile.php', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            username: userName,
-            memberId: memberId,
-            gender: gender,
-            birthday: date,
-            phone: phone,
-            email: email
-        })
+        body: formData
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
-        if (data.success) {
-            // Update the UI with the updated profile information
-            document.getElementById('user').textContent = userName;
-            document.getElementById('id').textContent = memberId;
-            document.getElementById('Gender').textContent = gender;
-            document.getElementById('date').textContent = date;
-            document.getElementById('phoneNumber').textContent = phone;
-            document.getElementById('email-address').textContent = email;
-        } else {
-            console.error('Error updating profile:', data.message);
-        }
+        alert(data);
+        window.location.reload();
     })
     .catch(error => {
-        console.error('Fetch error:', error);
+        alert('An error occurred: ' + error);
     });
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/Group%20Project/php_part/getProfile.php') // Adjust the ID parameter as necessary
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                document.getElementById('shipping-name').value = data.shipping[0]["Name"];
+                document.getElementById('shipping-phone').value = data.shipping[0]["Phone"];
+                document.getElementById('shipping-address').value = data.shipping[0]["Address"];
+                document.getElementById('shipping-postal').value = data.shipping[0]["Postal Code"];
+                document.getElementById('shipping-remark').value = data.shipping[0]["Remark"];
+            } else {
+                console.error('Error fetching profile information:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+});
 
 function editShipping(event) {
     event.preventDefault();
-    var name = document.getElementById("shipping-name").value;
-    var phone = document.getElementById("shipping-phone").value;
-    var address = document.getElementById("shipping-address").value;
-    var postal = document.getElementById("shipping-postal").value;
-    var remark = document.getElementById("shipping-remark").value;
+    const formData = new FormData(document.getElementById('editShippingForm'));
 
-    fetch('updateProfile.php', {
+    fetch('/Group%20Project/php_part/updateShipping.php', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            name: name,
-            phone: phone,
-            address: address,
-            postal: postal,
-            remark: remark
-        })
+        body: formData
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
-        if (data.success) {
-            // Update the UI with the updated shipping information
-            document.getElementById('name').textContent = name;
-            document.getElementById('number').textContent = phone;
-            document.getElementById('address').textContent = address;
-            document.getElementById('postalCode').textContent = postal;
-            document.getElementById('remark').textContent = remark;
-        } else {
-            console.error('Error updating shipping information:', data.message);
-        }
+        alert(data);
+        window.location.reload();
     })
     .catch(error => {
-        console.error('Fetch error:', error);
+        alert('An error occurred: ' + error);
     });
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('/Group%20Project/php_part/getProfile.php') // Adjust the ID parameter as necessary
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                let paymentMethod = data.payment[0]["Payment Method"];
+                document.getElementById('payment-method').value = paymentMethod;
+
+                let cardNumber = data.payment[0]["Card Number"];
+                let formattedCardNumber = cardNumber.replace(/(.{4})/g, '$1 ').trim();
+                let maskedCardNumber = formattedCardNumber.split(' ').map((part, index) => {
+                    return index < 3 ? '****' : part;
+                }).join(' ');
+                document.getElementById('card-number').value = maskedCardNumber;
+
+            } else {
+                console.error('Error fetching profile information:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+});
+
 function editPayment(event) {
     event.preventDefault();
-    var payment = document.getElementById("payment-method").value;
-    var card = document.getElementById("card-number").value;
-
-    fetch('updateProfile.php', {
+    const formData = new FormData(document.getElementById('editPaymentForm'));
+    
+    fetch('/Group%20Project/php_part/updatePayment.php', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            payment: payment,
-            card: card
-        })
+        body: formData
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
-        if (data.success) {
-            // Update the UI with the updated payment information
-            document.getElementById('paymentMethod').textContent = payment;
-            document.getElementById('card').textContent = card;
-        } else {
-            console.error('Error updating payment information:', data.message);
-        }
+        alert(data);
+        window.location.reload();
     })
     .catch(error => {
-        console.error('Fetch error:', error);
+        alert('An error occurred: ' + error);
     });
 }

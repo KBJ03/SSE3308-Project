@@ -261,7 +261,6 @@
                                 </div>
                             </div>
 
-                        <!-- Edit Account Modal -->
                         <div class="modal" id="editAccountModal" >
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -275,31 +274,31 @@
                                         <form id="editAccountForm"  onsubmit="editAccount(event)">
                                             <div class="mb-3">
                                                 <label for="username" class="form-label">Username</label>
-                                                <input type="text" class="form-control" id="editUserName" name="username" value="User123">
+                                                <input type="text" class="form-control" id="editUserName" name="username">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="memberId" class="form-label">Member ID</label>
-                                                <input type="text" class="form-control" id="EditMemberId" name="memberId" value="ABC00001">
+                                                <input type="text" class="form-control" id="editMemberId" name="memberId" readonly>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="gender" class="form-label">Gender</label>
                                                 <select class="form-select" id="editGender" name="gender">
-                                                    <option value="male" selected>Male</option>
+                                                    <option value="male">Male</option>
                                                     <option value="female">Female</option>
                                                     <option value="other">Other</option>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="birthday" class="form-label">Birthday</label>
-                                                <input type="date" class="form-control" id="birthday" name="birthday" value="2001-01-01">
+                                                <input type="date" class="form-control" id="birthday" name="birthday">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="phone" class="form-label">Phone</label>
-                                                <input type="tel" class="form-control" id="phone" name="phone" value="+6011-12345678">
+                                                <input type="tel" class="form-control" id="phone" name="phone">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>
-                                                <input type="email" class="form-control" id="email" name="email" value="User123@gmail.com">
+                                                <input type="email" class="form-control" id="email" name="email">
                                             </div>
                                             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</button>
                                         </form>
@@ -308,7 +307,6 @@
                             </div>
                         </div>
 
-                        <!-- Edit Shipping Modal -->
                         <div class="modal" id="editShippingModal">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -321,24 +319,28 @@
                                     <div class="modal-body">
                                         <form id="editShippingForm" onsubmit="editShipping(event)">
                                             <div class="mb-3">
+                                                <label for="memberId" class="form-label">Member ID</label>
+                                                <input type="text" class="form-control" id="editMemberId" name="memberId" value="ABC00001" readonly>
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="shipping-name" class="form-label">Name</label>
-                                                <input type="text" class="form-control" id="shipping-name" name="shipping-name" value="Howard Khoo Zi Kang">
+                                                <input type="text" class="form-control" id="shipping-name" name="shipping-name">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="shipping-phone" class="form-label">Phone</label>
-                                                <input type="tel" class="form-control" id="shipping-phone" name="shipping-phone" value="+6012-345678">
+                                                <input type="tel" class="form-control" id="shipping-phone" name="shipping-phone">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="shipping-address" class="form-label">Address</label>
-                                                <textarea class="form-control" id="shipping-address" name="shipping-address" rows="3">123 Oak Street, Springfield, IL 62701, United States</textarea>
+                                                <textarea class="form-control" id="shipping-address" name="shipping-address" rows="3"></textarea>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="shipping-postal" class="form-label">Postal Code</label>
-                                                <input type="text" class="form-control" id="shipping-postal" name="shipping-postal" value="62701">
+                                                <input type="text" class="form-control" id="shipping-postal" name="shipping-postal">
                                             </div>
                                             <div class="mb-3">
                                                 <label for="shipping-remark" class="form-label">Remark</label>
-                                                <textarea class="form-control" id="shipping-remark" name="shipping-remark" rows="2">Put in mail box</textarea>
+                                                <textarea class="form-control" id="shipping-remark" name="shipping-remark" rows="2"></textarea>
                                             </div>
                                             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</button>
                                         </form>
@@ -347,7 +349,6 @@
                             </div>
                         </div>
 
-                        <!-- Edit Payment Modal -->
                         <div class="modal" id="editPaymentModal">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
@@ -360,15 +361,19 @@
                                     <div class="modal-body">
                                         <form id="editPaymentForm" onsubmit="editPayment(event)">
                                             <div class="mb-3">
+                                                <label for="memberId" class="form-label">Member ID</label>
+                                                <input type="text" class="form-control" id="editMemberId" name="memberId" value="ABC00001" readonly>
+                                            </div>
+                                            <div class="mb-3">
                                                 <label for="payment-method" class="form-label">Payment Method</label>
                                                 <select class="form-control" id="payment-method" name="payment-method">
-                                                    <option value="Visa" selected>Visa</option>
+                                                    <option value="Visa">Visa</option>
                                                     <option value="MasterCard">MasterCard</option>
                                                 </select>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="card-number" class="form-label">Card Number</label>
-                                                <input type="text" class="form-control" id="card-number" name="card-number" value="**** **** **** 5487">
+                                                <input type="text" class="form-control" id="card-number" name="card-number">
                                             </div>
                                             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</button>
                                         </form>
