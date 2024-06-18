@@ -9,7 +9,7 @@ const mouse = document.getElementById('mouse');
 const speaker = document.getElementById('speaker');
 
 const category = [keyboard, mouse, speaker];
-const categoryName = ["Keyboard", "Mouse", "Speaker"];
+const categoryName = ["Keyboard", "Mouse", "Speaker", '11'];
 const categoryNameImg = ["keyboard", "mouse", "speaker"];
 
 const itemName = [ ["AI-Integrated Adaptive Keyboard", "Mechanical Keyboard", "Wireless Ergonomic Keyboard", "RGB Gaming Keyboard", "Ultra-Thin Portable Keyboard", "Compact Mechanical Keyboard"],
