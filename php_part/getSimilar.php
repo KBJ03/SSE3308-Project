@@ -12,14 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $similar2=$data['Similar2'];
 
         try {
-            $query = "SELECT * FROM product WHERE ItemID = ?";
+            $query = "SELECT * FROM product WHERE ItemID =:item1 ";
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$similar1]);
+            $stmt->execute([':item1'=> $similar1]);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
-            $query = "SELECT * FROM product WHERE ItemID = ?";
+            $query = "SELECT * FROM product WHERE ItemID = :item2";
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$similar2]);
+            $stmt->execute([':item2'=> $similar2]);
             $result1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
             header('Content-Type: application/json');

@@ -11,9 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $item = $data['itemID'];
 
         try {
-            $query = "SELECT * FROM product WHERE ItemID = ?";
+            $query = "SELECT * FROM product WHERE ItemID = :item";
             $stmt = $pdo->prepare($query);
-            $stmt->execute([$item]);
+            $stmt->execute([':item'=> $item]);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             
             header('Content-Type: application/json');
