@@ -31,7 +31,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         exit; // Stop script execution
     }
 
-
     try {
         require_once "db.php";
         $query = "SELECT MemberID, Username, Password FROM User WHERE Username = ?";
@@ -44,8 +43,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             echo "<script>alert('Authentication failed. The username does not exist');</script>";
             echo "<script>window.location = '../index.html';</script>"; 
         }else{
-            $passwordDB = $result[0]["Password"];
-            if($password == $passwordDB){  
+            $hashedPasswordDB = $result[0]["Password"];
+            if(password_verify($password, $hashedPasswordDB)){  
                 $ID = $result[0]["MemberID"];
                 $url = "Location: ../home.html?MemberID=$ID";
                 header($url);
@@ -54,7 +53,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo "<script>window.location = '../index.html';</script>"; 
             }
         }
-        
         
     } catch (PDOException $e) {
         die("Query failed: " . $e->getMessage());
