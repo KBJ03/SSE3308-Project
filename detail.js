@@ -16,7 +16,7 @@
                     const similar1 = data.results[0]["Similar1"];
                     const similar2 = data.results[0]["Similar2"];
                     
-                    document.getElementById('img').src = data.results[0]["Images"];
+                    document.getElementById('img').src = data.results[0]["Url"];
                     document.getElementById('img').alt = data.results[0]["ProductName"];
                     document.getElementById('name').innerHTML = data.results[0]["ProductName"];
                     document.getElementById('price').innerHTML = data.results[0]["Price"];
@@ -39,11 +39,11 @@
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            document.getElementById('similar1').src = data.results[0]["Images"];
+                            document.getElementById('similar1').src = data.results[0]["Url"];
                             document.getElementById('similar1').alt=data.results[0]["ProductName"];
                             document.getElementById('similar1Name').innerHTML=data.results[0]["ProductName"];
                             document.getElementById('similar1Price').innerHTML=data.results[0]["Price"];
-                            document.getElementById('similar2').src = data.result[0]["Images"];
+                            document.getElementById('similar2').src = data.result[0]["Url"];
                             document.getElementById('similar2').alt=data.result[0]["ProductName"];
                             document.getElementById('similar2Name').innerHTML=data.result[0]["ProductName"];
                             document.getElementById('similar2Price').innerHTML=data.result[0]["Price"];
