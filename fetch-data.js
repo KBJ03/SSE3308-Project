@@ -2,7 +2,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Fetch profile information
     console.log(123);
     fetch('/Group%20Project/php_part/getProfile.php')
-        .then(response => response.json())
+        .then(response => response.json(),{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ MemberID: itemId })
+        })
         .then(data => {
             if (data.success) {
                 // Update profile information on the page
@@ -22,7 +28,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fetch shipping information
     fetch('/Group%20Project/php_part/getProfile.php')
-        .then(response => response.json())
+        .then(response => response.json(),{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ MemberID: itemId })
+        })
         .then(data => {
             if (data.success) {
                 // Update shipping information on the page
@@ -41,7 +53,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fetch payment information
     fetch('/Group%20Project/php_part/getProfile.php')
-        .then(response => response.json())
+        .then(response => response.json(),{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ MemberID: itemId })
+        })
         .then(data => {
             if (data.success) {
                 // Update payment information on the page
@@ -65,7 +83,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fetch history information
     fetch('/Group%20Project/php_part/getProfile.php')
-        .then(response => response.json())
+        .then(response => response.json(),{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ MemberID: itemId })
+        })
         .then(data => {
             if (data.success) {
                 // Update history information on the page
