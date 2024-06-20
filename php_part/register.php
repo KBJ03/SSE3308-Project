@@ -35,15 +35,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         exit; // Stop script execution
     }
 
-    // Hash the password
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
     try {
         require_once "db.php";
         $query = "INSERT INTO User (Username, Password, Email, Phone, Gender, Birthday) VALUES (?, ?, ?, ?, ?, ?)";
         
         $stmt = $pdo->prepare($query);
-        $stmt->execute([$username, $hashedPassword, $email, $phone, $gender, $birthday]);
+        $stmt->execute([$username, $password, $email, $phone, $gender, $birthday]);
 
         $pdo = null;
         $stmt = null;
