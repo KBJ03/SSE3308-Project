@@ -2,8 +2,9 @@
 try {
     // Include the database connection file
     require_once "db.php";
+    $memberID = $data['MemberID'];
     // Fetch profile information
-    $profileQuery = "SELECT * FROM user";
+    $profileQuery = "SELECT * FROM User WHERE MemberID = $memberID";
     $profileStmt = $pdo->prepare($profileQuery);
     $profileStmt->execute();
     $profileData = $profileStmt->fetchAll(PDO::FETCH_ASSOC);

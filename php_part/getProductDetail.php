@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $item = $data['itemID'];
 
         try {
-            $query = "SELECT * FROM product WHERE ItemID = :item";
+            $query = "SELECT * FROM Product WHERE ItemID = :item";
             $stmt = $pdo->prepare($query);
             $stmt->execute([':item'=> $item]);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
