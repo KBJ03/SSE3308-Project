@@ -43,16 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         div_image.classList.add('image-container');
 
                         const productImg = document.createElement('img');
-                        productImg.src = `Images/${categoryNameImg[i]}/${categoryNameImg[i]}${j+1}.png`
-                        if(i == 1){
-                            productImg.src = 'Images/keyboard/keyboard1.png';
-                        }
-                        else if(i == 2){
-                            productImg.src = 'Images/mouse/mouse1.png';
-                        }
-                        else{
-                            productImg.src = 'Images/speaker/speaker1.png';
-                        }
+                        productImg.src = productData[i]['Url'];
                         
                         const div_description = document.createElement('div');
                         div_description.classList.add('ms-3');

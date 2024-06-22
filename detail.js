@@ -16,8 +16,8 @@
                     const similar1 = data.results[0]["Similar1"];
                     const similar2 = data.results[0]["Similar2"];
                     
-                    document.getElementById('img').src = data.results[0]["Url"];
-                    document.getElementById('img').alt = data.results[0]["ProductName"];
+                    document.getElementById('image').src = data.results[0]["Url"];
+                    document.getElementById('image').alt = data.results[0]["ProductName"];
                     document.getElementById('name').innerHTML = data.results[0]["ProductName"];
                     document.getElementById('price').innerHTML = data.results[0]["Price"];
                     document.getElementById('item').innerHTML = data.results[0]["ItemID"];
