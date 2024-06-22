@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch profile information
     console.log(123);
-    fetch('/Group%20Project/php_part/getProfile.php')
+    fetch('/php_part/getProfile.php')
         .then(response => response.json(),{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ MemberID: itemId })
+            body: JSON.stringify({ MemberID: id })
         })
         .then(data => {
             if (data.success) {
@@ -27,13 +27,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch shipping information
-    fetch('/Group%20Project/php_part/getProfile.php')
+    fetch('/php_part/getProfile.php')
         .then(response => response.json(),{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ MemberID: itemId })
+            body: JSON.stringify({ MemberID: id })
         })
         .then(data => {
             if (data.success) {
@@ -52,13 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch payment information
-    fetch('/Group%20Project/php_part/getProfile.php')
+    fetch('/php_part/getProfile.php')
         .then(response => response.json(),{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ MemberID: itemId })
+            body: JSON.stringify({ MemberID: id })
         })
         .then(data => {
             if (data.success) {
@@ -82,13 +82,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch history information
-    fetch('/Group%20Project/php_part/getProfile.php')
+    fetch('/php_part/getProfile.php')
         .then(response => response.json(),{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ MemberID: itemId })
+            body: JSON.stringify({ MemberID: id })
         })
         .then(data => {
             if (data.success) {
