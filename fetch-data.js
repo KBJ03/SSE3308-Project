@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Fetch profile information
     console.log(123);
-    fetch('/php_part/getProfile.php?MemberID=')
+    fetch('/php_part/getProfile.php')
         .then(response => response.json(),{
             method: 'POST',
             headers: {
