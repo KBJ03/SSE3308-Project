@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('Gender').textContent = data.profile[0]["Gender"];
                 document.getElementById('date').textContent = data.profile[0]["Birthday"];
                 document.getElementById('phoneNumber').textContent = data.profile[0]["Phone"];
-                document.getElementById('email-address').textContent = data.profile[0]["Email Address"];
+                document.getElementById('email-address').textContent = data.profile[0]["Email"];
             } else {
                 console.error('Error fetching profile information:', data.message);
             }
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('name').textContent = data.shipping[0]["Name"];
                 document.getElementById('number').textContent = data.shipping[0]["Phone"];
                 document.getElementById('address').textContent = data.shipping[0]["Address"];
-                document.getElementById('postalCode').textContent = data.shipping[0]["Postal Code"];
+                document.getElementById('postalCode').textContent = data.shipping[0]["PostalCode"];
                 document.getElementById('remark').textContent = data.shipping[0]["Remark"];
             } else {
                 console.error('Error fetching shipping information:', data.message);
@@ -63,15 +63,19 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(data => {
             if (data.success) {
                 // Update payment information on the page
-                document.getElementById('paymentMethod').textContent = data.payment[0]["Payment Method"];
-                document.getElementById('cardNumber').textContent = data.payment[0]["Card Number"];
+                document.getElementById('paymentMethod').textContent = data.payment[0]["PaymentMethod"];
+                document.getElementById('cardNumber').textContent = data.payment[0]["CardNumber"];
             
-                let cardNumber = data.payment[0]["Card Number"];
-                let formattedCardNumber = cardNumber.replace(/(.{4})/g, '$1 ').trim();
-                let maskedCardNumber = formattedCardNumber.split(' ').map((part, index) => {
-                    return index < 3 ? '****' : part;
-                }).join(' ');
-                document.getElementById('cardNumber').textContent = maskedCardNumber;
+                let cardNumber = data.payment[0]["CardNumber"];
+                if (cardNumber) {
+                    let formattedCardNumber = cardNumber.replace(/(.{4})/g, '$1 ').trim();
+                    let maskedCardNumber = formattedCardNumber.split(' ').map((part, index) => {
+                        return index < 3 ? '****' : part;
+                    }).join(' ');
+                    document.getElementById('cardNumber').textContent = maskedCardNumber;
+                } else {
+                    document.getElementById('cardNumber').textContent = '';
+                }
             
             } else {
                 console.error('Error fetching payment information:', data.message);
