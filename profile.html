@@ -232,28 +232,6 @@
                                                             <th>Amount</th>
                                                         </tr>
                                                     </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td>123456</td>
-                                                            <td>
-                                                                KB-AI001 &times; 2<br>
-                                                                KB-CUSTOMIZE004 &times; 1
-                                                            </td>
-                                                            <td>Processing</td>
-                                                            <td>$100.00</td>
-                                                        </tr>
-                                
-                                                        <tr>
-                                                            <td>789012</td>
-                                                            <td>
-                                                                SS-MINI015 &times; 3<br>
-                                                                M-FOLDABLE007 &times; 2<br>
-                                                                KB-FOLDABLE007 &times; 1
-                                                            </td>
-                                                            <td>Shipped</td>
-                                                            <td>$230.00</td>
-                                                        </tr>
-                                                    </tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -271,7 +249,7 @@
                                     </div>
 
                                     <div class="modal-body">
-                                        <form id="editAccountForm"  onsubmit="editAccount(event)">
+                                        <form id="editAccountForm" onsubmit="editAccount(event)" method="POST">
                                             <div class="mb-3">
                                                 <label for="username" class="form-label">Username</label>
                                                 <input type="text" class="form-control" id="editUserName" name="username">
@@ -317,7 +295,7 @@
                                     </div>
 
                                     <div class="modal-body">
-                                        <form id="editShippingForm" onsubmit="editShipping(event)">
+                                        <form id="editShippingForm" onsubmit="editShipping(event)" method="POST">
                                             <div class="mb-3">
                                                 <label for="memberId" class="form-label">Member ID</label>
                                                 <input type="text" class="form-control" id="editMemberId" name="memberId" value="ABC00001" readonly>
@@ -359,7 +337,7 @@
                                     </div>
 
                                     <div class="modal-body">
-                                        <form id="editPaymentForm" onsubmit="editPayment(event)">
+                                        <form id="editPaymentForm" onsubmit="editPayment(event)" method="POST">
                                             <div class="mb-3">
                                                 <label for="memberId" class="form-label">Member ID</label>
                                                 <input type="text" class="form-control" id="editMemberId" name="memberId" value="ABC00001" readonly>

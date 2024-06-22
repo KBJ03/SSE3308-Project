@@ -1,14 +1,17 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    const params = new URLSearchParams(window.location.search);
+    const memberId = params.get('MemberID');
+
     // Fetch profile information
-    console.log(123);
-    fetch('/php_part/getProfile.php')
-        .then(response => response.json(),{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ MemberID: id })
-        })
+    fetch('/Group%20Project/php_part/getProfile.php',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ MemberID: memberId })
+    })
+        .then(response => response.json())
         .then(data => {
             if (data.success) {
                 // Update profile information on the page
@@ -27,14 +30,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch shipping information
-    fetch('/php_part/getProfile.php')
-        .then(response => response.json(),{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ MemberID: id })
-        })
+    fetch('/Group%20Project/php_part/getProfile.php',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ MemberID: memberId })
+    })
+        .then(response => response.json())
         .then(data => {
             if (data.success) {
                 // Update shipping information on the page
@@ -52,31 +55,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch payment information
-    fetch('/php_part/getProfile.php')
-        .then(response => response.json(),{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ MemberID: id })
-        })
+    fetch('/Group%20Project/php_part/getProfile.php',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ MemberID: memberId })
+    })
+        .then(response => response.json())
         .then(data => {
             if (data.success) {
                 // Update payment information on the page
                 document.getElementById('paymentMethod').textContent = data.payment[0]["PaymentMethod"];
-                document.getElementById('cardNumber').textContent = data.payment[0]["CardNumber"];
             
                 let cardNumber = data.payment[0]["CardNumber"];
                 if (cardNumber) {
-                    let formattedCardNumber = cardNumber.replace(/(.{4})/g, '$1 ').trim();
-                    let maskedCardNumber = formattedCardNumber.split(' ').map((part, index) => {
-                        return index < 3 ? '****' : part;
-                    }).join(' ');
+                    cardNumber = cardNumber.trim();
+                    let maskedCardNumber = '**** **** **** ' + cardNumber.slice(-4);
                     document.getElementById('cardNumber').textContent = maskedCardNumber;
                 } else {
                     document.getElementById('cardNumber').textContent = '';
                 }
-            
+
             } else {
                 console.error('Error fetching payment information:', data.message);
             }
@@ -86,33 +86,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch history information
-    fetch('/php_part/getProfile.php')
-        .then(response => response.json(),{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ MemberID: id })
-        })
-        .then(data => {
-            if (data.success) {
-                // Update history information on the page
-                const historyData = document.getElementById('historyData');
-                data.history.forEach(item => {
-                    const historyItem = document.createElement('div');
-                    historyItem.innerHTML = `
-                        <p>Order ID: ${item.order_id}</p>
-                        <p>Item Purchase: ${item.item_purchase}</p>
-                        <p>Order Status: ${item.order_status}</p>
-                        <p>Amount: ${item.amount}</p>
-                    `;
-                    historyData.appendChild(historyItem);
-                });
-            } else {
-                console.error('Error fetching history information:', data.message);
-            }
-        })
-        .catch(error => {
-            console.error('Fetch error:', error);
-        });
+    // fetch('/Group%20Project/php_part/getProfile.php', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Content-Type': 'application/json'
+    //     },
+    //     body: JSON.stringify({ MemberID: memberId })
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //     if (data.success) {
+    //         // Update history information on the page
+    //         const historyData = document.getElementById('historyData');
+    //         if (data.history && Array.isArray(data.history)) {
+    //             data.history.forEach(item => {
+    //                 const historyItem = document.createElement('div');
+    //                 historyItem.innerHTML = `
+    //                     <p>Order ID: ${item.order_id}</p>
+    //                     <p>Item Purchase: ${item.item_purchase}</p>
+    //                     <p>Order Status: ${item.order_status}</p>
+    //                     <p>Amount: ${item.amount}</p>
+    //                 `;
+    //                 historyData.appendChild(historyItem);
+    //             });
+    //         } 
+    //     } else {
+    //         console.error('Error fetching history information:', data.message);
+    //     }
+    // })
+    // .catch(error => {
+    //     console.error('Fetch error:', error);
+    // });
 });
