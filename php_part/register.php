@@ -50,10 +50,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $pdo->prepare($query);
         $stmt->execute([$memberID, $username, $hashedPassword, $email, $phone, $gender, $birthday]);
 
+        $stmt = null;
+
+        $query = "INSERT INTO Shipping (MemberID, Name, Phone, Address, PostalCode, Remark) VALUES (?, ?, ?, ?, ?, ?)";
+
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$memberID, "", "", "", "", ""]);
+
+        $stmt = null;
+
+        $query = "INSERT INTO Payment (MemberID, PaymentMethod, CardNumber) VALUES (?, ?, ?)";
+
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$memberID, "", ""]);
+
         $pdo = null;
         $stmt = null;
         echo "<script>alert('Your registration is successful! You are able to enter the website'); window.location.href = '../home.html';</script>";
 
+
+        
     } catch (PDOException $e) {
         echo "Error: " . $e->getMessage();
     }

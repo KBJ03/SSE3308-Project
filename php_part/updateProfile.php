@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
     
     // Update query
-    $sql = "UPDATE user SET username = :username, gender = :gender, birthday = :birthday, phone = :phone, `Email Address` = :email WHERE memberId = :memberId";
+    $sql = "UPDATE User SET username = :username, gender = :gender, birthday = :birthday, phone = :phone, `Email Address` = :email WHERE memberId = :memberId";
     try {
         // Prepare statement
         $stmt = $pdo->prepare($sql);

@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $remark = $_POST['shipping-remark'];
     
     // Update query
-    $sql = "UPDATE shipping SET name = :name, phone = :phone, address = :address, `Postal Code` = :postal, remark = :remark WHERE memberId = :memberId";
+    $sql = "UPDATE Shipping SET name = :name, phone = :phone, address = :address, `Postal Code` = :postal, remark = :remark WHERE memberId = :memberId";
     try {
         // Prepare statement
         $stmt = $pdo->prepare($sql);

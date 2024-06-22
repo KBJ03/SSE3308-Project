@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // Update query
-    $sql = "UPDATE payment SET `Payment Method` = :paymentMethod, `Card Number` = :cardNumber WHERE memberId = :memberId";
+    $sql = "UPDATE Payment SET `Payment Method` = :paymentMethod, `Card Number` = :cardNumber WHERE memberId = :memberId";
     try {
         // Prepare statement
         $stmt = $pdo->prepare($sql);

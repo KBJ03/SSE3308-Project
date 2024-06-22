@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('editGender').value = data.profile[0]["Gender"];
                 document.getElementById('birthday').value = data.profile[0]["Birthday"];
                 document.getElementById('phone').value = data.profile[0]["Phone"];
-                document.getElementById('email').value = data.profile[0]["Email Address"];
+                document.getElementById('email').value = data.profile[0]["Email"];
 
                 var genderInput = document.getElementById('editGender');
                 var selectedGender = data.profile[0]["Gender"].toLowerCase();
