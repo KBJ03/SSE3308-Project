@@ -1,3 +1,6 @@
+        const params1 = new URLSearchParams(window.location.search);
+        const memberId = params1.get('MemberID');
+
 
         const params2 = new URLSearchParams(window.location.search);
         const itemId = params2.get('ItemId');
@@ -45,6 +48,8 @@
                             document.getElementById('similar1Price').innerHTML=data.results[0]["Price"];
                             document.getElementById('similar2').src = data.result[0]["Url"];
                             document.getElementById('similar2').alt=data.result[0]["ProductName"];
+                            document.getElementById('image1').href= 'product detail.html?MemberID=' + memberId + '&ItemId=' + similar1;
+                            document.getElementById('image2').href= 'product detail.html?MemberID=' + memberId + '&ItemId=' + similar2;
                             document.getElementById('similar2Name').innerHTML=data.result[0]["ProductName"];
                             document.getElementById('similar2Price').innerHTML=data.result[0]["Price"];
                         } else {
