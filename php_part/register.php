@@ -1,6 +1,9 @@
 <?php
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+// Include the database connection file
+require_once "db.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["userName"];
     $password = $_POST["password"];
     $email = $_POST["email"];
@@ -35,21 +38,59 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         exit; // Stop script execution
     }
 
+    // Hash the password
+    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+
     try {
-        require_once "db.php";
-        $query = "INSERT INTO User (Username, Password, Email, Phone, Gender, Birthday) VALUES (?, ?, ?, ?, ?, ?)";
+        // Generate MemberID based on Username
+        $memberID = generateMemberID($pdo);
+
+        $query = "INSERT INTO User (MemberID, Username, Password, Email, Phone, Gender, Birthday) VALUES (?, ?, ?, ?, ?, ?, ?)";
         
         $stmt = $pdo->prepare($query);
-        $stmt->execute([$username, $password, $email, $phone, $gender, $birthday]);
+        $stmt->execute([$memberID, $username, $hashedPassword, $email, $phone, $gender, $birthday]);
 
         $pdo = null;
         $stmt = null;
         echo "<script>alert('Your registration is successful! You are able to enter the website'); window.location.href = '../home.html';</script>";
 
     } catch (PDOException $e) {
-        die("Query failed: " . $e->getMessage());
+        echo "Error: " . $e->getMessage();
     }
 
-} else{
+} else {
     header("Location: ../index.html");
+    exit; // Stop script execution
+}
+
+// Function to generate MemberID starting with "ABC"
+function generateMemberID($pdo) {
+    // Prefix "ABC"
+    $prefix = "ABC";
+
+    // Check if the prefix already exists in the MemberIDSequence table
+    $query = "SELECT last_id FROM MemberIDSequence WHERE prefix = ?";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$prefix]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        // Prefix exists, increment the last_id
+        $last_id = $result['last_id'] + 1;
+        $updateQuery = "UPDATE MemberIDSequence SET last_id = ? WHERE prefix = ?";
+        $updateStmt = $pdo->prepare($updateQuery);
+        $updateStmt->execute([$last_id, $prefix]);
+    } else {
+        // Prefix does not exist, start with 1
+        $last_id = 1;
+        $insertQuery = "INSERT INTO MemberIDSequence (prefix, last_id) VALUES (?, ?)";
+        $insertStmt = $pdo->prepare($insertQuery);
+        $insertStmt->execute([$prefix, $last_id]);
+    }
+
+    // Format the last_id to be 5 digits with leading zeros
+    $formatted_id = str_pad($last_id, 5, '0', STR_PAD_LEFT);
+
+    // Combine the prefix and the formatted_id
+    return $prefix . $formatted_id;
 }

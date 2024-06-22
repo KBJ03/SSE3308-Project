@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/Group%20Project/php_part/getProfile.php') // Adjust the ID parameter as necessary
+    fetch('/php_part/getProfile.php') // Adjust the ID parameter as necessary
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -31,7 +31,7 @@ function editAccount(event) {
     const capitalizedGender = genderInput.value.charAt(0).toUpperCase() + genderInput.value.slice(1);
     formData.set('gender', capitalizedGender);
     
-    fetch('/Group%20Project/php_part/updateProfile.php', {
+    fetch('/php_part/updateProfile.php', {
         method: 'POST',
         body: formData
     })
@@ -47,7 +47,7 @@ function editAccount(event) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/Group%20Project/php_part/getProfile.php') // Adjust the ID parameter as necessary
+    fetch('/php_part/getProfile.php') // Adjust the ID parameter as necessary
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -84,7 +84,7 @@ function editShipping(event) {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/Group%20Project/php_part/getProfile.php') // Adjust the ID parameter as necessary
+    fetch('/php_part/getProfile.php') // Adjust the ID parameter as necessary
         .then(response => response.json())
         .then(data => {
             if (data.success) {
@@ -111,7 +111,7 @@ function editPayment(event) {
     event.preventDefault();
     const formData = new FormData(document.getElementById('editPaymentForm'));
     
-    fetch('/Group%20Project/php_part/updatePayment.php', {
+    fetch('/php_part/updatePayment.php', {
         method: 'POST',
         body: formData
     })
