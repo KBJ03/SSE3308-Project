@@ -24,18 +24,17 @@ try {
             $paymentStmt->execute([$memberID]);
             $paymentData = $paymentStmt->fetchAll(PDO::FETCH_ASSOC);
 
-            // Fetch history information
-            // $historyQuery = "SELECT * FROM history WHERE MemberID = ?";
-            // $historyStmt = $pdo->prepare($historyQuery);
-            // $historyStmt->execute([$memberID]);
-            // $historyData = $historyStmt->fetchAll(PDO::FETCH_ASSOC);
+            $historyQuery = "SELECT * FROM history WHERE MemberID = ?";
+            $historyStmt = $pdo->prepare($historyQuery);
+            $historyStmt->execute([$memberID]);
+            $historyData = $historyStmt->fetchAll(PDO::FETCH_ASSOC);
 
             $allData = [
                 'success' => true,
                 'profile' => $profileData,
                 'shipping' => $shippingData,
                 'payment' => $paymentData,
-                // 'history' => $historyData
+                'history' => $historyData
             ];
 
             header('Content-Type: application/json');
