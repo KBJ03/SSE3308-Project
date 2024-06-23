@@ -12,7 +12,7 @@ const navProfile = document.getElementById('navProfile');
 navProfile.href = 'profile.html?MemberID=' + id;
 
 const navCart = document.getElementById('navCart');
-navCart.href = 'cart.html?MemberID=' + id;
+navCart.href = 'cart.php?MemberID=' + id;
 
 //Modal link
 const modalHome = document.getElementById('modalHome');
