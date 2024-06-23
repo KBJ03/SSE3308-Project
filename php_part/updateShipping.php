@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $postal = $_POST['shipping-postal'];
     $remark = $_POST['shipping-remark'];
 
-    $sql = "UPDATE shipping SET name = :name, phone = :phone, address = :address, PostalCode = :postal, remark = :remark WHERE memberId = :memberId";
+    $sql = "UPDATE Shipping SET name = :name, phone = :phone, address = :address, PostalCode = :postal, remark = :remark WHERE memberId = :memberId";
     try {
 
         $stmt = $pdo->prepare($sql);

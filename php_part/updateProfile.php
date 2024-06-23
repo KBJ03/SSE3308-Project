@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone = $_POST['phone'];
     $email = $_POST['email'];
     
-    $sql = "UPDATE user SET username = :username, gender = :gender, birthday = :birthday, phone = :phone, email = :email WHERE memberId = :memberId";
+    $sql = "UPDATE User SET username = :username, gender = :gender, birthday = :birthday, phone = :phone, email = :email WHERE memberId = :memberId";
     try {
 
         $stmt = $pdo->prepare($sql);
@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $stmt->execute();
 
-        echo "Record updated successfully";
+        echo "Profile updated successfully";
     } catch (PDOException $e) {
         echo "Error updating record: " . $e->getMessage();
     }

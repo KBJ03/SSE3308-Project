@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $paymentMethod = $_POST['payment-method'];
     $cardNumber = $_POST['card-number'];
 
-    $sql = "UPDATE payment SET `PaymentMethod` = :paymentMethod, `CardNumber` = :cardNumber WHERE memberId = :memberId";
+    $sql = "UPDATE Payment SET `PaymentMethod` = :paymentMethod, `CardNumber` = :cardNumber WHERE memberId = :memberId";
     try {
 
         $stmt = $pdo->prepare($sql);
