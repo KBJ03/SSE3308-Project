@@ -86,35 +86,34 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch history information
-    // fetch('/Group%20Project/php_part/getProfile.php', {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     },
-    //     body: JSON.stringify({ MemberID: memberId })
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //     if (data.success) {
-    //         // Update history information on the page
-    //         const historyData = document.getElementById('historyData');
-    //         if (data.history && Array.isArray(data.history)) {
-    //             data.history.forEach(item => {
-    //                 const historyItem = document.createElement('div');
-    //                 historyItem.innerHTML = `
-    //                     <p>Order ID: ${item.order_id}</p>
-    //                     <p>Item Purchase: ${item.item_purchase}</p>
-    //                     <p>Order Status: ${item.order_status}</p>
-    //                     <p>Amount: ${item.amount}</p>
-    //                 `;
-    //                 historyData.appendChild(historyItem);
-    //             });
-    //         } 
-    //     } else {
-    //         console.error('Error fetching history information:', data.message);
-    //     }
-    // })
-    // .catch(error => {
-    //     console.error('Fetch error:', error);
-    // });
+    fetch('/Group%20Project/php_part/getProfile.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ MemberID: memberId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const historyTable = document.getElementById('historyTable');
+    
+            if (data.history && Array.isArray(data.history)) {
+                data.history.forEach(item => {
+                    const historyItem = historyTable.insertRow();
+                    historyItem.innerHTML = `
+                        <td>${item.order_id}</td>
+                        <td>${item.item_purchase}</td>
+                        <td>${item.order_status}</td>
+                        <td>${item.amount}</td>
+                    `;
+                });
+            } 
+        } else {
+            console.error('Error fetching history information:', data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
+    });
 });
