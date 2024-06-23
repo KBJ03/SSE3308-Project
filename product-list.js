@@ -85,6 +85,27 @@ document.addEventListener('DOMContentLoaded', function() {
                         detail_button.classList.add('btn', 'btn-primary', 'button-hover', 'mt-4', 'ms-2');
                         detail_button2.classList.add('btn', 'btn-primary', 'button-hover', 'mt-4');
 
+                        detail_button.addEventListener('click', function() {
+                            fetch('addToCart.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    id: productData[i]['productID']
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Success:', data);
+                                alert(data.message); // Show the response message
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('Failed to add product to cart!');
+                            });
+                        });
+
                         detail_button2.innerHTML = 'More Details...';
 
                         detail_button2.addEventListener('mouseenter', function() {

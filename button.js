@@ -1,68 +1,103 @@
 $(document).ready(function() {
-    $('.btn-number').click(function(e){
+    $('#checkoutButton').click(function() {
+        $('#checkoutModal').modal('show');
+    });
+
+    // Handle confirm checkout button click
+    $('#confirmCheckout').click(function() {
+        // Clear checked items
+        $('.cart-item input[type="checkbox"]:checked').each(function() {
+            $(this).closest('.cart-item').remove();
+        });
+        updateTotalPrice(); // Update total price after removing items
+        $('#checkoutModal').modal('hide');
+    });
+
+    // Handle delete item button click
+    $('.delete-item').click(function(e) {
         e.preventDefault();
+        // Get the parent cart item
+        var cartItem = $(this).closest('.cart-item');
+        // Get the product name of the item to be deleted
+        var productName = cartItem.find('h4').text();
         
-        let fieldName = $(this).attr('data-field');
-        let type = $(this).attr('data-type');
-        let input = $("input[name='"+fieldName+"']");
-        let currentVal = parseInt(input.val());
-        if (!isNaN(currentVal)) {
-            if(type == 'minus') {
-                if(currentVal > input.attr('min')) {
-                    input.val(currentVal - 1).change();
-                } 
-                if(parseInt(input.val()) == input.attr('min')) {
-                    $(this).attr('disabled', true);
+        // Send an AJAX request to the server-side script to delete the item
+        $.ajax({
+            url: 'delete_item.php',
+            method: 'POST',
+            data: {productName: productName}, // Include the product name in the request data
+            success: function(response) {
+                // Parse the JSON response
+                var data = JSON.parse(response);
+                // Check if deletion was successful
+                if (data.success) {
+                    // Display an alert message
+                    alert(data.message);
+                    // If deletion is successful, remove the item from the DOM
+                    cartItem.remove();
+                    // Update total price after removing the item
+                    updateTotalPrice();
+                } else {
+                    // Display an error message
+                    alert(data.message);
                 }
-            } else if(type == 'plus') {
-                if(currentVal < input.attr('max')) {
-                    input.val(currentVal + 1).change();
-                }
-                if(parseInt(input.val()) == input.attr('max')) {
-                    $(this).attr('disabled', true);
-                }
+            },
+            error: function(xhr, status, error) {
+                // Handle any errors that occur during the AJAX request
+                console.error(error);
             }
-        } else {
-            input.val(0);
+        });
+    });
+    
+    
+    // Constant for shopping fee
+    const shoppingFee = 5.00; // You can adjust this value as needed
+
+    function updateTotalPrice() {
+        var totalPrice = 0;
+        $('.cart-item').each(function() {
+            // Check if the checkbox is checked
+            var isChecked = $(this).find('input[type="checkbox"]').prop('checked');
+            if (isChecked) {
+                var quantity = parseInt($(this).find('.input-number').val());
+                var price = parseFloat($(this).find('.current-price').text().replace('$', ''));
+                totalPrice += quantity * price;
+            }
+        });
+        // Add shopping fee to total price
+        totalPrice += shoppingFee;
+        $('#totalPrice').text('Total Price: $' + totalPrice.toFixed(2));
+        // Update shipping fee
+        $('#shippingFee').text('Shipping Fee: $' + shoppingFee.toFixed(2));
+    }
+
+    // Checkbox change event handler
+    $('input[type="checkbox"]').change(function() {
+        updateTotalPrice();
+    });
+
+    // Plus button click handler
+    $('.btn-number[data-type="plus"]').click(function(e){
+        e.preventDefault();
+        var input = $(this).closest('.cart-item').find('.input-number');
+        var currentValue = parseInt(input.val());
+        if (!isNaN(currentValue)) {
+            input.val(currentValue + 1);
+            updateTotalPrice();
         }
     });
 
-    $('.input-number').focusin(function(){
-       $(this).data('oldValue', $(this).val());
-    });
-
-    $('.input-number').change(function() {
-        let minValue = parseInt($(this).attr('min'));
-        let maxValue = parseInt($(this).attr('max'));
-        let valueCurrent = parseInt($(this).val());
-        let name = $(this).attr('name');
-        if(valueCurrent >= minValue) {
-            $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled');
-        } else {
-            alert('Sorry, the minimum value was reached');
-            $(this).val($(this).data('oldValue'));
-        }
-        if(valueCurrent <= maxValue) {
-            $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled');
-        } else {
-            alert('Sorry, the maximum value was reached');
-            $(this).val($(this).data('oldValue'));
+    // Minus button click handler
+    $('.btn-number[data-type="minus"]').click(function(e) {
+        e.preventDefault();
+        var input = $(this).closest('.cart-item').find('.input-number');
+        var currentValue = parseInt(input.val());
+        if (!isNaN(currentValue) && currentValue > 1) {
+            input.val(currentValue - 1);
+            updateTotalPrice();
         }
     });
 
-    $(".input-number").keydown(function (e) {
-        // Allow: backspace, delete, tab, escape, enter and .
-        if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
-             // Allow: Ctrl+A
-            (e.keyCode == 65 && e.ctrlKey === true) || 
-             // Allow: home, end, left, right
-            (e.keyCode >= 35 && e.keyCode <= 39)) {
-                 // let it happen, don't do anything
-                 return;
-        }
-        // Ensure that it is a number and stop the keypress
-        if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
-            e.preventDefault();
-        }
-    });
+    // Initial calculation of total price
+    updateTotalPrice();
 });
