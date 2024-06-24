@@ -1,29 +1,3 @@
-<?php
-// Include the database connection file
-require 'db.php';
-
-try {
-    $memberId = htmlspecialchars($_GET['MemberID']);
-    // Fetch all items from the cart table
-    $query = "
-        SELECT Cart.ItemID, Product.ProductName, Product.Price, Product.Url
-        FROM Cart
-        JOIN Product ON Cart.ItemID = Product.ItemID
-        WHERE Cart.MemberID = ?
-    ";
-    $stmt = $pdo->prepare($query);
-    $stmt->execute([$memberId]);
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    
-} catch (PDOException $e) {
-    echo "Database error: " . $e->getMessage();
-    exit;
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
