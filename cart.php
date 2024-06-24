@@ -3,9 +3,19 @@
 require 'db.php';
 
 try {
+    $memberId = htmlspecialchars($_GET['MemberID']);
     // Fetch all items from the cart table
-    $stmt = $pdo->query("SELECT productName, price, quantity FROM cart");
-    $cartItems = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $query = "
+        SELECT Cart.ItemID, Product.ProductName, Product.Price, Product.Url
+        FROM Cart
+        JOIN Product ON Cart.ItemID = Product.ItemID
+        WHERE Cart.MemberID = ?
+    ";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([$memberId]);
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    
 } catch (PDOException $e) {
     echo "Database error: " . $e->getMessage();
     exit;
@@ -50,7 +60,7 @@ try {
 
             <div class="container search-bar">
                 <div class="search-container w-75">
-                    <a href="search.html">
+                    <a id="searchLink">
                         <i class="fas fa-search search-icon"></i>
                     </a>
                     <input type="text" class="form-control" id="search-input" placeholder="Search...">
@@ -88,21 +98,21 @@ try {
             </div>
         </div>
         <div class="checkout-shop-children">
-            <?php foreach ($cartItems as $item): ?>
+            <?php foreach ($result as $item): ?>
                 <div class="cart-item mb-3">
                     <div class="cart-item-inner">
                         <div class="cart-item-left">
                             <input type="checkbox" name="chk">
                             <div class="img-wrap me-3">
-                                <img src="Images/keyboard/keyboard1.png" alt="Keyboard Image">
+                                <img src=<?php echo htmlspecialchars($item['Url']); ?> alt="Keyboard Image">
                             </div>
                             <div class="content-wrap me-5">
-                                <h4><?php echo htmlspecialchars($item['productName']); ?></h4>
+                                <h4><?php echo htmlspecialchars($item['ProductName']); ?></h4>
                             </div>
                         </div>
                         <div class="cart-item-middle">
                             <div>
-                                <p class="current-price"><?php echo htmlspecialchars($item['price']); ?></p>
+                                <p class="current-price"><?php echo htmlspecialchars($item['Price']); ?></p>
                             </div>
                             <div class="operations">
                                 <span class="automation-btn-delete ms-3">

@@ -67,4 +67,28 @@
                 console.error('Fetch error:', error);
             });
         });
+
+        const button = document.getElementById('add');
+
+        button.addEventListener('click', function() {
+            fetch('php_part/addToCart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    memberID: memberId,
+                    itemID: itemId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                alert(data.message); // Show the response message
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to add product to cart!');
+            });
+        });
  

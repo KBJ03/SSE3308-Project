@@ -54,7 +54,7 @@
         
                     <div class="container search-bar">
                         <div class="search-container w-75">
-                            <a href="search.html">
+                            <a id="searchLink">
                                 <i class="fas fa-search search-icon"></i>
                             </a>
                             <input type="text" class="form-control" id="search-input" placeholder="Search...">
@@ -301,7 +301,7 @@
                                         <form id="editShippingForm" onsubmit="editShipping(event)" method="POST">
                                             <div class="mb-3">
                                                 <label for="memberId" class="form-label">Member ID</label>
-                                                <input type="text" class="form-control" id="editMemberId" name="memberId" value="ABC00001" readonly>
+                                                <input type="text" class="form-control" id="shipping-MemberId" name="memberId" readonly>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="shipping-name" class="form-label">Name</label>
@@ -343,7 +343,7 @@
                                         <form id="editPaymentForm" onsubmit="editPayment(event)" method="POST">
                                             <div class="mb-3">
                                                 <label for="memberId" class="form-label">Member ID</label>
-                                                <input type="text" class="form-control" id="editMemberId" name="memberId" value="ABC00001" readonly>
+                                                <input type="text" class="form-control" id="payment-MemberId" name="memberId" readonly>
                                             </div>
                                             <div class="mb-3">
                                                 <label for="payment-method" class="form-label">Payment Method</label>

@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            document.getElementById('shipping-MemberId').value = data.shipping[0]["MemberID"];
             document.getElementById('shipping-name').value = data.shipping[0]["Name"];
             document.getElementById('shipping-phone').value = data.shipping[0]["Phone"];
             document.getElementById('shipping-address').value = data.shipping[0]["Address"];
@@ -121,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
+            document.getElementById('payment-MemberId').value = data.payment[0]["MemberID"];
             document.getElementById('payment-method').value = data.payment[0]["PaymentMethod"];
             
             let cardNumber = data.payment[0]["CardNumber"];

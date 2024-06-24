@@ -32,7 +32,7 @@
 
             <div class="container search-bar">
                 <div class="search-container w-75">
-                    <a href="search.html">
+                    <a id="searchLink">
                         <i class="fas fa-search search-icon"></i>
                     </a>
                     <input type="text" class="form-control" id="search-input" placeholder="Search...">
@@ -56,66 +56,13 @@
             </div>
         </div>
     </nav>
-    <div class="row">
-        <div class="col-3">
-            <div class="container-fluid m-5" style="background-color: grey; border-radius: 20px;">
-                <div class="d-flex justify-content-between">
-                    <h1 class="text-white m-1">Filter</h1>
-                    <i class="fa fa-filter fa-2x text-white m-3" aria-hidden="true"></i>
-                </div>
-                <div class="divider-2"></div>
-                <div class="wrapper mt-3">
-                    <header>
-                      <h2>Price Range</h2>
-                      <p>Use slider or enter min and max price</p>
-                    </header>
-                    <div class="price-input">
-                      <div class="field">
-                        <span>Min</span>
-                        <input type="number" class="input-min" value="2500">
-                      </div>
-                      <div class="separator">-</div>
-                      <div class="field">
-                        <span>Max</span>
-                        <input type="number" class="input-max" value="7500">
-                      </div>
-                    </div>
-                    <div class="slider">
-                      <div class="progress"></div>
-                    </div>
-                    <div class="range-input">
-                      <input type="range" class="range-min" min="0" max="1000" value="250" step="10">
-                      <input type="range" class="range-max" min="0" max="1000" value="750" step="10">
-                    </div>
-                </div>
-
-                <div class="divider-2 mt-3 bg-dark"></div>
-
-                <div>
-                    <h2 class="m-2">Product Rating</h2>
-                    <div class="">
-                        <button class="btn btn-secondary m-2  btn-lg" style="border-radius: 10px;">1 star</button>
-                        <button class="btn btn-secondary m-2 btn-lg" style="border-radius: 10px;">2 stars</button>
-                        <button class="btn btn-secondary m-2 btn-lg" style="border-radius: 10px;">3 stars</button>
-                        <div class="d-flex justify-content-evenly">      
-                            <button class="btn btn-secondary m-2 btn-lg" style="border-radius: 10px;">4 stars</button>
-                            <button class="btn btn-secondary m-2 btn-lg" style="border-radius: 10px;">5 stars</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-1 justify-content-center d-flex">
-            <div class="vertical-divider"></div>
-        </div>
-
-        <div class="col-8">
-            <div class="container-fluid m-3" id="search-result">
+    <div class="row" id="search-result">
+        
+            <div class="container-fluid m-3">
                 <h1 class="text-white mb-4">6 search result</h1>
 
             </div>
-        </div>
+
 
     </div>
 

@@ -86,13 +86,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         detail_button2.classList.add('btn', 'btn-primary', 'button-hover', 'mt-4');
 
                         detail_button.addEventListener('click', function() {
-                            fetch('addToCart.php', {
+                            fetch('php_part/addToCart.php', {
                                 method: 'POST',
                                 headers: {
                                     'Content-Type': 'application/json'
                                 },
                                 body: JSON.stringify({
-                                    id: productData[i]['productID']
+                                    memberID: memberId,
+                                    itemID: productData[i]['ItemID']
                                 })
                             })
                             .then(response => response.json())
