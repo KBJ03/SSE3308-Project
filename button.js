@@ -76,27 +76,65 @@ $(document).ready(function() {
         updateTotalPrice();
     });
 
-    // Plus button click handler
-    $('.btn-number[data-type="plus"]').click(function(e){
-        e.preventDefault();
-        var input = $(this).closest('.cart-item').find('.input-number');
-        var currentValue = parseInt(input.val());
-        if (!isNaN(currentValue)) {
-            input.val(currentValue + 1);
-            updateTotalPrice();
+   // Plus button click handler
+   $('.btn-number[data-type="plus"]').click(function(e){
+    e.preventDefault();
+    var currentValue = parseInt(input.val());
+    if (!isNaN(currentValue)) {
+        input.val(currentValue + 1);
+        updateTotalPrice();
+    }
+    fetch('php_part/updateQuantity.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            quantity: currentValue
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+          
+        } else {
+            console.error('Error fetching similar product information:', data.message);
         }
+    })
+    .catch(error => {
+        console.error('Fetch error:', error);
     });
+});
 
-    // Minus button click handler
-    $('.btn-number[data-type="minus"]').click(function(e) {
-        e.preventDefault();
-        var input = $(this).closest('.cart-item').find('.input-number');
-        var currentValue = parseInt(input.val());
-        if (!isNaN(currentValue) && currentValue > 1) {
-            input.val(currentValue - 1);
-            updateTotalPrice();
-        }
-    });
+// Minus button click handler
+$('.btn-number[data-type="minus"]').click(function(e) {
+    e.preventDefault();
+    if (!isNaN(currentValue) && currentValue > 1) {
+        currentValue --;
+        input.val(currentValue);
+        updateTotalPrice();
+        fetch('php_part/updateQuantity.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                quantity: currentValue
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+              
+            } else {
+                console.error('Error fetching similar product information:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+    }
+});
 
     // Initial calculation of total price
     updateTotalPrice();

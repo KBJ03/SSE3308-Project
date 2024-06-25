@@ -14,10 +14,15 @@ navProfile.href = 'profile.html?MemberID=' + id;
 const navCart = document.getElementById('navCart');
 navCart.href = 'cart.php?MemberID=' + id;
 
-const searchTerm = document.getElementById('search-input');
-const searchValue = searchTerm.value;
+
 const searchLink = document.getElementById('searchLink');
-searchLink.href = 'search.html?SearchTerm=' + searchValue;
+searchLink.addEventListener('click', function(){
+    const searchTerm = $('#search-input').val();
+    searchLink.href = 'search.html?MemberID=' + id + 'SearchTerm=' + searchTerm;
+});
+
+
+
 
 //Modal link
 const modalHome = document.getElementById('modalHome');

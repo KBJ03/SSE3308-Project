@@ -195,15 +195,15 @@
                                             </div>
                                         </div>
                                         <div class="cart-item-end ms-5">
-                                            <div class="input-group">
+                                            <div class="input-group quantity">
                                                 <span class="input-group-prepend">
-                                                    <button type="button" class="btn btn-outline-secondary btn-number" data-type="minus" data-field="quant[${item.ProductName}]">
+                                                    <button type="button" class="btn btn-outline-secondary btn-number minus" id="minus" data-type="minus" data-field="quant[${item.ProductName}]">
                                                         <span class="fa fa-minus"></span>
                                                     </button>
                                                 </span>
-                                                <input type="text" name="quant[${item.ProductName}]" class="form-control input-number custom-width" value="1" min="1" max="99">
+                                                <input type="text" name="quant[${item.ProductName}]" class="form-control input-number custom-width" id="input-box" value="1" min="1" max="99">
                                                 <span class="input-group-append">
-                                                    <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[${item.ProductName}]">
+                                                    <button type="button" class="btn btn-outline-secondary btn-number plus" id="plus" data-type="plus" data-field="quant[${item.ProductName}]">
                                                         <span class="fa fa-plus"></span>
                                                     </button>
                                                 </span>
@@ -214,7 +214,14 @@
                             `);
                         });
                     } else {
-                        alert(response.message);
+                        const cartItemsContainer = $('#cartItems');
+                        cartItemsContainer.empty(); // Clear the container
+                        cartItemsContainer.append(
+                            `
+                            <h1>There is no item yet inside the cart!</h1>
+                            <h1>Continue to shopping</h1>
+                            `
+                        );
                     }
                 },
                 error: function(error) {
