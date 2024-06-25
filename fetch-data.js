@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const memberId = params.get('MemberID');
 
     // Fetch profile information
-    fetch('/php_part/getProfile.php',{
+    fetch('php_part/getProfile.php',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch shipping information
-    fetch('/php_part/getProfile.php',{
+    fetch('php_part/getProfile.php',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch payment information
-    fetch('/php_part/getProfile.php',{
+    fetch('php_part/getProfile.php',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch history information
-    fetch('/php_part/getProfile.php', {
+    fetch('php_part/getProfile.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

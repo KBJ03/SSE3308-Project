@@ -14,6 +14,11 @@
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="product-list.css">
     <title>Cart</title>
+
+    <script>
+        let checkOut=document.getElementById('checkoutButton');
+        checkOut.href='confirmPage.html?MemberID=' + id;
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md"> 
@@ -122,8 +127,10 @@
                     <p id="totalPrice">Total Price: $0.00</p>
                 </div>
                 <div class="col-sm-3">
+                    <a href="" id="checkoutButton">
                     <!-- Checkout button -->
-                    <button type="button" class="btn btn-outline-dark my-5" id="checkoutButton" data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
+                    <button type="button" class="btn btn-outline-dark my-5"  data-bs-toggle="modal" data-bs-target="#checkoutModal">Checkout</button>
+                    </a>
                 </div>
             </div>
         </div>

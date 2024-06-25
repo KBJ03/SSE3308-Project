@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const memberId = params.get('MemberID');
 
-    fetch('/php_part/getProfile.php',{
+    fetch('php_part/getProfile.php',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ function editAccount(event) {
     const capitalizedGender = genderInput.value.charAt(0).toUpperCase() + genderInput.value.slice(1);
     formData.set('gender', capitalizedGender);
     
-    fetch('/php_part/updateProfile.php', {
+    fetch('php_part/updateProfile.php', {
         method: 'POST',
         body: formData
     })

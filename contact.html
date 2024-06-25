@@ -25,6 +25,8 @@
         .text-white {
             color: white;
         }
+
+        
         </style>
         
     </head>
@@ -193,41 +195,134 @@
         <script src="link.js"></script>
         <script src="contact.js"></script>
         <script>
+        const params1 = new URLSearchParams(window.location.search);
+        const memberId = params1.get('MemberID');
 
         const form = document.getElementById('contactForm');
-        form.action = '/php_part/contact.php?MemberID=' + id;
+        form.action = 'php_part/contact.php?MemberID=' + memberId;
 
         const feedbackContainer = document.getElementById('feedbackContact');
+        
 
         document.addEventListener('DOMContentLoaded', function() {
-            fetch('/php_part/getContact.php?MemberID=' + id)
-                .then(response => response.json())
-                .then(data => {
-                    const results = data.results;
+        fetch('php_part/getContact.php')
+        .then(response => response.json())
+        .then(data => {
+            const results = data.results;
+           
+            if (data.success) {
+                for (let i = 0; i < results.length; i++) {
+                    
+    
+                    const feedbackDiv = document.createElement('div');
+                    feedbackDiv.classList.add('feedback-entry');
 
-                    if (data.success) {
-                        for (let i = 0; i < results.length; i++) {
-                            const feedbackDiv = document.createElement('div');
-                            feedbackDiv.classList.add('feedback-entry');
+                    const memberid = document.createElement('h2');
+                    const subject = document.createElement('h3');
+                    const feedbackText = document.createElement('p');
+                    const title = document.createElement('p');
 
-                            const subject = document.createElement('h1');
-                            const feedbackText = document.createElement('p');
+                    memberid.innerHTML = results[i]["Username"];
+                    subject.innerHTML = results[i]["Subject"];
+                    feedbackText.innerHTML = results[i]["Feedback"];
+                    title.innerHTML = 'Comment:';
 
-                            subject.innerHTML = results[i]["Subject"];
-                            feedbackText.innerHTML = results[i]["Feedback"];
+                    feedbackDiv.appendChild(memberid);
+                    feedbackDiv.appendChild(subject);
+                    feedbackDiv.appendChild(feedbackText);
+                    feedbackDiv.appendChild(title);
 
-                            feedbackDiv.appendChild(subject);
-                            feedbackDiv.appendChild(feedbackText);
+                    fetch('php_part/getComment.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            subject: results[i]["Subject"]
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(commentData => {
+                        const commentResults = commentData.results;
 
-                            feedbackContainer.appendChild(feedbackDiv);
+                        if (commentData.success && commentResults.length > 0) {
+                            for (let j = 0; j < commentResults.length; j++) {
+                                const comment = document.createElement('p');
+                                comment.innerHTML = commentResults[j]['Username'] + ":  " + commentResults[j]["Comment"];
+                                feedbackDiv.appendChild(comment);
+                            }
+                        } else {
+                            const noComments = document.createElement('p');
+                            noComments.innerHTML = 'No comments available.';
+                            feedbackDiv.appendChild(noComments);
                         }
-                    } else {
-                        console.error('Data fetch was not successful.');
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        });
-        </script>
+
+                        const input = document.createElement('input');
+                        input.setAttribute('type', 'text');
+                        input.setAttribute('id', 'comment2-' + i);
+                        input.setAttribute('placeholder', ' Comment');
+                        input.setAttribute('style', 'width:90%');
+
+                        const button = document.createElement('input');
+                        button.setAttribute('type', 'submit');
+                        button.setAttribute('id', 'CommentButton-' + i);
+                        button.setAttribute('value', 'Submit');
+                        button.setAttribute('style', 'margin-top:20px;background-color:red;color:white;border-color:white');
+
+                        feedbackDiv.appendChild(input);
+                        feedbackDiv.appendChild(button);
+
+                        feedbackContainer.appendChild(feedbackDiv);
+
+                        const subject1 = results[i]["Subject"];
+                        button.addEventListener('click', function() {
+                            const input1 = document.getElementById('comment2-' + i).value;
+                            fetch('php_part/updateComment.php', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                                body: JSON.stringify({
+                                    memberID: memberId,
+                                    subject: subject1,
+                                    comment: input1
+                                })
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    console.log('Success:', data);
+                                    alert(data.message);
+                                    location.reload(); 
+                                } else {
+                                    console.error('Error:', data.message);
+                                    location.reload(); 
+                                }
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('Failed to update comment');
+                            });
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        const errorMessage = document.createElement('p');
+                        errorMessage.innerHTML = 'Failed to load comments.';
+                        feedbackDiv.appendChild(errorMessage);
+                        feedbackContainer.appendChild(feedbackDiv);
+                    });
+                }
+            } else {
+                console.error('Data fetch was not successful.');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+});
+   
+
+        
+    </script>
 
 
     </body>
