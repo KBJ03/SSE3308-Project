@@ -83,3 +83,24 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
   })();
   
+ 
+//   document.addEventListener('DOMContentLoaded', function () {
+//     fetch('php_part/getCart.php', {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify({
+//             MemberID: id
+//         })
+//     })
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log('Success:', data);
+//         alert(data.message); // Show the response message
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//         alert('Failed to add product to cart!');
+//     });
+// });

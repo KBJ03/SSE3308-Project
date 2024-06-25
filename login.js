@@ -77,50 +77,42 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 //         })
     
 
-function changePassword() {
-    const currentPassword = document.getElementById('currentPassword').value;
-    const newPassword = document.getElementById('newPassword').value;
-    const confirmNewPassword = document.getElementById('confirmNewPassword').value;
+// Function to validate password change form
+function validatePasswordChangeForm() {
+  const newPassword = document.getElementById('newPassword').value;
+  const confirmNewPassword = document.getElementById('confirmNewPassword').value;
 
-    if(currentPassword.length==0 || newPassword.length==0 || confirmNewPassword.length==0){
-        alert('Please enter the password!');
-        return;
-    }
+  if (newPassword.length === 0 || confirmNewPassword.length === 0) {
+      alert('Please enter the new password!');
+      return false;
+  }
 
-    else{
-      if(currentPassword == newPassword){
-        alert('Current password cannot match to new password!');
-        return;
+  if (newPassword !== confirmNewPassword) {
+      alert('New passwords do not match!');
+      return false;
+  }
+
+  if (newPassword.length >= 10 && confirmNewPassword.length >= 10) {
+      const regexDigit = /\d/;
+      const regexCharacterLowerCase = /[a-z]/;
+      const regexCharacterUpperCase = /[A-Z]/;
+      const regexSymbols = /[!@#$%^&*(),.?":{}|<>]/;
+
+      if (regexDigit.test(newPassword) && regexCharacterLowerCase.test(newPassword) &&
+          regexCharacterUpperCase.test(newPassword) && regexSymbols.test(newPassword) &&
+          regexDigit.test(confirmNewPassword) && regexCharacterLowerCase.test(confirmNewPassword) &&
+          regexCharacterUpperCase.test(confirmNewPassword) && regexSymbols.test(confirmNewPassword)) {
+          return true;
+      } else {
+          alert('Please follow the format!\n A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters');
+          return false;
       }
-      else{
-        if (newPassword !== confirmNewPassword) {
-          alert('New passwords do not match!');
-          return;
-        }
-        else{
-         if(currentPassword.length>10 && newPassword.length>=10 && confirmNewPassword.length>=10){
-             if(regexDigit.test(currentPassword) && regexCharacterLowerCase.test(currentPassword) && regexCharacterUpperCase.test(currentPassword) && regexSymbols.test(currentPassword)&&
-                regexDigit.test(newPassword) && regexCharacterLowerCase.test(newPassword) && regexCharacterUpperCase.test(newPassword) && regexSymbols.test(newPassword)&&
-                regexDigit.test(confirmNewPassword) && regexCharacterLowerCase.test(confirmNewPassword) && regexCharacterUpperCase.test(confirmNewPassword) && regexSymbols.test(confirmNewPassword)
-             ){
-              alert('Password changed successfully!');
-              var modalElement = document.getElementById('changePasswordModal');
-              var modal = bootstrap.Modal.getInstance(modalElement);
-              modal.hide();
-             }
-             else{
-                 alert('Please follow the format!\n A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters');
-                 return;
-             }     
-          }
-         else{
-          alert('Please follow the format! \n A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters');
-          return;
-         }
-       }
-      }
-    }
+  } else {
+      alert('Please follow the format!\n A combination of uppercase letters, lowercase letters, numbers, and symbols with at least 10 characters');
+      return false;
+  }
 }
+
 
 /*Javascript for login digital clock */
 function startTime() {

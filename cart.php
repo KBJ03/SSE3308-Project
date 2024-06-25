@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
-    <script src="cart.js"></script>
-    <script src="button.js"></script>
     <link rel="stylesheet" type="text/css" href="cart.css">
     <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" type="text/css" href="product-list.css">
@@ -76,47 +75,8 @@
                 </div>
             </div>
         </div>
-        <div class="checkout-shop-children">
-            <?php foreach ($result as $item): ?>
-                <div class="cart-item mb-3">
-                    <div class="cart-item-inner">
-                        <div class="cart-item-left">
-                            <input type="checkbox" name="chk">
-                            <div class="img-wrap me-3">
-                                <img src=<?php echo htmlspecialchars($item['Url']); ?> alt="Keyboard Image">
-                            </div>
-                            <div class="content-wrap me-5">
-                                <h4><?php echo htmlspecialchars($item['ProductName']); ?></h4>
-                            </div>
-                        </div>
-                        <div class="cart-item-middle">
-                            <div>
-                                <p class="current-price"><?php echo htmlspecialchars($item['Price']); ?></p>
-                            </div>
-                            <div class="operations">
-                                <span class="automation-btn-delete ms-3">
-                                    <a href="#" class="delete-item"><i class="fa-solid fas fa-trash fa-2x" style="color: #ffffff;"></i></a>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="cart-item-end ms-5">
-                            <div class="input-group">
-                                <span class="input-group-prepend">
-                                    <button type="button" class="btn btn-outline-secondary btn-number" data-type="minus" data-field="quant[<?php echo htmlspecialchars($item['productName']); ?>]">
-                                        <span class="fa fa-minus"></span>
-                                    </button>
-                                </span>
-                                <input type="text" name="quant[<?php echo htmlspecialchars($item['productName']); ?>]" class="form-control input-number custom-width" value="<?php echo htmlspecialchars($item['quantity']); ?>" min="1" max="99">
-                                <span class="input-group-append">
-                                    <button type="button" class="btn btn-outline-secondary btn-number" data-type="plus" data-field="quant[<?php echo htmlspecialchars($item['productName']); ?>]">
-                                        <span class="fa fa-plus"></span>
-                                    </button>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php endforeach; ?>
+        <div class="checkout-shop-children" id="cartItems">
+           
         </div>    
     </div>
     <div class="footer">
@@ -205,6 +165,77 @@
     </div>
 
     <script src="link.js"></script>
-
+    <script src="cart.js"></script>
+    <script src="button.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Fetch the cart data
+            $.ajax({
+                url: 'php_part/getCart.php',
+                type: 'GET',
+                data: { MemberID: id }, // Replace YOUR_MEMBER_ID with the actual member ID
+                success: function(response) {
+                    if (response.success) {
+                        const cartItemsContainer = $('#cartItems');
+                        cartItemsContainer.empty(); // Clear the container
+                        response.results.forEach(item => {
+                            cartItemsContainer.append(`
+                                <div class="cart-item mb-3">
+                                    <div class="cart-item-inner">
+                                        <div class="cart-item-left">
+                                            <input type="checkbox" name="chk">
+                                            <div class="img-wrap me-3">
+                                                <img src="${item.Url}" alt="Product Image">
+                                            </div>
+                                            <div class="content-wrap me-5">
+                                                <h4>${item.ProductName}</h4>
+                                            </div>
+                                        </div>
+                                        <div class="cart-item-middle">
+                                            <div>
+                                                <p class="current-price">${item.Price}</p>
+                                            </div>
+                                            <div class="operations">
+                                                <span class="automation-btn-delete ms-3">
+                                                    <a href="#" class="delete-item"><i class="fa-solid fas fa-trash fa-2x" style="color: #ffffff;"></i></a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="cart-item-end ms-5">
+                                            <div class="input-group quantity">
+                                                <span class="input-group-prepend">
+                                                    <button type="button" class="btn btn-outline-secondary btn-number minus" id="minus" data-type="minus" data-field="quant[${item.ProductName}]">
+                                                        <span class="fa fa-minus"></span>
+                                                    </button>
+                                                </span>
+                                                <input type="text" name="quant[${item.ProductName}]" class="form-control input-number custom-width" id="input-box" value="1" min="1" max="99">
+                                                <span class="input-group-append">
+                                                    <button type="button" class="btn btn-outline-secondary btn-number plus" id="plus" data-type="plus" data-field="quant[${item.ProductName}]">
+                                                        <span class="fa fa-plus"></span>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `);
+                        });
+                    } else {
+                        const cartItemsContainer = $('#cartItems');
+                        cartItemsContainer.empty(); // Clear the container
+                        cartItemsContainer.append(
+                            `
+                            <h1>There is no item yet inside the cart!</h1>
+                            <h1>Continue to shopping</h1>
+                            `
+                        );
+                    }
+                },
+                error: function(error) {
+                    console.error('Error fetching cart data:', error);
+                }
+            });
+        });
+    </script>
 </body>
 </html>

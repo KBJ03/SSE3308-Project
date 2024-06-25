@@ -97,15 +97,16 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
         if (data.success) {
             const historyTable = document.getElementById('historyTable');
-
+    
             if (data.history && Array.isArray(data.history)) {
                 data.history.forEach(item => {
                     const historyItem = historyTable.insertRow();
+                    const formattedItemPurchase = `${item.ItemID} x ${item.Quantity}`;
+                    const formattedAmount = `$${item.Amount}`;
                     historyItem.innerHTML = `
                         <td>${item.OrderID}</td>
-                        <td>${item['Item Purchase']}</td>
-                        <td>${item['Order Status']}</td>
-                        <td>${item.Amount}</td>
+                        <td>${formattedItemPurchase}</td>
+                        <td>${formattedAmount}</td>
                     `;
                 });
             } 
