@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const memberId = params.get('MemberID');
 
-    fetch('/php_part/getProfile.php',{
+    fetch('/Group%20Project/php_part/getProfile.php',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -46,7 +46,7 @@ function editAccount(event) {
     const capitalizedGender = genderInput.value.charAt(0).toUpperCase() + genderInput.value.slice(1);
     formData.set('gender', capitalizedGender);
     
-    fetch('/php_part/updateProfile.php', {
+    fetch('/Group%20Project/php_part/updateProfile.php', {
         method: 'POST',
         body: formData
     })
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const memberId = params.get('MemberID');
 
-    fetch('/php_part/getProfile.php', {
+    fetch('/Group%20Project/php_part/getProfile.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ function editShipping(event) {
     event.preventDefault();
     const formData = new FormData(document.getElementById('editShippingForm'));
 
-    fetch('/php_part/updateShipping.php', {
+    fetch('/Group%20Project/php_part/updateShipping.php', {
         method: 'POST',
         body: formData
     })
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const memberId = params.get('MemberID');
 
-    fetch('/php_part/getProfile.php', {
+    fetch('/Group%20Project/php_part/getProfile.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -147,7 +147,10 @@ function editPayment(event) {
     event.preventDefault();
     const formData = new FormData(document.getElementById('editPaymentForm'));
 
-    fetch('/php_part/updatePayment.php', {
+    const maskedCardNumber = formData.get('card-number');
+    formData.set('card-number', maskedCardNumber.replace(/\s/g,''));
+
+    fetch('/Group%20Project/php_part/updatePayment.php', {
         method: 'POST',
         body: formData
     })
