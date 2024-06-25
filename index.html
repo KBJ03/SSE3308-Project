@@ -65,7 +65,7 @@
     </div>
 
     <!--Div for the reset password model--> 
-    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModal" aria-hidden="true">
+    <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -73,29 +73,36 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="changePasswordForm">
+                    <form id="changePasswordForm" action="php_part/reset.php" method="post" onsubmit="return validatePasswordChangeForm()">
                         <div class="mb-3">
-                            <label for="currentPassword" class="form-label">Current Password</label>
-                            <input type="password" class="form-control" id="currentPassword" required>
+                            <label for="confirmUserName" class="mt-3">Username:</label>
+                            <a href="#" title="Rules" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-content="User name should be more than 3 characters and must contain at least one letter (a-z), numbers (0-9), and symbols such as dashes (-), underscores (_), apostrophes ('), and periods (.)">
+                                <i class="fa fa-info-circle"></i>
+                            </a>
+                            <input type="text" class="form-control" id="confirmUserName" name="confirmUserName" pattern="[a-zA-Z0-9-_'.]{3,12}" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmBirthday" class="mt-3">Birthday</label>
+                            <input type="date" class="form-control" id="confirmBirthday" name="confirmBirthday" required>        
                         </div>
                         <div class="mb-3">
                             <label for="newPassword" class="form-label">New Password</label>
-                            <input type="password" class="form-control" id="newPassword" required>
+                            <input type="password" class="form-control" id="newPassword" name="newPassword" required>
                         </div>
                         <div class="mb-3">
                             <label for="confirmNewPassword" class="form-label">Confirm New Password</label>
-                            <input type="password" class="form-control" id="confirmNewPassword" required>
+                            <input type="password" class="form-control" id="confirmNewPassword" name="confirmNewPassword" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Save changes</button>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="changePassword()">Save changes</button>
                 </div>
             </div>
         </div>
     </div>
-
+    
     
     <script src="login.js"></script>
 
