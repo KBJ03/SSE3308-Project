@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const memberId = params.get('MemberID');
 
     // Fetch profile information
-    fetch('/php_part/getProfile.php',{
+    fetch('php_part/getProfile.php',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch shipping information
-    fetch('/php_part/getProfile.php',{
+    fetch('php_part/getProfile.php',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch payment information
-    fetch('/php_part/getProfile.php',{
+    fetch('php_part/getProfile.php',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
     // Fetch history information
-    fetch('/php_part/getProfile.php', {
+    fetch('php_part/getProfile.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -97,15 +97,16 @@ document.addEventListener('DOMContentLoaded', function() {
     .then(data => {
         if (data.success) {
             const historyTable = document.getElementById('historyTable');
-
+    
             if (data.history && Array.isArray(data.history)) {
                 data.history.forEach(item => {
                     const historyItem = historyTable.insertRow();
+                    const formattedItemPurchase = `${item.ItemID} x ${item.Quantity}`;
+                    const formattedAmount = `$${item.Amount}`;
                     historyItem.innerHTML = `
                         <td>${item.OrderID}</td>
-                        <td>${item['Item Purchase']}</td>
-                        <td>${item['Order Status']}</td>
-                        <td>${item.Amount}</td>
+                        <td>${formattedItemPurchase}</td>
+                        <td>${formattedAmount}</td>
                     `;
                 });
             } 

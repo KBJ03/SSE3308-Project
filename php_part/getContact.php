@@ -1,12 +1,12 @@
 <?php
     try {
-        $memberID = $_GET['MemberID'];
+        
 
         require_once "db.php";
-        $query = "SELECT * FROM Contact; where MemberID = ?";
+        $query = "SELECT * FROM Contact join User on Contact.MemberID = User.MemberID";
         
         $stmt = $pdo->prepare($query);
-        $stmt->execute([$memberID]);
+        $stmt->execute();
 
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         header('Content-Type: application/json');

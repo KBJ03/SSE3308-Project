@@ -15,7 +15,7 @@ const categoryNameImg = ["keyboard", "mouse", "speaker"];
 let productData = [];
 
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/php_part/getProduct.php')
+    fetch('php_part/getProduct.php')
         .then(response => response.json())
         .then(data => {
             if (data.success) {

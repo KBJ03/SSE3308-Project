@@ -57,3 +57,4 @@ modalSpeaker.href = 'product-list.html?MemberID=' + id + '#speaker';
 
 const modalContact = document.getElementById('modalContact');
 modalContact.href = 'contact.html?MemberID=' + id;
+
