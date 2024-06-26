@@ -20,25 +20,16 @@ require 'db.php';
             $stmt = $pdo->prepare($query);
             $stmt->execute([$memberID, $itemID, 1]);
             $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-         
-
-         header('Content-Type: application/json');
-         echo "<script>window.location.href = '../home.html';</script>";
         
-         if ($result) {
             echo json_encode([
                 'success' => true,
             ]);
-        } else {
-            echo json_encode([
-                'success' => false,
-                'message' => 'No results found'
-            ]);
-        }
+        
         
         } 
          catch (PDOException $e) {
-            echo json_encode(["message" => "Database error: " . $e->getMessage()]);
+            echo json_encode(['success' => false,
+            "message" => "Database error: " . $e->getMessage()]);
         }
 }
 // } else {

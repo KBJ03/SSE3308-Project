@@ -1,11 +1,9 @@
 <?php
 require 'db.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $memberID = $_POST['memberID'];
+//if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $memberID = $_GET['MemberID'];
 
-
-    if (!empty($itemIds)) {
 
         // Generate OrderID
         $orderID = generateOrderID($pdo);
@@ -14,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $insertStmt = $pdo->prepare("INSERT INTO History (MemberID, OrderID, ItemID, Quantity, Amount) VALUES (?, ?, ?, ?, ?)");
 
         // Prepare statement to fetch cart items details
-        $placeholders = implode(',', array_fill(0, count($itemIds), '?'));
-        $fetchStmt = $pdo->prepare("SELECT ItemID, quantity, price FROM Cart WHERE ItemID IN ($placeholders)");
-        $fetchStmt->execute($itemIds);
+        $fetchStmt = $pdo->prepare("SELECT Cart.ItemID, Cart.Quantity, Product.Price FROM Cart JOIN Product ON (Cart.ItemID = Product.ItemID) 
+        WHERE Cart.MemberID = ?");
+        $fetchStmt->execute([$memberID]);
 
         // Insert each cart item into History table
         while ($item = $fetchStmt->fetch(PDO::FETCH_ASSOC)) {
@@ -30,21 +28,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
 
-
-        $placeholders = implode(',', array_fill(0, count($itemIds), '?'));
         $stmt = $pdo->prepare("DELETE FROM Cart WHERE MemberID = ?");
 
         if ($stmt->execute([$memberID])) {
-            echo json_encode(["status" => "success"]);
+            echo "<script>window.location = '../cart.php?MemberID=$memberID';</script>"; 
         } else {
             echo json_encode(["status" => "error", "message" => "Failed to delete items from cart."]);
         }
-    } else {
-        echo json_encode(["status" => "error", "message" => "No items to delete."]);
-    }
-} else {
-    echo json_encode(["status" => "error", "message" => "Invalid request method."]);
-}
+
+        
+    
+// } else {
+//     echo json_encode(["status" => "error", "message" => "Invalid request method."]);
+// }
 
 function generateOrderID($pdo) {
     // Check if the last_id exists in the OrderIDSequence table

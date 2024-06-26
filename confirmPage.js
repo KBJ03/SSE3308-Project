@@ -4,7 +4,41 @@ let cartItem=[];
 let total=0;
 
 const confirm=document.getElementById('button');
-confirm.href='cart.php?MemberID=' + memberId;
+confirm.addEventListener('click', function(event){
+    event.preventDefault();
+//     $.ajax({
+//         url: 'php_part/clear_checked_items.php?MemberID=' + memberId,
+//         type: 'POST',
+//         dataType: 'json',
+//         success: function(response) {
+//             if (response.success) {
+//                 console.log('Cart item quantity updated successfully');
+//             } else {
+//                 console.error('Failed to update cart item quantity:', response.message);
+//             }
+//         },
+//         error: function(xhr, status, error) {
+//             console.error('Error updating cart item quantity:', error);
+//     }
+// });
+        fetch('php_part/clear_checked_items.php?MemberID=' + memberId, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+            } else {
+                console.error('Error fetching similar product information:', data.message);
+            }
+        })
+        .catch(error => {
+            console.error('Fetch error:', error);
+        });
+});
+
 
 document.addEventListener('DOMContentLoaded', function () {
     fetch('php_part/getConfirmPage.php', {

@@ -82,13 +82,16 @@
                 })
             })
             .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                alert(data.message); // Show the response message
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Failed to add product to cart!');
-            });
+                            .then(data => {
+                                if(data.success){
+                                    alert('Product added into cart successfully!');
+                                }else{
+                                    alert('This product already added into cart!');
+                                } // Show the response message
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                                alert('Failed to add product to cart!');
+                            });
         });
  

@@ -11,11 +11,15 @@ $(document).ready(function() {
         });
         updateTotalPrice(); // Update total price after removing items
         $('#checkoutModal').modal('hide');
+        window.location = 'confirmPage.html?MemberID=' + id;
         
     });
 
-    $('#checkoutButton').click(function(){
-        window.location = '../index.html';
+
+    
+
+    $('#checkoutButton').click(function(event){
+        event.preventDefault(); 
     }
 
     );
