@@ -11,48 +11,21 @@ $(document).ready(function() {
         });
         updateTotalPrice(); // Update total price after removing items
         $('#checkoutModal').modal('hide');
+        
     });
 
-    // Handle delete item button click
-    $('.delete-item').click(function(e) {
-        e.preventDefault();
-        // Get the parent cart item
-        var cartItem = $(this).closest('.cart-item');
-        // Get the product name of the item to be deleted
-        var productName = cartItem.find('h4').text();
-        
-        // Send an AJAX request to the server-side script to delete the item
-        $.ajax({
-            url: 'delete_item.php',
-            method: 'POST',
-            data: {productName: productName}, // Include the product name in the request data
-            success: function(response) {
-                // Parse the JSON response
-                var data = JSON.parse(response);
-                // Check if deletion was successful
-                if (data.success) {
-                    // Display an alert message
-                    alert(data.message);
-                    // If deletion is successful, remove the item from the DOM
-                    cartItem.remove();
-                    // Update total price after removing the item
-                    updateTotalPrice();
-                } else {
-                    // Display an error message
-                    alert(data.message);
-                }
-            },
-            error: function(xhr, status, error) {
-                // Handle any errors that occur during the AJAX request
-                console.error(error);
-            }
-        });
-    });
-    
-    
+    $('#checkoutButton').click(function(){
+        window.location = '../index.html';
+    }
+
+    );
+
+
+
     // Constant for shopping fee
     const shoppingFee = 5.00; // You can adjust this value as needed
 
+    // Function to update total price
     function updateTotalPrice() {
         var totalPrice = 0;
         $('.cart-item').each(function() {
@@ -71,71 +44,89 @@ $(document).ready(function() {
         $('#shippingFee').text('Shipping Fee: $' + shoppingFee.toFixed(2));
     }
 
-    // Checkbox change event handler
-    $('input[type="checkbox"]').change(function() {
+    // Checkbox change event handler using event delegation
+    $(document).on('change', '.cart-item input[type="checkbox"]', function() {
         updateTotalPrice();
     });
 
-   // Plus button click handler
-   $('.btn-number[data-type="plus"]').click(function(e){
-    e.preventDefault();
-    var currentValue = parseInt(input.val());
-    if (!isNaN(currentValue)) {
-        input.val(currentValue + 1);
-        updateTotalPrice();
-    }
-    fetch('php_part/updateQuantity.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            quantity: currentValue
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-          
-        } else {
-            console.error('Error fetching similar product information:', data.message);
+    // Plus and minus button event handlers
+    $(document).on('click', '.plus', function() {
+        var $quantityInput = $(this).closest('.quantity').find('.input-number');
+        var currentQuantity = parseInt($quantityInput.val());
+        if (currentQuantity < 99) { // Ensure quantity does not exceed max value
+            $quantityInput.val(currentQuantity + 1);
+            var itemID = $(this).closest('.cart-item').data('itemid');
+            updateCartItemQuantity(itemID, currentQuantity + 1);
+            updateTotalPrice();
         }
-    })
-    .catch(error => {
-        console.error('Fetch error:', error);
     });
-});
 
-// Minus button click handler
-$('.btn-number[data-type="minus"]').click(function(e) {
-    e.preventDefault();
-    if (!isNaN(currentValue) && currentValue > 1) {
-        currentValue --;
-        input.val(currentValue);
-        updateTotalPrice();
-        fetch('php_part/updateQuantity.php', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
+    $(document).on('click', '.minus', function() {
+        var $quantityInput = $(this).closest('.quantity').find('.input-number');
+        var currentQuantity = parseInt($quantityInput.val());
+        if (currentQuantity > 1) { // Ensure quantity does not go below min value
+            $quantityInput.val(currentQuantity - 1);
+            var itemID = $(this).closest('.cart-item').data('itemid');
+            updateCartItemQuantity(itemID, currentQuantity - 1);
+            updateTotalPrice();
+        }
+    });
+
+    // Handle click event on trash icon to delete cart item
+    $(document).on('click', '.fa-trash', function() {
+        var cartItem = $(this).closest('.cart-item');
+        var itemID = cartItem.data('itemid');
+        
+        // Send AJAX request to deleteCartItem.php
+        $.ajax({
+            url: 'php_part/deleteCartItem.php',
+            type: 'POST',
+            data: { itemID: itemID },
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    // Remove the cart item from the UI
+                    cartItem.remove();
+                    updateTotalPrice();
+                } else {
+                    console.error('Failed to delete cart item:', response.message);
+                }
             },
-            body: JSON.stringify({
-                quantity: currentValue
-            })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-              
-            } else {
-                console.error('Error fetching similar product information:', data.message);
+            error: function(xhr, status, error) {
+                console.error('Error deleting cart item:', error);
             }
-        })
-        .catch(error => {
-            console.error('Fetch error:', error);
+        });
+    });
+
+    // Function to update cart item quantity in the database
+
+    function updateCartItemQuantity(itemID, newQuantity) {
+        $.ajax({
+            url: 'php_part/updateQuantity.php',
+            type: 'POST',
+            data: { itemID: itemID, quantity: newQuantity, memberID: id },
+            dataType: 'json',
+            success: function(response) {
+                if (response.success) {
+                    console.log('Cart item quantity updated successfully');
+                } else {
+                    console.error('Failed to update cart item quantity:', response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Error updating cart item quantity:', error);
+            }
         });
     }
-});
 
-    // Initial calculation of total price
+
+    // Select all checkbox event handler
+    $('#checkboxSelectAll input').change(function() {
+        var isChecked = $(this).prop('checked');
+        $('.cart-item input[type="checkbox"]').prop('checked', isChecked);
+        updateTotalPrice();
+    });
+
+    // Initial call to set total price on page load
     updateTotalPrice();
 });

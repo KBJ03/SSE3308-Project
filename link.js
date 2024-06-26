@@ -17,8 +17,8 @@ navCart.href = 'cart.php?MemberID=' + id;
 
 const searchLink = document.getElementById('searchLink');
 searchLink.addEventListener('click', function(){
-    const searchTerm = $('#search-input').val();
-    searchLink.href = 'search.html?MemberID=' + id + 'SearchTerm=' + searchTerm;
+    const searchTerm = document.getElementById('search-input').value;
+    searchLink.href = 'search.html?MemberID=' + id + '&SearchTerm=' + searchTerm;
 });
 
 

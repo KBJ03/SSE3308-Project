@@ -18,7 +18,7 @@ try {
         try {
             // Fetch all items from the cart table
             $query = "
-                SELECT Cart.ItemID, Product.ProductName, Product.Price, Product.Url
+                SELECT Cart.ItemID, Cart.Quantity, Product.ProductName, Product.Price, Product.Url
                 FROM Cart
                 JOIN Product ON Cart.ItemID = Product.ItemID
                 WHERE Cart.MemberID = ?
