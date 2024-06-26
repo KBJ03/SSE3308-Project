@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         productDiv.classList.add('d-flex', 'justify-content-evenly');
 
                         const productPrice = document.createElement('p');
-                        productPrice.innerHTML = productData[i]['Price'];
+                        productPrice.innerHTML = '$' + productData[i]['Price'];
                         productPrice.style.fontSize = "25px";
 
                         const divRate = document.createElement('div');
