@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $pdo = null;
         $stmt = null;
-        echo "<script>alert('Your registration is successful! You are able to enter the website'); window.location.href = '../home.html';</script>";
+        echo "<script>alert('Your registration is successful! You are able to enter the website'); window.location.href = '../home.html?MemberID=$memberID';</script>";
 
 
         

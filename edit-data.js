@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const memberId = params.get('MemberID');
 
-    fetch('/Group%20Project/php_part/getProfile.php', {
+    fetch('/php_part/getProfile.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -94,7 +94,7 @@ function editShipping(event) {
     event.preventDefault();
     const formData = new FormData(document.getElementById('editShippingForm'));
 
-    fetch('/Group%20Project/php_part/updateShipping.php', {
+    fetch('/php_part/updateShipping.php', {
         method: 'POST',
         body: formData
     })
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const params = new URLSearchParams(window.location.search);
     const memberId = params.get('MemberID');
 
-    fetch('/Group%20Project/php_part/getProfile.php', {
+    fetch('/php_part/getProfile.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -150,7 +150,7 @@ function editPayment(event) {
     const maskedCardNumber = formData.get('card-number');
     formData.set('card-number', maskedCardNumber.replace(/\s/g,''));
 
-    fetch('/Group%20Project/php_part/updatePayment.php', {
+    fetch('/php_part/updatePayment.php', {
         method: 'POST',
         body: formData
     })

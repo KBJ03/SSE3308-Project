@@ -101,15 +101,17 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.history && Array.isArray(data.history)) {
                 data.history.forEach(item => {
                     const historyItem = historyTable.insertRow();
-                    const formattedItemPurchase = `${item.ItemID} x ${item.Quantity}`;
-                    const formattedAmount = `$${item.Amount}`;
+                    const formattedItemDetails = item.ItemDetails.replace(/,/g, '<br>'); // Replace commas with <br>
+                    const formattedAmount = `${item.TotalAmount.toFixed(2)}`;
                     historyItem.innerHTML = `
                         <td>${item.OrderID}</td>
-                        <td>${formattedItemPurchase}</td>
+                        <td>${formattedItemDetails}</td>
                         <td>${formattedAmount}</td>
                     `;
                 });
-            } 
+            }
+
+            
         } else {
             console.error('Error fetching history information:', data.message);
         }

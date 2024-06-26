@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        memberID: memberId,
+                        memberID: id,
                         itemID: results[j]['ItemID']
                     })
                 })
