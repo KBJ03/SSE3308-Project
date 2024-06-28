@@ -21,12 +21,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('email').value = data.profile[0]["Email"];
                 
                 const genderSelect = document.getElementById('editGender');
-                const selectedGender = data.profile[0]["Gender"].toLowerCase();
+                const selectedGender = data.profile[0]["Gender"];
                 
                 for (let i = 0; i < genderSelect.options.length; i++) {
                     if (genderSelect.options[i].value === selectedGender) {
                         genderSelect.options[i].selected = true;
                         break;
+                    }
+                }
+
+                const preferences = data.profile[0]["Preferences"];
+                const selectedPreferences = preferences.split(',').map(pref => pref.trim());
+
+                const preferencesSelect = document.getElementById('editPreferences');
+                for (let i = 0; i < preferencesSelect.options.length; i++) {
+                    if (selectedPreferences.includes(preferencesSelect.options[i].value)) {
+                        preferencesSelect.options[i].selected = true;
                     }
                 }
             } else {
@@ -46,6 +56,12 @@ function editAccount(event) {
     const capitalizedGender = genderInput.value.charAt(0).toUpperCase() + genderInput.value.slice(1);
     formData.set('gender', capitalizedGender);
     
+    const preferencesSelect = document.getElementById('editPreferences');
+    const selectedPreferences = Array.from(preferencesSelect.selectedOptions).map(option => option.value);
+    selectedPreferences.forEach(preference => {
+        formData.append('preferences[]', preference);
+    });
+
     fetch('/php_part/updateProfile.php', {
         method: 'POST',
         body: formData

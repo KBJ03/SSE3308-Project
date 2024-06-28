@@ -167,6 +167,10 @@
                                                         <th>Email Address</th>
                                                         <td><span id="email-address"></span></td>
                                                     </tr>
+                                                    <tr>
+                                                        <th>Preferences</th>
+                                                        <td><span id="preferences"></span></td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -280,8 +284,8 @@
                                             <div class="mb-3">
                                                 <label for="gender" class="form-label">Gender</label>
                                                 <select class="form-select" id="editGender" name="gender">
-                                                    <option value="male">Male</option>
-                                                    <option value="female">Female</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
                                                     <option value="other">Other</option>
                                                 </select>
                                             </div>
@@ -296,6 +300,17 @@
                                             <div class="mb-3">
                                                 <label for="email" class="form-label">Email</label>
                                                 <input type="email" class="form-control" id="email" name="email">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label for="editPreferences" class="form-label">Preferences</label>
+                                                <select class="form-select" id="editPreferences" multiple>
+                                                    <option value="Gaming">Gaming</option>
+                                                    <option value="Work/Productivity">Work/Productivity</option>
+                                                    <option value="Education">Education</option>
+                                                    <option value="Traveling">Traveling</option>
+                                                    <option value="Casual Use">Casual Use</option>
+                                                    <option value="Design/Creative">Design/Creative</option>
+                                                </select>
                                             </div>
                                             <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</button>
                                         </form>
