@@ -4,7 +4,7 @@ require 'db.php';
 
 // Check if the product name is set in the POST data
 if (isset($_POST['productName'])) {
-    $productName = $_POST['productName'];
+    $productName = htmlentities($_POST['productName']);
 
     try {
         // Prepare and execute the DELETE query

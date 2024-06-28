@@ -4,13 +4,13 @@ include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $memberId = $_POST['memberId'];
+    $memberId = htmlentities($_POST['memberId']);
     
-    $name = $_POST['shipping-name'];
-    $phone = $_POST['shipping-phone'];
-    $address = $_POST['shipping-address'];
-    $postal = $_POST['shipping-postal'];
-    $remark = $_POST['shipping-remark'];
+    $name = htmlentities($_POST['shipping-name']);
+    $phone = htmlentities($_POST['shipping-phone']);
+    $address = htmlentities($_POST['shipping-address']);
+    $postal = htmlentities($_POST['shipping-postal']);
+    $remark = htmlentities($_POST['shipping-remark']);
 
     $sql = "UPDATE Shipping SET name = :name, phone = :phone, address = :address, PostalCode = :postal, remark = :remark WHERE memberId = :memberId";
     try {

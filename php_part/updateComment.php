@@ -8,9 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    
     if (isset($data['subject'])) {
-        $memberid=$data['memberID'];
-        $subject=$data['subject'];
-        $comment=$data['comment'];
+        $memberid=htmlentities($data['memberID']);
+        $subject=htmlentities($data['subject']);
+        $comment=htmlentities($data['comment']);
 
         try {
             $query = "INSERT INTO Comment VALUES (:subject, :Comment,:memberid)";

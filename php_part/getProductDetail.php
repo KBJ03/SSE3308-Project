@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    
     if (isset($data['itemID'])) {
-        $item = $data['itemID'];
+        $item = htmlentities($data['itemID']);
 
         try {
             $query = "SELECT * FROM Product WHERE ItemID = :item";

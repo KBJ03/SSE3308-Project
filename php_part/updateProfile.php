@@ -4,12 +4,12 @@ include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $username = $_POST['username'];
-    $memberId = $_POST['memberId'];
-    $gender = $_POST['gender'];
-    $birthday = $_POST['birthday'];
-    $phone = $_POST['phone'];
-    $email = $_POST['email'];
+    $username = htmlentities($_POST['username']);
+    $memberId = htmlentities($_POST['memberId']);
+    $gender = htmlentities($_POST['gender']);
+    $birthday = htmlentities($_POST['birthday']);
+    $phone = htmlentities($_POST['phone']);
+    $email = htmlentities($_POST['email']);
     $preferences = $_POST['preferences']; 
     
     $preferencesString = implode(', ', $preferences);

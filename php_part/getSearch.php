@@ -2,7 +2,7 @@
 require_once "db.php";
 
     if (isset($_GET['SearchTerm'])) {
-        $searchTerm = $_GET['SearchTerm'];
+        $searchTerm = htmlentities($_GET['SearchTerm']);
 
         try {
             $query = "SELECT * FROM Product WHERE ProductName LIKE ? ";

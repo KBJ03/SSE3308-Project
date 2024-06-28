@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    
     if (isset($data['MemberID'])) {
-        $ID = $data['MemberID'];
+        $ID = htmlentities($data['MemberID']);
 
         try {
             $query = "SELECT * FROM User join Shipping on User.MemberID = Shipping.MemberID join Payment on User.MemberID = Payment.MemberID where User.MemberID=:id";

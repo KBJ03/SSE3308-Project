@@ -4,12 +4,12 @@
 require_once "db.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST["userName"];
-    $password = $_POST["password"];
-    $email = $_POST["email"];
-    $phone = $_POST["phone"];
-    $gender = $_POST["gender"];
-    $birthday = $_POST["birthday"];
+    $username = htmlentities($_POST["userName"]);
+    $password = htmlentities($_POST["password"]);
+    $email = htmlentities($_POST["email"]);
+    $phone = htmlentities($_POST["phone"]);
+    $gender = htmlentities($_POST["gender"]);
+    $birthday = htmlentities($_POST["birthday"]);
 
     $regexDigit = '/\d/';
     $regexCharacter = '/[a-zA-Z]/';

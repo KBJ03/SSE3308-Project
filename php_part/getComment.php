@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    
     if (isset($data['subject'])) {
-        $subject = $data['subject'];
+        $subject = htmlentities($data['subject']);
 
         try {
             $query = "SELECT * FROM Comment join User on Comment.ID = User.MemberID WHERE subject = :subject1";

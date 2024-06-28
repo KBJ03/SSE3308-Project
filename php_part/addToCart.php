@@ -12,8 +12,8 @@ require 'db.php';
 
     if (isset($data['itemID'])) {
 
-        $memberID = $data['memberID'];
-        $itemID = $data['itemID'];
+        $memberID = htmlentities($data['memberID']);
+        $itemID = htmlentities($data['itemID']);
 
         try {
             $query = "INSERT INTO Cart VALUES (?, ?, ?)";

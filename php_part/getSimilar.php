@@ -8,8 +8,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
    
     if (isset($data['Similar1'])) {
-        $similar1=$data['Similar1'];
-        $similar2=$data['Similar2'];
+        $similar1=htmlentities($data['Similar1']);
+        $similar2=htmlentities($data['Similar2']);
 
         try {
             $query = "SELECT * FROM Product WHERE ItemID =:item1 ";

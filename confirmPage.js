@@ -30,6 +30,7 @@ confirm.addEventListener('click', function(event){
         .then(response => response.json())
         .then(data => {
             if (data.success) {
+                window.href = 'cart.php?MemberID=' + id;
             } else {
                 console.error('Error fetching similar product information:', data.message);
             }

@@ -1,8 +1,8 @@
 <?php
 
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    $username = $_POST["userName"];
-    $password = $_POST["password"];
+    $username = htmlentities($_POST["userName"]);
+    $password = htmlentities($_POST["password"]);
 
     $regexDigit = '/\d/';
     $regexCharacter = '/[a-zA-Z]/';

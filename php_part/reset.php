@@ -4,10 +4,10 @@ session_start();
 require_once 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $_POST['confirmUserName'];
-    $email = $_POST['confirmEmail'];
-    $newPassword = $_POST['newPassword'];
-    $confirmNewPassword = $_POST['confirmNewPassword'];
+    $username = htmlentities($_POST['confirmUserName']);
+    $email = htmlentities($_POST['confirmEmail']);
+    $newPassword = htmlentities($_POST['newPassword']);
+    $confirmNewPassword = htmlentities($_POST['confirmNewPassword']);
 
     if (empty($username) || empty($email) || empty($newPassword) || empty($confirmNewPassword)) {
         echo "<script>alert('Please fill in all fields!'); window.location.href = '../index.html';</script>";

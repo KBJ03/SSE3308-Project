@@ -2,7 +2,7 @@
 require 'db.php';
 
 //if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $memberID = $_GET['MemberID'];
+    $memberID = htmlentities($_GET['MemberID']);
 
         $orderID = generateOrderID($pdo);
 
@@ -12,20 +12,37 @@ require 'db.php';
         WHERE Cart.MemberID = ?");
         $fetchStmt->execute([$memberID]);
 
-        while ($item = $fetchStmt->fetch(PDO::FETCH_ASSOC)) {
-            $itemID = $item['ItemID'];
-            $quantity = $item['Quantity'];
-            $price = $item['Price']; 
-            $amount = $quantity * $price; 
+        
+$itemDetails = [];
+$totalAmount = 0;
 
-            $insertStmt->execute([$memberID, $orderID, $itemID, $quantity, $amount]);
-        }
+// Concatenate product names with quantities and calculate total amount
+while ($item = $fetchStmt->fetch(PDO::FETCH_ASSOC)) {
+    $productName = $item['ProductName'];
+    $quantity = $item['Quantity'];
+    $price = $item['Price'];
+    $amount = $quantity * $price;
+    $totalAmount += $amount;
+    $itemDetails[] = $productName . 'x' . $quantity;
+}
+
+// Combine item details into a single string
+$combinedItemDetails = implode(', ', $itemDetails);
+
+// Prepare statement for inserting into History table
+$insertStmt = $pdo->prepare("INSERT INTO History (MemberID, OrderID, ItemDetails, TotalAmount) 
+                             VALUES (?, ?, ?, ?)");
+$insertStmt->execute([$memberID, $orderID, $combinedItemDetails, $totalAmount]);
+
 
 
         $stmt = $pdo->prepare("DELETE FROM Cart WHERE MemberID = ?");
 
         if ($stmt->execute([$memberID])) {
-            echo "<script>window.location = '../cart.php?MemberID=$memberID';</script>"; 
+            echo json_encode([
+                'success' => false,
+                'message' => 'Database error: '
+            ]);
         } else {
             echo json_encode(["status" => "error", "message" => "Failed to delete items from cart."]);
         }

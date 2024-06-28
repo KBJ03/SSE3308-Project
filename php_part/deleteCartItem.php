@@ -6,7 +6,7 @@ require 'db.php';
 
 // Check if the item ID is set in the POST data
 //if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['itemID'])) {
-    $itemID = $_POST['itemID'];
+    $itemID = htmlentities($_POST['itemID']);
 
     try {
         // Prepare and execute the delete query

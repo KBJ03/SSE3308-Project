@@ -13,7 +13,7 @@ try {
 }
 
 
-        $memberID = $_GET['MemberID'];
+        $memberID = htmlentities($_GET['MemberID']);
 
         try {
             // Fetch all items from the cart table

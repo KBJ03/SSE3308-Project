@@ -4,10 +4,10 @@ include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    $memberId = $_POST['memberId'];
+    $memberId = htmlentities($_POST['memberId']);
     
-    $paymentMethod = $_POST['payment-method'];
-    $cardNumber = $_POST['card-number'];
+    $paymentMethod = htmlentities($_POST['payment-method']);
+    $cardNumber = htmlentities($_POST['card-number']);
 
     $sql = "UPDATE Payment SET `PaymentMethod` = :paymentMethod, `CardNumber` = :cardNumber WHERE memberId = :memberId";
     try {

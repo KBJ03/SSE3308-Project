@@ -4,9 +4,9 @@ require_once 'db.php';
 // Check if the form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve the form data
-    $subject = $_POST['subject'];
-    $feedback = $_POST['feedback'];
-    $memberID = $_GET['MemberID'];
+    $subject = htmlentities($_POST['subject']);
+    $feedback = htmlentities($_POST['feedback']);
+    $memberID = htmlentities($_GET['MemberID']);
 
     // Validate the form data (optional but recommended)
     if (!empty($subject) && !empty($feedback)) {

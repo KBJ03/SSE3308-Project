@@ -7,7 +7,7 @@ try {
         $data = json_decode(file_get_contents("php://input"), true);
         
         if (isset($data['MemberID'])) {
-            $memberID = $data['MemberID'];
+            $memberID = htmlentities($data['MemberID']);
             
             $profileQuery = "SELECT * FROM User WHERE MemberID = ?";
             $profileStmt = $pdo->prepare($profileQuery);
