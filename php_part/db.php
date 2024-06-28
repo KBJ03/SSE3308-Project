@@ -1,12 +1,8 @@
 <?php
 
-$dsn = "mysql:host=localhost;dbname=webproject";
-$dbusername = "root";
-$dbpassword = ""; 
-
-// $dsn = "mysql:host=localhost;dbname=id22296644_webproject";
-// $dbusername = "id22296644_root";
-// $dbpassword = "webProject123!"; 
+$dsn = "mysql:host=localhost;dbname=id22296644_webproject";
+$dbusername = "id22296644_root";
+$dbpassword = "webProject123!"; 
 
 try {
     $pdo = new PDO($dsn, $dbusername, $dbpassword);
