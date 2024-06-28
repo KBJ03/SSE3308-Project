@@ -187,7 +187,7 @@
                                 </div>
                                 <div class="cart-item-middle">
                                     <div>
-                                        <p class="current-price">${item.Price}</p>
+                                        <p class="current-price">$${item.Price}</p>
                                     </div>
                                     <div class="operations">
                                         <span class="automation-btn-delete ms-3">

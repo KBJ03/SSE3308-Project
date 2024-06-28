@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 data.history.forEach(item => {
                     const historyItem = historyTable.insertRow();
                     const formattedItemDetails = item.ItemDetails.replace(/,/g, '<br>'); // Replace commas with <br>
-                    const formattedAmount = `${item.TotalAmount.toFixed(2)}`;
+                    const formattedAmount = `$${item.TotalAmount.toFixed(2)}`;
                     historyItem.innerHTML = `
                         <td>${item.OrderID}</td>
                         <td>${formattedItemDetails}</td>
