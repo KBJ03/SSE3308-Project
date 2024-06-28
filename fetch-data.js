@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('date').textContent = data.profile[0]["Birthday"];
                 document.getElementById('phoneNumber').textContent = data.profile[0]["Phone"];
                 document.getElementById('email-address').textContent = data.profile[0]["Email"];
+                document.getElementById('preferences').textContent = data.profile[0]["Preferences"];
             } else {
                 console.error('Error fetching profile information:', data.message);
             }
@@ -101,17 +102,15 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.history && Array.isArray(data.history)) {
                 data.history.forEach(item => {
                     const historyItem = historyTable.insertRow();
-                    const formattedItemDetails = item.ItemDetails.replace(/,/g, '<br>'); // Replace commas with <br>
-                    const formattedAmount = `${item.TotalAmount.toFixed(2)}`;
+                    const formattedItemDetails = item.ItemDetails.replace(/,/g, '<br>');
+                    const formattedAmount = `$${item.TotalAmount.toFixed(2)}`;
                     historyItem.innerHTML = `
                         <td>${item.OrderID}</td>
                         <td>${formattedItemDetails}</td>
                         <td>${formattedAmount}</td>
                     `;
                 });
-            }
-
-            
+            } 
         } else {
             console.error('Error fetching history information:', data.message);
         }

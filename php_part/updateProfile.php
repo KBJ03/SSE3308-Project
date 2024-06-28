@@ -10,8 +10,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $birthday = $_POST['birthday'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
+    $preferences = $_POST['preferences']; 
     
-    $sql = "UPDATE User SET username = :username, gender = :gender, birthday = :birthday, phone = :phone, email = :email WHERE memberId = :memberId";
+    $preferencesString = implode(', ', $preferences);
+    
+    $sql = "UPDATE User SET username = :username, gender = :gender, birthday = :birthday, phone = :phone, email = :email, preferences = :preferences WHERE memberId = :memberId";
     try {
 
         $stmt = $pdo->prepare($sql);
@@ -22,6 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':birthday', $birthday);
         $stmt->bindParam(':phone', $phone);
         $stmt->bindParam(':email', $email);
+        $stmt->bindParam(':preferences', $preferencesString);
 
         $stmt->execute();
 
